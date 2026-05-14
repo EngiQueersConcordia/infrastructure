@@ -1,0 +1,4 @@
+# For safety, we git ignore everything unless explicitly allowed. This helps avoid mistakes.
+*
+!/.gitignore
+!/.sops.yaml

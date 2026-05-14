@@ -1,0 +1,8 @@
+cluster:
+  extraManifests:
+    - https://raw.githubusercontent.com/cozystack/local-ccm/8e50f026a0dbceef6a83d92fed14602fb339c0a4/deploy/rbac.yaml
+    - https://raw.githubusercontent.com/cozystack/local-ccm/8e50f026a0dbceef6a83d92fed14602fb339c0a4/deploy/daemonset.yaml
+machine:
+  kubelet:
+    extraArgs:
+      cloud-provider: external

@@ -1,0 +1,6 @@
+machine:
+  kubelet:
+    nodeIP:
+      validSubnets:
+        - 10.58.85.0/24 # wg-external
+        - 10.58.86.0/24 # wg-internal
