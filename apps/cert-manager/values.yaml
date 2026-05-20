@@ -1,0 +1,15 @@
+crds:
+  enabled: true
+
+enableCertificateOwnerRef: true
+
+prometheus:
+  enabled: false
+
+config:
+  enableGatewayAPI: true
+  acmeDNS01Config:
+    recursiveNameserversOnly: true
+    recursiveNameservers:
+      - 8.8.8.8:53
+      - 1.1.1.1:53

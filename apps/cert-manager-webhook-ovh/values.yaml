@@ -1,0 +1,26 @@
+groupName: acme.engiqueersconcordia.ca
+
+issuers:
+  - name: le-prod
+    create: true
+    kind: ClusterIssuer
+    # - for production: `https://acme-v02.api.letsencrypt.org/directory`
+    # - for staging: `https://acme-staging-v02.api.letsencrypt.org/directory`
+    acmeServerUrl: https://acme-v02.api.letsencrypt.org/directory
+    email: it.engiqueers@ecaconcordia.ca
+
+    ovhEndpointName: ovh-ca
+    ovhAuthenticationMethod: application
+
+    ovhAuthenticationRef:
+      applicationKeyRef:
+        name: 'ovh-creds'
+        key: applicationKey
+
+      applicationSecretRef:
+        name: 'ovh-creds'
+        key: applicationSecret
+
+      applicationConsumerKeyRef:
+        name: 'ovh-creds'
+        key: applicationConsumerKey

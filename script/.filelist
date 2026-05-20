@@ -1,5 +1,7 @@
 SOPS_FILES=(
+  "apps/cert-manager-webhook-ovh/ovh-creds.yaml"
   "keybox/luks_keys.yaml"
+  "keybox/ovh_api.yaml"
   "talos/secrets.yaml"
   "talos/patches/ena/wireguard-ext.yaml"
   "talos/patches/jenny/disk.yaml"

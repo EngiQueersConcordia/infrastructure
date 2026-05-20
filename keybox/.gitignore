@@ -3,3 +3,4 @@
 !/.gitignore
 !/.sops.yaml
 !/luks_keys.yaml
+!/ovh_api.yaml

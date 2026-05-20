@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - ./namespaces.yaml
   - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.4.1/standard-install.yaml
+  - ./gateway.yaml

@@ -1,0 +1,62 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: engiqueers
+  namespace: kube-system
+  annotations:
+    cert-manager.io/cluster-issuer: le-prod
+spec:
+  gatewayClassName: cilium
+  listeners:
+    - name: engiqueers
+      port: 80
+      protocol: HTTP
+      hostname: "engiqueersconcordia.ca"
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              access-gateway-engiqueers: "true"
+
+    - name: engiqueers-sub
+      port: 80
+      protocol: HTTP
+      hostname: "*.engiqueersconcordia.ca"
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              access-gateway-engiqueers: "true"
+
+    - name: engiqueers-tls
+      hostname: "engiqueersconcordia.ca"
+      port: 443
+      protocol: HTTPS
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              access-gateway-engiqueers: "true"
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: engiqueers-tls
+
+
+    - name: engiqueers-sub-tls
+      hostname: "*.engiqueersconcordia.ca"
+      port: 443
+      protocol: HTTPS
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              access-gateway-engiqueers: "true"
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: engiqueers-tls
