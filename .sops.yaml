@@ -30,7 +30,7 @@ presets:
 
 
 creation_rules:
-  - path_regex: "apps/cert-manager-webhook-ovh/ovh-creds.yaml"
+  - path_regex: "apps/cert-manager-webhook-ovh/ovh-creds.sops.yaml"
     key_groups: *p-main
     encrypted_regex: "^(stringData)$"
     mac_only_encrypted: true
