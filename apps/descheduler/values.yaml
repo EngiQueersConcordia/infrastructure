@@ -1,0 +1,25 @@
+deschedulerPolicy:
+  profiles:
+    - name: default
+      pluginConfig:
+        - name: "DefaultEvictor"
+          args:
+            minPodAge: 600s
+            podProtections:
+              defaultDisabled:
+                - PodsWithLocalStorage
+                - DaemonSetPods
+                - SystemCriticalPods
+        - name: "RemoveFailedPods"
+          args:
+            excludeOwnerKinds:
+              - "Job"
+            minPodLifetimeSeconds: 600
+        - name: "RemoveFailedPods"
+          args:
+            minPodLifetimeSeconds: 86400
+
+      plugins:
+        deschedule:
+          enabled:
+            - "RemoveFailedPods"
