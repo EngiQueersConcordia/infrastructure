@@ -30,14 +30,14 @@ presets:
 
 
 creation_rules:
-  - path_regex: "talos/(controlplane|worker)\\.yaml"
-    key_groups: *p-main
-    encrypted_regex: "^(token|key|secretboxEncryptionSecret|secret|id)$"
-    mac_only_encrypted: true
-
   - path_regex: "talos/patches/.*/wireguard.*\\.yaml"
     key_groups: *p-main
     encrypted_regex: "^(privateKey)$"
+    mac_only_encrypted: true
+
+  - path_regex: "talos/patches/.*/disk.*\\.yaml"
+    key_groups: *p-main
+    encrypted_regex: "^(passphrase)$"
     mac_only_encrypted: true
 
   - key_groups: *p-main

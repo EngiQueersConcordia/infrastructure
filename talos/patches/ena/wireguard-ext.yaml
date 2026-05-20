@@ -12,6 +12,10 @@ peers:
         - 10.58.85.2/32
         # Subnet Router
         - 10.58.86.0/24
+    # alex
+    - publicKey: e6S3/8xO0NBjtLN3FKcKifgRyy2ThqBmAHx8RBMs/QE=
+      allowedIPs:
+        - 10.58.85.254/32
 up: true
 addresses:
     - address: 10.58.85.1/24

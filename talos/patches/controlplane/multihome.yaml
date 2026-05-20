@@ -1,0 +1,5 @@
+cluster:
+  etcd:
+    advertisedSubnets:
+      - 10.58.85.0/24
+      - 10.58.86.0/24
