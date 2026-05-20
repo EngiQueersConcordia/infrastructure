@@ -2,3 +2,4 @@
 *
 !/.gitignore
 !/.sops.yaml
+!/luks_keys.yaml
