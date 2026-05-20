@@ -1,9 +1,8 @@
 SOPS_FILES=(
+  "keybox/luks_keys.yaml"
+  "talos/secrets.yaml"
   "talos/patches/ena/wireguard-ext.yaml"
+  "talos/patches/jenny/disk.yaml"
   "talos/patches/jenny/wireguard-ext.yaml"
   "talos/patches/jenny/wireguard-int.yaml"
-  "talos/controlplane.yaml"
-  "talos/worker.yaml"
-  "talos/talosconfig"
-  "talos/secrets.yaml"
 )
