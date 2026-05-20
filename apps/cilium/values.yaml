@@ -35,3 +35,6 @@ hubble:
 defaultLBServiceIPAM: nodeipam
 nodeIPAM:
   enabled: true
+
+gatewayAPI:
+  enabled: true

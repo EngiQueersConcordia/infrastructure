@@ -5,3 +5,5 @@ helmCharts:
     releaseName: cilium
     namespace: kube-system
     valuesFile: values.yaml
+    apiVersions:
+      - gateway.networking.k8s.io/v1/GatewayClass
