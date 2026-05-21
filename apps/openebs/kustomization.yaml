@@ -1,3 +1,4 @@
+namespace: openebs
 helmCharts:
   - name: openebs
     repo: https://openebs.github.io/openebs
