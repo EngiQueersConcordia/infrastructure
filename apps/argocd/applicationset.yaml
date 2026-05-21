@@ -4,12 +4,14 @@ metadata:
   name: main
   namespace: argocd
 spec:
+  syncPolicy:
+    applicationsSync: create-update
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
     - git:
         repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
-        revision: test
+        revision: HEAD
         directories:
           - path: apps/*
   template:
@@ -19,7 +21,7 @@ spec:
       project: "default"
       source:
         repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
-        targetRevision: test
+        targetRevision: HEAD
         path: '{{.path.path}}'
       destination:
         name: in-cluster
@@ -29,4 +31,3 @@ spec:
           prune: true
           selfHeal: true
           allowEmpty: false
-          
