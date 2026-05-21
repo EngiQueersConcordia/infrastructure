@@ -17,4 +17,4 @@ input=$1
 output=$2
 
 # shellcheck disable=SC2016
-sops exec-file "$input" 'sh -c "kubeseal -f \"\$1\"" _ {}' > "$output"
+sops exec-file "$input" 'sh -c "kubeseal --allow-empty-data -f \"\$1\"" _ {}' > "$output"

@@ -2,8 +2,18 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: argocd
+  labels:
+    access-gateway-engiqueers: "true"
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   name: cert-manager
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ingress
+  labels:
+    access-gateway-engiqueers: "true"
+    access-gateway-engiqueers-insecure: "true"

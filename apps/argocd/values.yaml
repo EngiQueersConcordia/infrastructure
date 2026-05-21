@@ -1,0 +1,40 @@
+global:
+  domain: argocd.engiqueersconcordia.ca
+
+configs:
+  cm:
+    exec.enabled: true
+  secret:
+    createSecret: false
+  params:
+    server.insecure: "true"
+
+server:
+  httproute:
+    enabled: true
+    parentRefs:
+      - name: engiqueers
+        namespace: ingress
+    hostnames:
+      - argocd.engiqueersconcordia.ca
+  grpcroute:
+    enabled: true
+    parentRefs:
+      - name: engiqueers
+        namespace: ingress
+    hostnames:
+      - argocd.engiqueersconcordia.ca
+    rules:
+      - {}
+
+applicationSet:
+  httproute:
+    enabled: true
+    parentRefs:
+      - name: engiqueers
+        namespace: ingress
+    hostnames:
+      - argocd.engiqueersconcordia.ca
+
+notifications:
+  enabled: false
