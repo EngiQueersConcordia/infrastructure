@@ -6,4 +6,4 @@ helmCharts:
     namespace: cert-manager
     valuesFile: values.yaml
 resources:
-  - ./ovh-creds.yaml
+  - resources/ovh-creds.yaml

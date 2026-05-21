@@ -6,8 +6,8 @@ helmCharts:
     namespace: argocd
     valuesFile: values.yaml
 resources:
-  - ./secrets.yaml
-  - ./webhook-bridge/deployment.yaml
-  - ./webhook-bridge/httproute.yaml
-  - ./webhook-bridge/service.yaml
-  - ./applicationset.yaml
+  - resources/secrets.yaml
+  - resources/webhook-bridge/deployment.yaml
+  - resources/webhook-bridge/httproute.yaml
+  - resources/webhook-bridge/service.yaml
+  - resources/applicationset.yaml
