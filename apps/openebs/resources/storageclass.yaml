@@ -1,0 +1,17 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: lvm
+parameters:
+  storage: "lvm"
+  volgroup: "openebs"
+  allowVolumeExpansion: "true"
+  fsType: "xfs"
+  shared: "yes"
+  thinProvision: "yes"
+provisioner: local.csi.openebs.io
+allowedTopologies:
+  - matchLabelExpressions:
+      - key: is-storage-node
+        values:
+          - "true"

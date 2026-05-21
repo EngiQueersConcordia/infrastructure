@@ -1,0 +1,9 @@
+helmCharts:
+  - name: openebs
+    repo: https://openebs.github.io/openebs
+    version: 4.4.0
+    releaseName: openebs
+    namespace: openebs
+    valuesFile: values.yaml
+resources:
+  - resources/storageclass.yaml

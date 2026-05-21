@@ -1,0 +1,20 @@
+engines:
+  local:
+    lvm:
+      enabled: true
+    zfs:
+      enabled: false
+    rawfile:
+      enabled: false
+  replicated:
+    mayastor:
+      enabled: false
+
+loki:
+  enabled: false
+alloy:
+  enabled: false
+
+lvm-localpv:
+  lvmPlugin:
+    allowedTopologies: "is-storage-node"
