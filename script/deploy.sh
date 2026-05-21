@@ -8,7 +8,7 @@ cd "$(dirname "$0")/.."
 source script/.filelist
 
 usage() {
-  echo "Usage: $0 <ena | jenny> [extra args...]"
+  echo "Usage: $0 <ena | jenny | talosconfig> [extra args...]"
   exit 1
 }
 
@@ -49,6 +49,10 @@ sops exec-file secrets.yaml "sh -c 'talosctl gen config engiqueers https://clust
 )
 
 case $host in
+talosconfig)
+  talosctl config merge talos/talosconfig
+  talosctl config endpoint cluster.engiqueersconcordia.ca
+  ;;
 ena)
   patches=("$decrypted_dir"/ena/*.yaml "$decrypted_dir"/controlplane/*.yaml "$decrypted_dir"/all/*.yaml)
   # shellcheck disable=SC2068
