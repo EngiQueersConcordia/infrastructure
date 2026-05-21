@@ -8,3 +8,23 @@ helmCharts:
     valuesFile: values.yaml
 resources:
   - resources/storageclass.yaml
+# Remove this when https://github.com/kubernetes-sigs/kustomize/issues/6058 is fixed
+patches:
+  - patch: |-
+      - op: replace
+        path: /metadata/namespace
+        value: openebs
+    target:
+      kind: Deployment
+  - patch: |-
+      - op: replace
+        path: /metadata/namespace
+        value: openebs
+    target:
+      kind: DaemonSet
+  - patch: |-
+      - op: replace
+        path: /metadata/namespace
+        value: openebs
+    target:
+      kind: Service
