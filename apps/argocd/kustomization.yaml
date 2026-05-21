@@ -7,3 +7,6 @@ helmCharts:
     valuesFile: values.yaml
 resources:
   - ./secrets.yaml
+  - ./webhook-bridge/deployment.yaml
+  - ./webhook-bridge/httproute.yaml
+  - ./webhook-bridge/service.yaml
