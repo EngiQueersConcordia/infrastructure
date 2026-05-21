@@ -18,3 +18,14 @@ alloy:
 lvm-localpv:
   lvmPlugin:
     allowedTopologies: "is-storage-node"
+
+localpv-provisioner:
+  rbac:
+    create: false
+    pspEnabled: false
+  localpv:
+    enabled: false
+  hostpathClass:
+    enabled: false
+  serviceAccount:
+    create: false
