@@ -4,6 +4,7 @@ global:
 configs:
   cm:
     exec.enabled: true
+    kustomize.buildOptions: --enable-helm
   secret:
     createSecret: false
   params:

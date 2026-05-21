@@ -10,3 +10,4 @@ resources:
   - ./webhook-bridge/deployment.yaml
   - ./webhook-bridge/httproute.yaml
   - ./webhook-bridge/service.yaml
+  - ./applicationset.yaml
