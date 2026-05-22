@@ -4,33 +4,21 @@ metadata:
   name: main
   namespace: argocd
 spec:
-#  ignoreApplicationDifferences:
-#    - jsonPointers:
-#        - /spec/syncPolicy
   syncPolicy:
     applicationsSync: create-update
-  goTemplate: true
-  goTemplateOptions: ["missingkey=error"]
   generators:
-#    - merge:
-#        generators:
-#          - git:
-#              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
-#              revision: HEAD
-#              directories:
-#                - path: apps/*
     - git:
         repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
         revision: HEAD
         files:
           - path: apps/*/config.yaml
-#        mergeKeys:
-#          - path
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
   template:
     metadata:
       name: '{{.path.basename}}'
       labels:
-        test: '{{ or (index .path "filename") "Directory" }}'
+        gen: 1
     spec:
       project: "default"
       source:
@@ -39,9 +27,11 @@ spec:
         path: '{{.path.path}}'
       destination:
         name: in-cluster
+  templatePatch: |- 
+    spec:
       syncPolicy:
         automated:
-          enabled: false
-          prune: false
-          selfHeal: false
+          enabled: {{ or (index . "autoSync") true | toJson }}
+          prune: {{ or (index . "prune") false | toJson }}
+          selfHeal: {{ or (index . "selfHeal") false | toJson }}
           allowEmpty: false
