@@ -12,11 +12,20 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-    - git:
-        repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
-        revision: HEAD
-        directories:
-          - path: apps/*
+    - merge:
+        mergeKeys:
+          - "path.path"
+        generators:
+          - git:
+              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
+              revision: HEAD
+              directories:
+                - path: apps/*
+          - git:
+              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
+              revision: HEAD
+              files:
+                - path: apps/*/config.yaml
   template:
     metadata:
       name: '{{.path.basename}}'
@@ -30,7 +39,8 @@ spec:
         name: in-cluster
       syncPolicy:
         automated:
-          enabled: true
-          prune: true
-          selfHeal: true
+          enabled: false
+          prune: false
+          selfHeal: false
           allowEmpty: false
+#  templatePatch:
