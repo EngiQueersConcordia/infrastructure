@@ -22,6 +22,8 @@ spec:
   template:
     metadata:
       name: '{{.path.basename}}'
+      labels:
+        test: '{{ or (index .path "filename") "Directory" }}'
     spec:
       project: "default"
       source:
@@ -36,10 +38,3 @@ spec:
           prune: false
           selfHeal: false
           allowEmpty: false
-  templatePatch: |-
-    {{- with .path.filename }}
-    spec:
-      metadata:
-        label:
-          test: '{{ .path.filename }}'
-    {{- end }}
