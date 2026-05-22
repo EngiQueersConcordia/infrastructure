@@ -29,7 +29,7 @@ spec:
     spec:
       syncPolicy:
         automated:
-          enabled: {{ or (index . "autoSync") true | toJson }}
-          prune: {{ or (index . "prune") true | toJson }}
-          selfHeal: {{ or (index . "selfHeal") true | toJson }}
+          enabled: {{ (hasKey . "autoSync") | ternary .autoSync true | toJson }}
+          prune: {{ (hasKey . "prune") | ternary .prune true | toJson }}
+          selfHeal: {{ (hasKey . "selfHeal") | ternary .selfHeal true | toJson }}
           allowEmpty: false
