@@ -17,8 +17,6 @@ spec:
   template:
     metadata:
       name: '{{.path.basename}}'
-      labels:
-        gen: "1"
     spec:
       project: "default"
       source:
@@ -31,7 +29,7 @@ spec:
     spec:
       syncPolicy:
         automated:
-          enabled: {{ or (index . "autoSync") true | toJson }}
-          prune: {{ or (index . "prune") false | toJson }}
-          selfHeal: {{ or (index . "selfHeal") false | toJson }}
+          enabled: {{ or (index . "autoSync") false | toJson }}
+          prune: {{ or (index . "prune") true | toJson }}
+          selfHeal: {{ or (index . "selfHeal") true | toJson }}
           allowEmpty: false
