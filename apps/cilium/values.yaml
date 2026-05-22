@@ -38,3 +38,6 @@ nodeIPAM:
 
 gatewayAPI:
   enabled: true
+
+nonIdempotentAnnotations:
+  argocd.argoproj.io/compare-options: IgnoreExtraneous

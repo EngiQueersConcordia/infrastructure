@@ -19,6 +19,9 @@ spec:
       name: '{{.path.basename}}'
     spec:
       project: "default"
+      syncPolicy:
+        syncOptions:
+          - ServerSideApply=true
       source:
         repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
         targetRevision: HEAD
