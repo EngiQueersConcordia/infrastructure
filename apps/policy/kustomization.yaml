@@ -11,7 +11,7 @@ patches:
   - patch: |-
       - op: add
         path: /metadata/annotations/argocd.argoproj.io~1sync-options
-        value: Delete=confirm
+        value: Delete=confirm,Prune=confirm
     target:
       version: v1
       kind: Namespace
