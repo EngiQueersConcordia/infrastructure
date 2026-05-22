@@ -4,6 +4,9 @@ metadata:
   name: main
   namespace: argocd
 spec:
+  ignoreApplicationDifferences:
+    - jsonPointers:
+        - /spec/syncPolicy
   syncPolicy:
     applicationsSync: create-update
   goTemplate: true
