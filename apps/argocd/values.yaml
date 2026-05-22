@@ -29,14 +29,5 @@ server:
     rules:
       - {}
 
-applicationSet:
-  httproute:
-    enabled: true
-    parentRefs:
-      - name: engiqueers
-        namespace: ingress
-    hostnames:
-      - argocd.engiqueersconcordia.ca
-
 notifications:
   enabled: false
