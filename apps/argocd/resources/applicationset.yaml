@@ -16,26 +16,14 @@ spec:
         repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
         revision: HEAD
         directories:
-        - path: apps/*
-
-  #  generators:
-#    - merge:
-#        mergeKeys:
-#          - path
-#        generators:
-#          - git:
-#              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
-#              revision: HEAD
-#              directories:
-#                - path: apps/*
-#          - git:
-#              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
-#              revision: HEAD
-#              files:
-#                - path: apps/*/config.yaml
+          - path: apps/*
+        files:
+          - path: apps/*/config.yaml
   template:
     metadata:
       name: '{{.path.basename}}'
+      labels:
+        test: "{{.path.filename}}"
     spec:
       project: "default"
       source:
