@@ -14,11 +14,11 @@ spec:
   generators:
     - merge:
         generators:
-          - git:
-              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
-              revision: HEAD
-              directories:
-                - path: apps/*
+#          - git:
+#              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
+#              revision: HEAD
+#              directories:
+#                - path: apps/*
           - git:
               repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
               revision: HEAD
