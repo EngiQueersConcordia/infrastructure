@@ -6,3 +6,12 @@ resources:
   - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.4.1/standard-install.yaml
   - resources/gateway.yaml
   - resources/https-redirect.yaml
+
+patches:
+  - patch: |-
+      - op: add
+        path: /metadata/annotations/argocd.argoproj.io~1sync-options
+        value: Delete=confirm
+    target:
+      version: v1
+      kind: Namespace
