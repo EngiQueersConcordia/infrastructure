@@ -12,20 +12,27 @@ spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
   generators:
-    - merge:
-        mergeKeys:
-          - "path.path"
-        generators:
-          - git:
-              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
-              revision: HEAD
-              directories:
-                - path: apps/*
-          - git:
-              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
-              revision: HEAD
-              files:
-                - path: apps/*/config.yaml
+    - git:
+        repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
+        revision: HEAD
+        directories:
+        - path: apps/*
+
+  #  generators:
+#    - merge:
+#        mergeKeys:
+#          - path
+#        generators:
+#          - git:
+#              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
+#              revision: HEAD
+#              directories:
+#                - path: apps/*
+#          - git:
+#              repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
+#              revision: HEAD
+#              files:
+#                - path: apps/*/config.yaml
   template:
     metadata:
       name: '{{.path.basename}}'
