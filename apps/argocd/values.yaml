@@ -31,12 +31,12 @@ server:
 
 applicationSet:
   httproute:
-    enabled: false
-#    parentRefs:
-#      - name: engiqueers
-#        namespace: ingress
-#    hostnames:
-#      - argocd.engiqueersconcordia.ca
+    enabled: true
+    parentRefs:
+      - name: engiqueers
+        namespace: ingress
+    hostnames:
+      - argocd.engiqueersconcordia.ca
 
 notifications:
   enabled: false
