@@ -4,6 +4,8 @@ metadata:
   name: main
   namespace: argocd
 spec:
+  syncPolicy:
+    applicationsSync: create-update
   generators:
     - git:
         repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
@@ -15,8 +17,6 @@ spec:
   template:
     metadata:
       name: '{{.path.basename}}'
-      annotations:
-        argocd.argoproj.io/sync-options: Prune=confirm
     spec:
       project: "default"
       source:
