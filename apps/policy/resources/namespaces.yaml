@@ -29,3 +29,10 @@ kind: Namespace
 apiVersion: v1
 metadata:
   name: cnpg-system
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: authentik
+  labels:
+    access-gateway-engiqueers: "true"

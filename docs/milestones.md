@@ -14,7 +14,7 @@ At this level, basic web services may be run.
 
 - Envoy (Web Server)
 - Cert Manager (TLS Certificate Automation)
-- GoAuthentik (Authentication System)
+- Authentik (Authentication System)
 - ArgoCD (Code Deployment System)
 - K8s OIDC Login (Management Layer Authentication)
 - Network Policy + Host Policy (Firewall)
