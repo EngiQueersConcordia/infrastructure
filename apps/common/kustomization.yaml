@@ -19,22 +19,3 @@ replacements:
           - "spec.parentRefs.*.kind"
         options:
           create: true
-
-  - sourceValue: ''
-    targets:
-      - select:
-          kind: HTTPRoute|GRPCRoute
-          group: gateway.networking.k8s.io
-        fieldPaths:
-          - "spec.rules.*.backendRefs.*.group"
-        options:
-          create: true
-  - sourceValue: "Service"
-    targets:
-      - select:
-          kind: HTTPRoute|GRPCRoute
-          group: gateway.networking.k8s.io
-        fieldPaths:
-          - "spec.rules.*.backendRefs.*.kind"
-        options:
-          create: true
