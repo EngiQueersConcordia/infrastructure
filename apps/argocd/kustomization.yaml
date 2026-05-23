@@ -11,5 +11,3 @@ resources:
   - resources/webhook-bridge/httproute.yaml
   - resources/webhook-bridge/service.yaml
   - resources/applicationset.yaml
-components:
-  - ../common

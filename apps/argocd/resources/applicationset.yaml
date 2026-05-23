@@ -26,6 +26,9 @@ spec:
         repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
         targetRevision: HEAD
         path: '{{.path.path}}'
+        kustomize:
+          components:
+            - ../common
       destination:
         name: in-cluster
   templatePatch: |- 
