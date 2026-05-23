@@ -5,6 +5,22 @@ configs:
   cm:
     exec.enabled: true
     kustomize.buildOptions: --enable-helm
+    resource.customizations.ignoreDifferences.gateway.networking.k8s.io_GRPCRoute: |
+      jqPathExpressions:
+      - '.spec.rules[].backendRefs[].group'
+      - '.spec.rules[].backendRefs[].kind'
+      - '.spec.parentRefs[].group'
+      - '.spec.parentRefs[].kind'
+    resource.customizations.ignoreDifferences.gateway.networking.k8s.io_HTTPRoute: |
+      jqPathExpressions:
+      - '.spec.rules[].backendRefs[].group'
+      - '.spec.rules[].backendRefs[].kind'
+      - '.spec.parentRefs[].group'
+      - '.spec.parentRefs[].kind'
+    resource.customizations.ignoreDifferences.gateway.networking.k8s.io_Gateway: |
+      jqPathExpressions:
+      - '.spec.listeners[].tls.certificateRefs[].group'
+      - '.spec.listeners[].tls.certificateRefs[].kind'
   secret:
     createSecret: false
   params:
