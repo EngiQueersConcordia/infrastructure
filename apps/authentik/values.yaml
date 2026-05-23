@@ -1,5 +1,7 @@
-existingSecret:
-  secretName: "authentik-secrets"
+authentik:
+  existingSecret:
+    secretName: "authentik-secrets"
+
 global:
   env:
     - name: AUTHENTIK_POSTGRESQL__HOST
