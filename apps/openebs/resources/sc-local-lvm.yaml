@@ -13,7 +13,7 @@ parameters:
 allowVolumeExpansion: true
 mountOptions:
   - discard
-reclaimPolicy: Retain
+reclaimPolicy: Delete
 provisioner: local.csi.openebs.io
 allowedTopologies:
   - matchLabelExpressions:
