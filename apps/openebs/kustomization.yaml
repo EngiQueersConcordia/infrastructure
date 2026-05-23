@@ -7,7 +7,7 @@ helmCharts:
     namespace: openebs
     valuesFile: values.yaml
 resources:
-  - resources/storageclass.yaml
+  - resources/sc-local-lvm.yaml
 # Remove this when https://github.com/kubernetes-sigs/kustomize/issues/6058 is fixed
 patches:
   - patch: |-
