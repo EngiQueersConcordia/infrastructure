@@ -20,7 +20,7 @@ replacements:
         options:
           create: true
 
-  - sourceValue: ' '
+  - sourceValue: ''
     targets:
       - select:
           kind: HTTPRoute|GRPCRoute
