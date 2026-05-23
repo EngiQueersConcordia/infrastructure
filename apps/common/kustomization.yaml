@@ -1,0 +1,40 @@
+kind: Component
+
+replacements:
+  - sourceValue: "gateway.networking.k8s.io"
+    targets:
+    - select:
+        kind: HTTPRoute|GRPCRoute
+        group: gateway.networking.k8s.io
+      fieldPaths:
+        - "spec.parentRefs.*.group"
+      options:
+        create: true
+  - sourceValue: "Gateway"
+    targets:
+      - select:
+          kind: HTTPRoute|GRPCRoute
+          group: gateway.networking.k8s.io
+        fieldPaths:
+          - "spec.parentRefs.*.kind"
+        options:
+          create: true
+
+  - sourceValue: ' '
+    targets:
+      - select:
+          kind: HTTPRoute|GRPCRoute
+          group: gateway.networking.k8s.io
+        fieldPaths:
+          - "spec.rules.*.backendRefs.*.group"
+        options:
+          create: true
+  - sourceValue: "Service"
+    targets:
+      - select:
+          kind: HTTPRoute|GRPCRoute
+          group: gateway.networking.k8s.io
+        fieldPaths:
+          - "spec.rules.*.backendRefs.*.kind"
+        options:
+          create: true

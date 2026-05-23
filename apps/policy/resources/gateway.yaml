@@ -21,8 +21,9 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - name: engiqueers-tls
-
+          - group: ''
+            kind: Secret
+            name: engiqueers-tls
 
     - name: engiqueers-sub-tls
       hostname: "*.engiqueersconcordia.ca"
@@ -37,7 +38,9 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - name: engiqueers-tls
+          - group: ''
+            kind: Secret
+            name: engiqueers-tls
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
