@@ -7,10 +7,13 @@ metadata:
 parameters:
   storage: "lvm"
   volgroup: "openebs"
-  allowVolumeExpansion: "true"
   fsType: "xfs"
   shared: "yes"
   thinProvision: "yes"
+allowVolumeExpansion: true
+mountOptions:
+  - discard
+reclaimPolicy: Retain
 provisioner: local.csi.openebs.io
 allowedTopologies:
   - matchLabelExpressions:
