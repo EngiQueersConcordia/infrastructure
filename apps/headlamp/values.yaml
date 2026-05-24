@@ -1,0 +1,17 @@
+config:
+  oidc:
+    secret:
+      create: false
+
+    externalSecret:
+      enabled: true
+      name: headlamp-secrets
+
+httpRoute:
+  enabled: true
+  hostnames:
+    - headlamp.engiqueersconcordia.ca
+  parentRefs:
+    - name: engiqueers
+      namespace: ingress
+
