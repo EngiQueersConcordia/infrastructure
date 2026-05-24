@@ -28,8 +28,6 @@ spec:
   ingress:
     - ports:
         - port: webhook
-      from:
-        - namespaceSelector: {}
   podSelector:
     matchLabels:
       app.kubernetes.io/instance: argocd
