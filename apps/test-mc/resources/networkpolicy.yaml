@@ -24,12 +24,10 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      "k8s:io.kubernetes.pod.namespace": test-mc
       "k8s:name": mc-router
   ingress:
     - toPorts:
         - ports:
             - port: "minecraft"
-              protocol: ANY
       fromEntities:
         - world
