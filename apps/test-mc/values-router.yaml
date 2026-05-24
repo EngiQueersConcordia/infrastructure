@@ -1,6 +1,8 @@
 services:
   minecraft:
     type: LoadBalancer
+  extraServiceSpec:
+    externalTrafficPolicy: Local
 
 minecraftRouter:
   autoScale:

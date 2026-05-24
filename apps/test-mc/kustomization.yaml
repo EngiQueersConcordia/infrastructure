@@ -15,3 +15,17 @@ resources:
   - resources/secrets.yaml
   - resources/config.yaml
   - resources/networkpolicy.yaml
+patches:
+  - target:
+      kind: Deployment
+      name: test-mc-router
+    patch: |
+      - op: replace
+        path: /kind
+        value: DaemonSet
+      - op: remove
+        path: /spec/replicas
+      - op: remove
+        path: /spec/strategy
+    options:
+      allowKindChange: true
