@@ -1,6 +1,10 @@
 global:
   domain: argocd.engiqueersconcordia.ca
 
+  networkPolicy:
+    create: true
+    defaultDenyIngress: true
+
 configs:
   cm:
     admin.enabled: false

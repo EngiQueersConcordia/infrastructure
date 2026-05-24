@@ -1,3 +1,4 @@
+namespace: argocd
 helmCharts:
   - name: argo-cd
     repo: oci://ghcr.io/argoproj/argo-helm
@@ -9,5 +10,6 @@ resources:
   - resources/secrets.yaml
   - resources/webhook-bridge/deployment.yaml
   - resources/webhook-bridge/httproute.yaml
+  - resources/webhook-bridge/networkpolicy.yaml
   - resources/webhook-bridge/service.yaml
   - resources/applicationset.yaml
