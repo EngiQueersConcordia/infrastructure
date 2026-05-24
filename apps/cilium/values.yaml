@@ -42,3 +42,5 @@ gatewayAPI:
 nonIdempotentAnnotations:
   argocd.argoproj.io/compare-options: IgnoreExtraneous
 
+hostFirewall:
+  enabled: true
