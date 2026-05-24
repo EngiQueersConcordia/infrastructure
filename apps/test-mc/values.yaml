@@ -11,5 +11,6 @@ minecraftServer:
     existingSecret: "test-mc-secrets"
 
 workloadAsStatefulSet: true
+strategyType: RollingUpdate
 serviceAnnotations:
   "mc-router.itzg.me/externalServerName": "testmc.engiqueersconcordia.ca"
