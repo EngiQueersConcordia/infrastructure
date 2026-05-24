@@ -36,3 +36,10 @@ metadata:
   name: authentik
   labels:
     access-gateway-engiqueers: "true"
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: headlamp
+  labels:
+    access-gateway-engiqueers: "true"
