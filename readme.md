@@ -7,3 +7,4 @@
 - kubectl
 - talosctl
 - cilium-cli
+- kubelogin
