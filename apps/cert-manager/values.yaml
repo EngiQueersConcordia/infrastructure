@@ -13,3 +13,14 @@ config:
     recursiveNameservers:
       - 8.8.8.8:53
       - 1.1.1.1:53
+
+networkPolicy:
+  enabled: true
+
+webhook:
+  networkPolicy:
+    enabled: true
+
+cainjector:
+  networkPolicy:
+    enabled: true
