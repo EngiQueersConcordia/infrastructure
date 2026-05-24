@@ -15,3 +15,21 @@ spec:
         - matchLabels:
             "k8s:io.kubernetes.pod.namespace": test-mc
             "k8s:name": mc-router
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: mc-allow-router-world
+  namespace: test-mc
+spec:
+  endpointSelector:
+    matchLabels:
+      "k8s:io.kubernetes.pod.namespace": test-mc
+      "k8s:name": mc-router
+  ingress:
+    - toPorts:
+        - ports:
+            - port: "minecraft"
+              protocol: ANY
+      fromEntities:
+        - world
