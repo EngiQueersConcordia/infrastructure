@@ -44,6 +44,9 @@ configs:
   params:
     server.insecure: "true"
     applicationsetcontroller.enable.new.git.file.globbing: "true"
+  rbac:
+    policy.csv: |
+      g, argocd-admin, role:admin
 
 dex:
   env:
