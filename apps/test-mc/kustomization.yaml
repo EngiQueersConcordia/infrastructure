@@ -1,0 +1,9 @@
+helmCharts:
+  - name: minecraft
+    repo: https://itzg.github.io/minecraft-server-charts/
+    version: 5.1.3
+    releaseName: test-mc
+    namespace: test-mc
+    valuesFile: values.yaml
+resources:
+  - resources/secrets.yaml

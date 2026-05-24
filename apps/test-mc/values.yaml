@@ -1,0 +1,11 @@
+minecraftServer:
+  eula: "TRUE"
+  version: "26.1.2"
+  type: "PAPER"
+  ops: "alexkar598"
+  gameMode: "creative"
+  motd: "EngiQueers Test Server"
+
+  rcon:
+    enabled: true
+    existingSecret: "test-mc-secrets"
