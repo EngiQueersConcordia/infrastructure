@@ -152,3 +152,5 @@ data:
     watchdog:
       early-warning-delay: 10000
       early-warning-every: 5000
+  .mc-health.env: |
+    MC_HEALTH_EXTRA_ARGS=-use-proxy
