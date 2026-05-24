@@ -26,6 +26,37 @@ configs:
   params:
     server.insecure: "true"
     applicationsetcontroller.enable.new.git.file.globbing: "true"
+  dex.config: |
+    connectors:
+    - type: oidc
+      id: oidc
+      name: OIDC
+      config:
+        issuer: https://auth.engiqueersconcordia.ca/application/o/argo-cd/
+  
+        clientID: $OIDC_CLIENT_ID
+        clientSecret: $OIDC_CLIENT_SECRET
+  
+        insecureSkipEmailVerified: true
+  
+        insecureEnableGroups: true
+  
+        userIDKey: sub
+        userNameKey: name
+
+dex:
+  env:
+    - name: OIDC_CLIENT_ID
+      valueFrom:
+        secretKeyRef:
+          name: argocd-secret
+          key: oidc_client_id
+    - name: OIDC_CLIENT_SECRET
+      valueFrom:
+        secretKeyRef:
+          name: argocd-secret
+          key: oidc_client_secret
+
 
 server:
   httproute:
