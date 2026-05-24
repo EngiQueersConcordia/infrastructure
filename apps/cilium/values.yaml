@@ -41,3 +41,6 @@ gatewayAPI:
 
 nonIdempotentAnnotations:
   argocd.argoproj.io/compare-options: IgnoreExtraneous
+
+
+policyEnforcementMode: never

@@ -26,3 +26,13 @@ spec:
         protocol: TCP
       - port: 53
         protocol: UDP
+---
+apiVersion: cilium.io/v2
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  name: allow-apiserver
+spec:
+  endpointSelector: {}
+  ingress:
+  - fromEntities:
+      - kube-apiserver
