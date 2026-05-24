@@ -1,0 +1,10 @@
+cluster:
+  apiServer:
+    extraArgs:
+      oidc-issuer-url: https://auth.engiqueersconcordia.ca/application/o/kubernetes/
+      oidc-client-id: 4pGcLoncz8FeFcp7c9EmSo2fEfc4XS3DqO9Djlnn
+      oidc-username-claim: username
+      oidc-username-prefix: "oidc:"
+      oidc-groups-claim: "groups"
+      oidc-groups-prefix: "oidc-group:"
+      oidc-signing-algs: "RS256"
