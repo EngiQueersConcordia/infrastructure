@@ -6,7 +6,4 @@ minecraftRouter:
   autoScale:
     up:
       enabled: true
-    down:
-      enabled: true
-      after: "15s"
   useProxyProtocol: true
