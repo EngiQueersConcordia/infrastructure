@@ -14,7 +14,7 @@ workloadAsStatefulSet: true
 strategyType: RollingUpdate
 serviceAnnotations:
   "mc-router.itzg.me/externalServerName": "testmc.engiqueersconcordia.ca"
-podAnnotations:
+podLabels:
   allow-mc-router: "true"
 
 extraVolumes:
