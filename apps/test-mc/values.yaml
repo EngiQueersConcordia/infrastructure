@@ -24,7 +24,7 @@ extraVolumes:
           defaultMode: 0777
         name: config
     volumeMounts:
-      - mountPath: /data/config/paper-global.yaml
+      - mountPath: /config/paper-global.yaml
         name: config
         readOnly: true
         subPath: paper-global.yaml
