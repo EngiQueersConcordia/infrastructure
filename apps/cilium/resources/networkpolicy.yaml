@@ -44,17 +44,10 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: hubble-relay
+  name: kube-system-internal
   namespace: kube-system
 spec:
-  podSelector:
-    matchLabels:
-      k8s-app: hubble-relay
+  podSelector: {}
   ingress:
-  - ports:
-    - port: grpc
-      protocol: TCP
-    from:
-      - podSelector:
-          matchLabels:
-            k8s-app: hubble-ui
+    - from:
+        - podSelector: {}
