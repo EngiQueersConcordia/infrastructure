@@ -1,3 +1,7 @@
+resources:
+  requests:
+    memory: 4Gi
+
 minecraftServer:
   eula: "TRUE"
   version: "26.1.2"
@@ -5,6 +9,8 @@ minecraftServer:
   ops: "alexkar598"
   gameMode: "creative"
   motd: "EngiQueers Test Server"
+
+  memory: 4G
 
   rcon:
     enabled: true
