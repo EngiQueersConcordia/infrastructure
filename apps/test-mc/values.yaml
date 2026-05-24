@@ -14,3 +14,15 @@ workloadAsStatefulSet: true
 strategyType: RollingUpdate
 serviceAnnotations:
   "mc-router.itzg.me/externalServerName": "testmc.engiqueersconcordia.ca"
+podAnnotations:
+  allow-mc-router: "true"
+
+extraVolumes:
+  - volumes:
+      - configMap:
+          name: test-mc-config
+    volumeMounts:
+      - mountPath: /data/config/paper-global.yaml
+        name: config
+        readOnly: true
+        subPath: paper-global.yaml

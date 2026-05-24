@@ -13,3 +13,5 @@ helmCharts:
     valuesFile: values-router.yaml
 resources:
   - resources/secrets.yaml
+  - resources/config.yaml
+  - resources/networkpolicy.yaml

@@ -1,0 +1,17 @@
+apiVersion: cilium.io/v2
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  name: mc-allow-router
+spec:
+  endpointSelector:
+    matchLabels:
+      allow-mc-router: "true"
+  ingress:
+    - toPorts:
+        - ports:
+            - port: "minecraft"
+              protocol: ANY
+      fromEndpoints:
+        - matchLabels:
+            "k8s:io.kubernetes.pod.namespace": test-mc
+            "k8s:name": mc-router
