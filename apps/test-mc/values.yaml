@@ -21,6 +21,7 @@ extraVolumes:
   - volumes:
       - configMap:
           name: test-mc-config
+          defaultMode: 0777
         name: config
     volumeMounts:
       - mountPath: /data/config/paper-global.yaml
