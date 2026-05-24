@@ -9,3 +9,7 @@ minecraftServer:
   rcon:
     enabled: true
     existingSecret: "test-mc-secrets"
+
+workloadAsStatefulSet: true
+serviceAnnotations:
+  "mc-router.itzg.me/externalServerName": "testmc.engiqueersconcordia.ca"

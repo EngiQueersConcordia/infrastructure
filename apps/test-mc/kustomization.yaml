@@ -5,5 +5,11 @@ helmCharts:
     releaseName: test-mc
     namespace: test-mc
     valuesFile: values.yaml
+  - name: mc-router
+    repo: https://itzg.github.io/minecraft-server-charts/
+    version: 1.5.0
+    releaseName: test-mc-router
+    namespace: test-mc
+    valuesFile: values-router.yaml
 resources:
   - resources/secrets.yaml
