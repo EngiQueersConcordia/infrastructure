@@ -7,3 +7,4 @@ helmCharts:
     valuesFile: values.yaml
 resources:
   - resources/ovh-creds.yaml
+  - resources/networkpolicy.yaml

@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: cert-manager-webhook-ovh
+  namespace: cert-manager
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/instance: cert-manager-webhook-ovh
+      app.kubernetes.io/name: cert-manager-webhook-ovh
+  ingress:
+    - ports:
+        - port: https
+  policyTypes:
+  - Ingress
