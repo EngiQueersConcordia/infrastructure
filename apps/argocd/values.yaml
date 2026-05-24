@@ -3,6 +3,7 @@ global:
 
 configs:
   cm:
+    admin.enabled: false
     exec.enabled: true
     kustomize.buildOptions: --enable-helm
     resource.customizations.ignoreDifferences.gateway.networking.k8s.io_GRPCRoute: |
