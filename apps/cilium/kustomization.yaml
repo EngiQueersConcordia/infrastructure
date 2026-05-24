@@ -7,3 +7,5 @@ helmCharts:
     valuesFile: values.yaml
     apiVersions:
       - gateway.networking.k8s.io/v1/GatewayClass
+resources:
+  - resources/networkpolicy.yaml
