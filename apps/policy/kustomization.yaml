@@ -6,6 +6,7 @@ resources:
   - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.4.1/standard-install.yaml
   - resources/gateway.yaml
   - resources/https-redirect.yaml
+  - resources/crb-admin.yaml
 
 patches:
   - patch: |-
