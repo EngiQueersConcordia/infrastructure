@@ -37,4 +37,4 @@ spec:
           selfHeal: {{ (hasKey . "selfHeal") | ternary (index . "selfHeal") true | toJson }}
           allowEmpty: false
       destination:
-          namespace: {{ (hasKey . "namespace") | ternary (index . "namespace") null | toJson }}
+          namespace: {{ (hasKey . "namespace") | ternary (index . "namespace") nil | toJson }}
