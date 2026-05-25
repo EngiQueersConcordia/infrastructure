@@ -21,7 +21,7 @@ strategyType: RollingUpdate
 serviceAnnotations:
   "mc-router.itzg.me/externalServerName": "testmc.engiqueersconcordia.ca"
 podLabels:
-  allow-mc-ingress: "true"
+  allow-ingress-mc: "true"
 
 extraVolumes:
   - volumes:
