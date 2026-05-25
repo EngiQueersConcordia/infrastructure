@@ -2,7 +2,7 @@ helmCharts:
   - name: mc-router
     repo: https://itzg.github.io/minecraft-server-charts/
     version: 1.5.0
-    releaseName: mc-ingress
+    releaseName: ingress-mc
     namespace: ingress
     valuesFile: values.yaml
 resources:
@@ -10,7 +10,7 @@ resources:
 patches:
   - target:
       kind: Deployment
-      name: mc-ingress
+      labelSelector: app.kubernetes.io/name=mc-router
     patch: |
       - op: replace
         path: /kind
