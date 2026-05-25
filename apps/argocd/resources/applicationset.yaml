@@ -36,3 +36,5 @@ spec:
           prune: {{ (hasKey . "prune") | ternary (index . "prune") true | toJson }}
           selfHeal: {{ (hasKey . "selfHeal") | ternary (index . "selfHeal") true | toJson }}
           allowEmpty: false
+      destination:
+          namespace: {{ (hasKey . "namespace") | ternary (index . "namespace") null | toJson }}
