@@ -1,11 +1,11 @@
 apiVersion: cilium.io/v2
 kind: CiliumClusterwideNetworkPolicy
 metadata:
-  name: mc-allow-router
+  name: mc-ingress-allow
 spec:
   endpointSelector:
     matchLabels:
-      allow-mc-router: "true"
+      allow-mc-ingress: "true"
   ingress:
     - toPorts:
         - ports:
@@ -13,18 +13,18 @@ spec:
               protocol: ANY
       fromEndpoints:
         - matchLabels:
-            "k8s:io.kubernetes.pod.namespace": test-mc
-            app.kubernetes.io/name: mc-router
+            "k8s:io.kubernetes.pod.namespace": ingress
+            app.kubernetes.io/name: mc-ingress
 ---
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: mc-allow-router-world
-  namespace: test-mc
+  name: mc-ingress-allow-world
+  namespace: ingress
 spec:
   endpointSelector:
     matchLabels:
-      app.kubernetes.io/name: mc-router
+      app.kubernetes.io/name: mc-ingress
   ingress:
     - toPorts:
         - ports:
