@@ -36,5 +36,4 @@ extraVolumes:
         subPath: paper-global.yml
 
 extraEnv:
-  - name: USES_PROXY_PROTOCOL
-    value: "1"
+  USES_PROXY_PROTOCOL: "1"
