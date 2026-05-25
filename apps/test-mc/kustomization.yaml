@@ -14,3 +14,4 @@ helmCharts:
 resources:
   - resources/secrets.yaml
   - resources/config.yaml
+  - resources/netpol.yaml
