@@ -34,7 +34,7 @@ extraVolumes:
         name: config
         readOnly: true
         subPath: paper-global.yml
-      - mountPath: /data/.mc-health.env
-        name: config
-        readOnly: true
-        subPath: .mc-health.env
+
+extraEnv:
+  - name: USES_PROXY_PROTOCOL
+    value: "1"
