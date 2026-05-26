@@ -18,7 +18,8 @@ spec:
       - key: reserved:ingress
         operator: Exists
   ingress:
-    - {}
+    - fromEntities:
+        - all
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
