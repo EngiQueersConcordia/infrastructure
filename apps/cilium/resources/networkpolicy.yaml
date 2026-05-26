@@ -37,7 +37,16 @@ specs:
                 protocol: "ANY"
         fromEntities:
           - cluster
-  - endpointSelector: {}
+  - endpointSelector:
+      matchExpressions:
+        - key: netpol.engiqueers/egress-mode
+          operator: NotIn
+          values:
+            - Isolate
+        - key: io.cilium.k8s.namespace.labels.netpol.engiqueers/egress-mode
+          operator: NotIn
+          values:
+            - Isolate
     egress:
       - toPorts:
           - ports:
@@ -61,6 +70,60 @@ specs:
           - world
     enableDefaultDeny:
       egress: false
+---
+apiVersion: cilium.io/v2
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  name: isolate-egress
+specs:
+  - endpointSelector:
+      matchExpressions:
+        - key: netpol.engiqueers/egress-mode
+          operator: In
+          values:
+            - Isolate
+    egress:
+      - {}
+  - endpointSelector:
+      matchExpressions:
+        - key: io.cilium.k8s.namespace.labels.netpol.engiqueers/egress-mode
+          operator: In
+          values:
+            - Isolate
+    egress:
+      - {}
+---
+apiVersion: cilium.io/v2
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  name: "dmz-egress"
+specs:
+  - endpointSelector:
+      matchExpressions:
+        - key: "netpol.engiqueers/egress-mode"
+          operator: In
+          values:
+            - DMZ
+    egress:
+      - toCIDRSet:
+          - cidr: 0.0.0.0/0
+            except:
+              - 10.0.0.0/8
+              - 172.16.0.0/12
+              - 192.168.0.0/16
+  - endpointSelector:
+      matchExpressions:
+        - key: "io.cilium.k8s.namespace.labels.netpol.engiqueers/egress-mode"
+          operator: In
+          values:
+            - DMZ
+    egress:
+      - toCIDRSet:
+          - cidr: 0.0.0.0/0
+            except:
+              - 10.0.0.0/8
+              - 172.16.0.0/12
+              - 192.168.0.0/16
 ---
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
