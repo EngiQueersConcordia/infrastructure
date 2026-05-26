@@ -145,3 +145,17 @@ spec:
   ingress:
     - from:
         - podSelector: {}
+---
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "allow-cilium-health"
+  namespace: kube-system
+spec:
+  endpointSelector:
+    matchLabels:
+      "reserved:health": ""
+  ingress:
+    - fromEntities:
+        - host
+        - remote-node
