@@ -146,8 +146,8 @@ spec:
     - from:
         - podSelector: {}
 ---
-apiVersion: "cilium.io/v2"
-kind: CiliumNetworkPolicy
+apiVersion: cilium.io/v2
+kind: CiliumClusterwideNetworkPolicy
 metadata:
   name: "allow-cilium-health"
   namespace: kube-system
