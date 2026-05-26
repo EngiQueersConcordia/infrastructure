@@ -17,7 +17,7 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              access-gateway-engiqueers: "true"
+              gateway.engiqueers/access-engiqueers: "true"
       tls:
         mode: Terminate
         certificateRefs:
@@ -31,7 +31,7 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              access-gateway-engiqueers: "true"
+              gateway.engiqueers/access-engiqueers: "true"
       tls:
         mode: Terminate
         certificateRefs:
@@ -54,7 +54,7 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              access-gateway-engiqueers-insecure: "true"
+              gateway.engiqueers/access-engiqueers-insecure: "true"
 
     - name: engiqueers-sub
       port: 80
@@ -65,4 +65,4 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              access-gateway-engiqueers-insecure: "true"
+              gateway.engiqueers/access-engiqueers-insecure: "true"

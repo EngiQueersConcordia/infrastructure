@@ -20,8 +20,6 @@ workloadAsStatefulSet: true
 strategyType: RollingUpdate
 serviceAnnotations:
   "mc-router.itzg.me/externalServerName": "testmc.engiqueersconcordia.ca"
-podLabels:
-  allow-ingress-mc: "true"
 
 extraVolumes:
   - volumes:

@@ -5,7 +5,7 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      app.kubernetes.io/managed-by: cloudnative-pg
+      k8s:app.kubernetes.io/managed-by: cloudnative-pg
   ingress:
     - fromEndpoints:
         - matchLabels:

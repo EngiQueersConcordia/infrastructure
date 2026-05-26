@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   name: argocd
   labels:
-    access-gateway-engiqueers: "true"
+    gateway.engiqueers/access-engiqueers: "true"
 ---
 apiVersion: v1
 kind: Namespace
@@ -15,8 +15,8 @@ kind: Namespace
 metadata:
   name: ingress
   labels:
-    access-gateway-engiqueers: "true"
-    access-gateway-engiqueers-insecure: "true"
+    gateway.engiqueers/access-engiqueers: "true"
+    gateway.engiqueers/access-engiqueers-insecure: "true"
 ---
 kind: Namespace
 apiVersion: v1
@@ -35,18 +35,18 @@ apiVersion: v1
 metadata:
   name: authentik
   labels:
-    access-gateway-engiqueers: "true"
+    gateway.engiqueers/access-engiqueers: "true"
 ---
 kind: Namespace
 apiVersion: v1
 metadata:
   name: headlamp
   labels:
-    access-gateway-engiqueers: "true"
+    gateway.engiqueers/access-engiqueers: "true"
 ---
 kind: Namespace
 apiVersion: v1
 metadata:
   name: test-mc
   labels:
-    access-gateway-engiqueers: "true"
+    gateway.engiqueers/access-engiqueers: "true"

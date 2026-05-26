@@ -28,7 +28,7 @@ metadata:
 specs:
   - endpointSelector:
       matchLabels:
-        k8s-app: kube-dns
+        k8s:k8s-app: kube-dns
         k8s:io.kubernetes.pod.namespace: kube-system
     ingress:
       - toPorts:
@@ -48,7 +48,7 @@ specs:
                 - matchPattern: "*"
         toEndpoints:
           - matchLabels:
-              k8s-app: kube-dns
+              k8s:k8s-app: kube-dns
               k8s:io.kubernetes.pod.namespace: kube-system
       - toPorts:
           - ports:
@@ -69,7 +69,7 @@ metadata:
 specs:
   - endpointSelector:
       matchExpressions:
-        - key: netpol.engiqueers/egress-mode
+        - key: k8s:netpol.engiqueers/egress-mode
           operator: In
           values:
             - Isolate
@@ -78,7 +78,7 @@ specs:
           - all
   - endpointSelector:
       matchExpressions:
-        - key: io.cilium.k8s.namespace.labels.netpol.engiqueers/egress-mode
+        - key: k8s:io.cilium.k8s.namespace.labels.netpol.engiqueers/egress-mode
           operator: In
           values:
             - Isolate
@@ -93,12 +93,14 @@ metadata:
 specs:
   - endpointSelector:
       matchExpressions:
-        - key: netpol.engiqueers/egress-mode
+        - key: k8s:netpol.engiqueers/egress-mode
           operator: In
           values:
             - Unrestricted
-        - key: io.cilium.k8s.namespace.labels.netpol.engiqueers/allow-unrestricted-egress
-          operator: Exists
+        - key: k8s:io.cilium.k8s.namespace.labels.netpol.engiqueers/allow-unrestricted-egress
+          operator: In
+          values:
+            - "true"
     egress:
       - toEntities:
           - all
@@ -129,7 +131,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      k8s-app: hubble-ui
+      k8s:k8s-app: hubble-ui
   ingress:
   - ports:
     - port: http
