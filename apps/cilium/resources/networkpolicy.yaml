@@ -34,12 +34,7 @@ specs:
       - toPorts:
           - ports:
               - port: "53"
-                protocol: "UDP"
-              - port: "53"
-                protocol: "TCP"
-            rules:
-              dns:
-                - matchPattern: "*"
+                protocol: "ANY"
         fromEntities:
           - cluster
   - endpointSelector: {}
@@ -47,13 +42,21 @@ specs:
       - toPorts:
           - ports:
               - port: "53"
-                protocol: "UDP"
-              - port: "53"
-                protocol: "TCP"
+                protocol: "ANY"
+            rules:
+              dns:
+                - matchPattern: "*"
         toEndpoints:
           - matchLabels:
               k8s-app: kube-dns
               k8s:io.kubernetes.pod.namespace: kube-system
+    egressDeny:
+      - toPorts:
+          - ports:
+              - port: "53"
+                protocol: "ANY"
+        toEntities:
+          - world
     enableDefaultDeny:
       egress: false
 ---
