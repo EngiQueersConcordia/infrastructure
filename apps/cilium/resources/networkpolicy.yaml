@@ -37,6 +37,9 @@ specs:
                 protocol: "UDP"
               - port: "53"
                 protocol: "TCP"
+            rules:
+              dns:
+                - matchPattern: "*"
         fromEntities:
           - cluster
   - endpointSelector: {}
