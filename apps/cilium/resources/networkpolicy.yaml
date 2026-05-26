@@ -110,6 +110,8 @@ metadata:
 specs:
   - endpointSelector: {}
     egress:
+      - toEntities:
+          - kube-apiserver
       - toEndpoints:
           - {}
       - toCIDRSet:
