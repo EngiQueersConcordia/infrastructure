@@ -4,7 +4,7 @@ metadata:
   name: engiqueers
   namespace: ingress
   annotations:
-    cert-manager.io/cluster-issuer: le-prod
+    cert-manager.io/issuer: le-dns-engiqueers
 spec:
   gatewayClassName: cilium
   listeners:

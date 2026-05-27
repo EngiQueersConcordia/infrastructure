@@ -1,9 +1,10 @@
 groupName: acme.engiqueersconcordia.ca
 
 issuers:
-  - name: le-prod
+  - name: le-dns-engiqueers
     create: true
-    kind: ClusterIssuer
+    kind: Issuer
+    namespace: issuer
     # - for production: `https://acme-v02.api.letsencrypt.org/directory`
     # - for staging: `https://acme-staging-v02.api.letsencrypt.org/directory`
     acmeServerUrl: https://acme-v02.api.letsencrypt.org/directory

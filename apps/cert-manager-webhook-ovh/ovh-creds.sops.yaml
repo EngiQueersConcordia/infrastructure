@@ -3,7 +3,7 @@ kind: Secret
 type: Opaque
 metadata:
     name: ovh-creds
-    namespace: cert-manager
+    namespace: ingress
 stringData:
     #ENC[AES256_GCM,data:/pzQQUwT2DsxhAljBt9St1k=,iv:xvmdNfNMYTt2rM8ddqAAZwynF9pNWQUvjfQxEiN9lRo=,tag:ma6eiva6uzHHXTPcmMap2Q==,type:comment]
     applicationKey: ENC[AES256_GCM,data:+9ROx6XovLG5wXsxEysH9A==,iv:NKZPwu11RlMxsFdXtFBYFvKG7U1U9CDQ9CXjU3nGOQI=,tag:+85sdgG0VlR24sBrcY8xTA==,type:str]

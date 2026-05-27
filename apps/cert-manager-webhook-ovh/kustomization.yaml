@@ -3,7 +3,7 @@ helmCharts:
     repo: https://aureq.github.io/cert-manager-webhook-ovh
     version: 0.9.10
     releaseName: cert-manager-webhook-ovh
-    namespace: cert-manager
+    namespace: ingress
     valuesFile: values.yaml
 resources:
   - resources/ovh-creds.yaml
