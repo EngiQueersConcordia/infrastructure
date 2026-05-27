@@ -11,5 +11,10 @@ spec:
   ingress:
     - ports:
         - port: https
+      from:
+        - namespaceSelector:
+            matchLabels:
+              name: cert-manager
+
   policyTypes:
   - Ingress

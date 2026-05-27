@@ -4,7 +4,7 @@ issuers:
   - name: le-dns-engiqueers
     create: true
     kind: Issuer
-    namespace: issuer
+    namespace: ingress
     # - for production: `https://acme-v02.api.letsencrypt.org/directory`
     # - for staging: `https://acme-staging-v02.api.letsencrypt.org/directory`
     acmeServerUrl: https://acme-v02.api.letsencrypt.org/directory
