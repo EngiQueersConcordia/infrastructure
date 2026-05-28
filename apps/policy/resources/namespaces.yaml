@@ -50,3 +50,10 @@ metadata:
   name: test-mc
   labels:
     gateway.engiqueers/access-engiqueers: "true"
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: harbor
+  labels:
+    gateway.engiqueers/access-engiqueers: "true"
