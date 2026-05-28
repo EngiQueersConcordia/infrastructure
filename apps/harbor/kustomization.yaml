@@ -8,3 +8,4 @@ helmCharts:
 resources:
   - resources/secrets.yaml
   - resources/cluster.yaml
+  - resources/networkpolicy.yaml
