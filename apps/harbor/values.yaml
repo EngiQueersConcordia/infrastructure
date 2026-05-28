@@ -1,0 +1,29 @@
+expose:
+  type: route
+  tls:
+    enabled: true
+    certSource: none
+  route:
+    parentRefs:
+      - name: engiqueers
+        namespace: ingress
+    hosts:
+      - harbor.engiqueersconcordia.ca
+
+externalURL: https://harbor.engiqueersconcordia.ca
+persistence:
+  enabled: true
+  persistentVolumeClaim:
+    registry:
+      size: 25Gi
+
+existingSecretAdminPassword: harbor-secrets
+existingSecretSecretKey: harbor-secrets
+
+database:
+  type: external
+  external:
+    host: "harbor-db-rw"
+    username: "app"
+    coreDatabase: "app"
+    existingSecret: "harbor-db-app"
