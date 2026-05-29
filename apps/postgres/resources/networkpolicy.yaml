@@ -10,3 +10,20 @@ spec:
     - fromEndpoints:
         - matchLabels:
             "k8s:io.kubernetes.pod.namespace": cnpg-system
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-pg-operator
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s:app.kubernetes.io/name: cloudnative-pg
+      k8s:app.kubernetes.io/instance: cnpg
+  ingress:
+    - toPorts:
+        - ports:
+            - port: "9443"
+              protocol: TCP
+      fromEntities:
+        - cluster
