@@ -5,6 +5,7 @@ metadata:
     app.kubernetes.io/instance: website
     app.kubernetes.io/name: website-redirect
   name: website-redirect
+  namespace: website
 spec:
   hostnames:
     - www.engiqueersconcordia.ca

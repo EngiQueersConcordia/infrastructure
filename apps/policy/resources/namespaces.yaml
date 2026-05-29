@@ -57,3 +57,10 @@ metadata:
   name: harbor
   labels:
     gateway.engiqueers/access-engiqueers: "true"
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: website
+  labels:
+    gateway.engiqueers/access-engiqueers: "true"
