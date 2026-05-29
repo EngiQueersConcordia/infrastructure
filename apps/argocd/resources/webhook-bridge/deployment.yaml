@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: wekhook-bridge
-        image: ghcr.io/alexkar598/webhook-bridge:sha-dd4f1eb@sha256:978984229a5c958b8312fbf8b5d4dcef305f56a01de368d217511bc7224ab1b6
+        image: harbor.engiqueersconcordia.ca/webhook-bridge/webhook-bridge@sha256:24cc2163fa44739af11281d682fa6b13135e28a26eb9add47c2d624fcae6bce5
         imagePullPolicy: IfNotPresent
         env:
           - name: ARGOCD_WEBHOOK_SECRET
