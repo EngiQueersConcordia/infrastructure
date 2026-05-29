@@ -15,6 +15,7 @@ apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
   name: allow-pg-operator
+  namespace: cnpg-system
 spec:
   endpointSelector:
     matchLabels:
