@@ -1,0 +1,15 @@
+helmCharts:
+  - name: website
+    version: 0.1.0
+    releaseName: website
+    namespace: website
+
+images:
+  - name: harbor.engiqueersconcordia.ca/website/website
+    newTag: sha256:dd2cbfc1d01bd61a5bd944e095d4e5380c8131898897f198c6643beb4a867877
+
+helmGlobals:
+  chartHome: local-charts
+
+resources:
+  - resources/redirect-route.yaml
