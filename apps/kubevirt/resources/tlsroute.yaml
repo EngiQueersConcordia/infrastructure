@@ -1,3 +1,18 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: cdi-uploadproxy
+  namespace: cdi
+spec:
+  gatewayClassName: cilium
+  listeners:
+    - name: tls
+      protocol: TLS
+      port: 443
+      hostname: "cdi-upload.engiqueersconcordia.ca"
+      tls:
+        mode: Passthrough
+---
 apiVersion: gateway.networking.k8s.io/v1alpha3
 kind: TLSRoute
 metadata:

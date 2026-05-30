@@ -40,39 +40,6 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
-  name: engiqueers-passthrough
-  namespace: ingress
-spec:
-  gatewayClassName: cilium
-  listeners:
-    - name: engiqueers-tls-passthrough
-      protocol: TLS
-      port: 443
-      hostname: "engiqueersconcordia.ca"
-      tls:
-        mode: Passthrough
-      allowedRoutes:
-        namespaces:
-          from: Selector
-          selector:
-            matchLabels:
-              gateway.engiqueers/access-engiqueers: "true"
-    - name: engiqueers-sub-tls-passthrough
-      protocol: TLS
-      port: 443
-      hostname: "*.engiqueersconcordia.ca"
-      tls:
-        mode: Passthrough
-      allowedRoutes:
-        namespaces:
-          from: Selector
-          selector:
-            matchLabels:
-              gateway.engiqueers/access-engiqueers: "true"
----
-apiVersion: gateway.networking.k8s.io/v1
-kind: Gateway
-metadata:
   name: engiqueers-insecure
   namespace: ingress
 spec:
