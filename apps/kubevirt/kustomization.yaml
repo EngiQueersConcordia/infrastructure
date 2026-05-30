@@ -10,3 +10,13 @@ resources:
   - https://github.com/kubevirt/containerized-data-importer/releases/download/v1.65.0/network-policies.yaml
   - resources/cdi.yaml
   - resources/httproute.yaml
+
+patches:
+  - target:
+      kind: Namespace
+    patch: |
+      $patch: delete
+      apiVersion: v1
+      kind: Namespace
+      metadata:
+        name: namespace
