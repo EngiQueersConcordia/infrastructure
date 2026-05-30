@@ -1,0 +1,26 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  labels:
+    cdi.kubevirt.io: cdi-uploadproxy
+  name: cdi-upload-proxy
+  namespace: cdi
+spec:
+  hostnames:
+    - cdi-upload.engiqueersconcordia.ca
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: engiqueers
+      namespace: ingress
+  rules:
+    - backendRefs:
+        - group: ''
+          kind: Service
+          name: cdi-uploadproxy
+          port: 443
+          weight: 1
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
