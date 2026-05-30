@@ -1,0 +1,5 @@
+namespace: kubevirt
+resources:
+  # When updating, check if kubevirt.yaml needs to be updated as well (https://github.com/kubevirt/kubevirt/releases/download/${RELEASE}/kubevirt-cr.yaml)
+  - https://github.com/kubevirt/kubevirt/releases/download/v1.8.2/kubevirt-operator.yaml
+  - resources/kubevirt.yaml
