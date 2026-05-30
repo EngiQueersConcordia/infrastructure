@@ -6,7 +6,7 @@ spec:
   endpointSelector:
     matchLabels:
       k8s:cdi.kubevirt.io: cdi-upload-server
-      k8s:managed-by: cdi-controller
+      k8s:app.kubernetes.io/managed-by: cdi-controller
   ingress:
     - fromEndpoints:
         - matchLabels:
