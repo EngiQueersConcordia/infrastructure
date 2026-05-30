@@ -71,8 +71,12 @@ metadata:
   name: cdi
   labels:
     gateway.engiqueers/access-engiqueers: "true"
+    cdi.kubevirt.io: ''
 ---
 kind: Namespace
 apiVersion: v1
 metadata:
   name: kubevirt
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
+    kubevirt.io: ''
