@@ -4,6 +4,7 @@ metadata:
   name: cdi
 spec:
   config:
+    uploadProxyURLOverride: "https://cdi-upload.engiqueersconcordia.ca"
     featureGates:
     - HonorWaitForFirstConsumer
     - WebhookPvcRendering
