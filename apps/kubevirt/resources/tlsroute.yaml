@@ -27,7 +27,7 @@ spec:
     - group: gateway.networking.k8s.io
       kind: Gateway
       name: engiqueers-passthrough
-      namespace: ingress
+      namespace: cdi
   rules:
     - backendRefs:
         - group: ''
