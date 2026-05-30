@@ -13,7 +13,7 @@ specs:
               - port: "8443"
                 protocol: TCP
         fromEntities:
-          - kube-apiserver
+          - cluster
   - endpointSelector:
       matchLabels:
         kubevirt.io: virt-operator
@@ -23,4 +23,4 @@ specs:
               - port: "8444"
                 protocol: TCP
         fromEntities:
-          - kube-apiserver
+          - cluster
