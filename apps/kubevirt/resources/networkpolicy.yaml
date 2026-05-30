@@ -3,14 +3,24 @@ kind: CiliumNetworkPolicy
 metadata:
   name: allow-kubeapi
   namespace: kubevirt
-spec:
-  endpointSelector:
-    matchLabels:
-      kubevirt.io: virt-api
-  ingress:
-    - toPorts:
-        - ports:
-            - port: "8443"
-              protocol: TCP
-      fromEntities:
-        - cluster
+specs:
+  - endpointSelector:
+      matchLabels:
+        kubevirt.io: virt-api
+    ingress:
+      - toPorts:
+          - ports:
+              - port: "8443"
+                protocol: TCP
+        fromEntities:
+          - kube-apiserver
+  - endpointSelector:
+      matchLabels:
+        kubevirt.io: virt-operator
+    ingress:
+      - toPorts:
+          - ports:
+              - port: "8444"
+                protocol: TCP
+        fromEntities:
+          - kube-apiserver
