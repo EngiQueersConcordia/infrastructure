@@ -10,6 +10,7 @@ resources:
   - https://github.com/kubevirt/containerized-data-importer/releases/download/v1.65.0/network-policies.yaml
   - resources/cdi.yaml
   - resources/tlsroute.yaml
+  - resources/storageprofile.yaml
 
 patches:
   - target:
