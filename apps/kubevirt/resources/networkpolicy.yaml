@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumClusterwideNetworkPolicy
 metadata:
-  name: kubevirt-sriov-network-policy
+  name: cdi-uploadproxy
 spec:
   endpointSelector:
     matchLabels:
