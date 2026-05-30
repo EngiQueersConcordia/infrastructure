@@ -80,3 +80,8 @@ metadata:
   labels:
     pod-security.kubernetes.io/enforce: privileged
     kubevirt.io: ''
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: user-juan
