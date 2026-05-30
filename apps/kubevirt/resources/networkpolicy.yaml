@@ -1,0 +1,14 @@
+apiVersion: cilium.io/v2
+kind: CiliumClusterwideNetworkPolicy
+metadata:
+  name: kubevirt-sriov-network-policy
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s:cdi.kubevirt.io: cdi-upload-server
+      k8s:managed-by: cdi-controller
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            k8s:cdi.kubevirt.io: cdi-uploadproxy
+            k8s:io.kubernetes.pod.namespace: cdi
