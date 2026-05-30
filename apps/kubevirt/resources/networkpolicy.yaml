@@ -1,0 +1,16 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-kubeapi
+  namespace: kubevirt
+spec:
+  endpointSelector:
+    matchLabels:
+      kubevirt.io: virt-api
+  ingress:
+    - toPorts:
+        - ports:
+            - port: "8443"
+              protocol: TCP
+      fromEntities:
+        - cluster
