@@ -1,3 +1,4 @@
 resources:
   - resources/vm.yaml
   - resources/networkpolicy.yaml
+  - resources/service.yaml
