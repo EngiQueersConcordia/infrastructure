@@ -14,10 +14,11 @@ spec:
       domain:
         devices:
           rng: {}
-          disks:
-            - disk:
-                bus: virtio
-              name: vivado
+          interfaces:
+            - name: k8s
+              masquerade: {}
+              ports:
+                - port: 22
         cpu:
           sockets: 1
           cores: 6
@@ -31,6 +32,9 @@ spec:
           bootloader:
             efi:
               secureBoot: false
+      networks:
+        - name: k8s
+          pod: { }
       volumes:
         - dataVolume:
             name: vivado
