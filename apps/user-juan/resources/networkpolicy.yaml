@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: vivado
+  namespace: user-juan
+spec:
+  podSelector:
+     matchLabels:
+       vm.kubevirt.io/name: vivado
+  ingress:
+    - ports:
+        - port: 22
+          protocol: TCP
+  policyTypes:
+    - Ingress
