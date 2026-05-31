@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: vivado
+  namespace: user-juan
 spec:
   selector:
     vm.kubevirt.io/name: vivado
