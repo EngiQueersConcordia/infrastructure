@@ -24,6 +24,13 @@ spec:
           threads: 1
         memory:
           guest: 12G
+        features:
+          smm:
+            enabled: true
+        firmware:
+          bootloader:
+            efi:
+              secureBoot: false
       volumes:
         - dataVolume:
             name: vivado
