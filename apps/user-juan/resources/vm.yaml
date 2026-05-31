@@ -24,7 +24,9 @@ spec:
 #                bus: virtio
 #              name: vivado
         cpu:
+          sockets: 1
           cores: 6
+          threads: 1
         memory:
           guest: 12G
       networks:
