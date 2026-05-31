@@ -1,0 +1,36 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  name: vivado
+  namespace: user-juan
+spec:
+  preference:
+    kind: VirtualMachineClusterPreference
+    name: ubuntu
+  runStrategy: Always
+  template:
+    spec:
+      terminationGracePeriodSeconds: 180
+      domain:
+        devices:
+          rng: {}
+          interfaces:
+            - name: k8s
+              masquerade: {}
+              ports:
+                - port: 22
+#          disks:
+#            - disk:
+#                bus: virtio
+#              name: vivado
+        cpu:
+          cores: 6
+        memory:
+          guest: 12G
+      networks:
+        - name: k8s
+          pod: {}
+#      volumes:
+#        - dataVolume:
+#            name: vivado
+#          name: vivado
