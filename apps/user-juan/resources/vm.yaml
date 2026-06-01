@@ -17,8 +17,6 @@ spec:
           interfaces:
             - name: k8s
               masquerade: {}
-              ports:
-                - port: 22
         cpu:
           sockets: 1
           cores: 6
