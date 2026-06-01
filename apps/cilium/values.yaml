@@ -44,3 +44,6 @@ nonIdempotentAnnotations:
 
 hostFirewall:
   enabled: true
+
+bpf:
+  masquerade: true
