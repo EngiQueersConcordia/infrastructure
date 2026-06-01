@@ -13,5 +13,7 @@ spec:
           protocol: TCP
         - port: 5900
           protocol: TCP
+      from:
+        - namespaceSelector: {}
   policyTypes:
     - Ingress
