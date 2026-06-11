@@ -5,7 +5,7 @@
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
-source script/.filelist
+source script/.config
 
 usage() {
   echo "Usage: $0 <ena | jenny | talosconfig> [extra args...]"
@@ -45,7 +45,8 @@ done
 # shellcheck disable=SC2016
 (
 cd talos
-sops exec-file secrets.yaml "sh -c 'talosctl gen config engiqueers https://cluster.engiqueersconcordia.ca:6443 --force --with-secrets \"\$1\" --kubernetes-version v1.36.0 --talos-version v1.13.2 --additional-sans cluster.engiqueersconcordia.ca' _ \"{}\""
+set -x
+sops exec-file secrets.yaml "sh -c 'talosctl gen config engiqueers https://cluster.engiqueersconcordia.ca:6443 --force --with-secrets \"\$1\" --kubernetes-version $KUBERNETES_VERSION --talos-version $TALOS_VERSION --install-image ghcr.io/siderolabs/installer:$TALOS_VERSION --additional-sans cluster.engiqueersconcordia.ca' _ \"{}\""
 )
 
 case $host in

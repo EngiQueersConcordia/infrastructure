@@ -5,7 +5,7 @@
 set -euo pipefail
 
 if [ "$#" -eq 0 ]; then
-  source "$(dirname "$0")"/.filelist
+  source "$(dirname "$0")"/.config
   "$0" "${SOPS_FILES[@]/#/$(dirname "$0")\/..\/}"
   exit 0
 fi

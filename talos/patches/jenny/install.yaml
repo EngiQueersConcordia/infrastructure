@@ -1,5 +1,4 @@
 machine:
   install:
-    image: factory.talos.dev/metal-installer-secureboot/9ed5fecdacb36b5c5427b87d409f1065cfb2df69b0f71c58b868d9d466d8dab3:v1.13.2
     diskSelector:
       wwid: naa.6b8ca3a0e5b03200319fa15524b1bf74
