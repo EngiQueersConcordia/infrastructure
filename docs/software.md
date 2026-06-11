@@ -10,7 +10,7 @@ value in script/.config
 Kubernetes is updated independantly of Talos. See https://docs.siderolabs.com/kubernetes-guides/advanced-guides/upgrading-kubernetes
 for instructions. Update the value in script/.config
 ## Cilium
-Cilium is updated through helm. Check https://docs.cilium.io/en/stable/releases/ Only upgrade one
+Cilium is updated through helm. Check https://docs.cilium.io/en/stable/operations/upgrade/ Only upgrade one
 minor version at a time. Cilium preflight checks MUST be manually run before upgrading.
 ## ArgoCD
 ArgoCD is updated through helm. Check https://argo-cd.readthedocs.io/en/stable/operator-manual/upgrading/overview/

@@ -47,3 +47,5 @@ hostFirewall:
 
 bpf:
   masquerade: true
+
+upgradeCompatibility: "1.19"
