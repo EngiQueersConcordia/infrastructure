@@ -1,0 +1,24 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  labels:
+    app.kubernetes.io/instance: website
+    app.kubernetes.io/name: website-migration
+  name: website-migration
+  namespace: website
+spec:
+  hostnames:
+    - engiqueers.ecaconcordia.ca
+  parentRefs:
+    - name: engiqueers-migration
+      namespace: website
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      filters:
+        - type: RequestRedirect
+          requestRedirect:
+            hostname: "engiqueersconcordia.ca"
+            statusCode: 302
