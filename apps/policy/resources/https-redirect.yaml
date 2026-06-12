@@ -6,6 +6,9 @@ metadata:
 spec:
   parentRefs:
     - name: engiqueers-insecure
+  hostnames:
+    - "engiqueersconcordia.ca"
+    - "*.engiqueersconcordia.ca"
   rules:
     - filters:
         - type: RequestRedirect
