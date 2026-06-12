@@ -14,3 +14,6 @@ helmGlobals:
 
 resources:
   - resources/redirect-route.yaml
+  - resources/issuer.yaml
+  - resources/migration-gateway.yaml
+  - resources/migration-route.yaml
