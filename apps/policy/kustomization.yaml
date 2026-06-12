@@ -8,6 +8,8 @@ resources:
   - resources/gateway.yaml
   - resources/https-redirect.yaml
   - resources/crb-admin.yaml
+  - resources/issuer.yaml
+  - resources/certificates.yaml
 
 patches:
   - patch: |-

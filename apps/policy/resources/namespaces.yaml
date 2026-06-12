@@ -16,7 +16,6 @@ metadata:
   name: ingress
   labels:
     gateway.engiqueers/access-engiqueers: "true"
-    gateway.engiqueers/access-engiqueers-insecure: "true"
 ---
 kind: Namespace
 apiVersion: v1

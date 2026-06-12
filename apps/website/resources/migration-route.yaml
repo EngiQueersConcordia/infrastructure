@@ -10,8 +10,10 @@ spec:
   hostnames:
     - engiqueers.ecaconcordia.ca
   parentRefs:
-    - name: engiqueers-migration
-      namespace: website
+    - name: engiqueers
+      namespace: ingress
+    - name: engiqueers-insecure
+      namespace: ingress
   rules:
     - matches:
         - path:

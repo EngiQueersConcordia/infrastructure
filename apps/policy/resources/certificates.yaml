@@ -1,0 +1,26 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: engiqueers-tls
+  namespace: ingress
+spec:
+  secretName: engiqueers-tls
+  dnsNames:
+    - "engiqueersconcordia.ca"
+    - "*.engiqueersconcordia.ca"
+  issuerRef:
+    name: le-dns-engiqueers
+    kind: Issuer
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: engiqueers-migration-tls
+  namespace: ingress
+spec:
+  secretName: engiqueers-migration-tls
+  dnsNames:
+    - "engiqueers.ecaconcordia.ca"
+  issuerRef:
+    name: ca-issuer
+    kind: Issuer

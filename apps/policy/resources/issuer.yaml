@@ -2,7 +2,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: selfsigned-issuer
-  namespace: website
+  namespace: ingress
 spec:
   selfSigned: {}
 ---
@@ -10,7 +10,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: selfsigned-ca
-  namespace: website
+  namespace: ingress
 spec:
   isCA: true
   commonName: selfsigned-ca
@@ -27,7 +27,7 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: ca-issuer
-  namespace: website
+  namespace: ingress
 spec:
   ca:
     secretName: selfsigned-ca-secret

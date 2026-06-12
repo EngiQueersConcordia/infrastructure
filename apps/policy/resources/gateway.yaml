@@ -3,8 +3,6 @@ kind: Gateway
 metadata:
   name: engiqueers
   namespace: ingress
-  annotations:
-    cert-manager.io/issuer: le-dns-engiqueers
 spec:
   gatewayClassName: cilium
   listeners:
@@ -36,6 +34,21 @@ spec:
         mode: Terminate
         certificateRefs:
           - name: engiqueers-tls
+    - name: engiqueers-migration-tls
+      hostname: "engiqueers.ecaconcordia.ca"
+      port: 443
+      protocol: HTTPS
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              gateway.engiqueers/access-engiqueers: "true"
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: engiqueers-migration-tls
+
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
@@ -54,7 +67,7 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              gateway.engiqueers/access-engiqueers-insecure: "true"
+              gateway.engiqueers/access-engiqueers: "true"
 
     - name: engiqueers-sub
       port: 80
@@ -65,4 +78,15 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              gateway.engiqueers/access-engiqueers-insecure: "true"
+              gateway.engiqueers/access-engiqueers: "true"
+
+    - name: engiqueers-migration
+      port: 80
+      protocol: HTTP
+      hostname: "engiqueers.ecaconcordia.ca"
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              gateway.engiqueers/access-engiqueers: "true"
