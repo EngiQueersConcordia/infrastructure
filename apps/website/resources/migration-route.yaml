@@ -23,4 +23,4 @@ spec:
         - type: RequestRedirect
           requestRedirect:
             hostname: "engiqueersconcordia.ca"
-            statusCode: 302
+            statusCode: 301
