@@ -85,7 +85,11 @@ server:
     hostnames:
       - argocd.engiqueersconcordia.ca
     rules:
-      - {}
+      - matches:
+          - headers:
+              - name: Content-Type
+                type: RegularExpression
+                value: "^application/grpc.*$"
 
 notifications:
   enabled: false
