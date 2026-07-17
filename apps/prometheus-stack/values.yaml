@@ -8,12 +8,14 @@ alertmanager:
 
   alertmanagerSpec:
     storage:
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 5Gi
-      storageClassName: local-lvm
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 5Gi
+          storageClassName: local-lvm
 
 grafana:
   admin:
