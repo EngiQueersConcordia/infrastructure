@@ -39,6 +39,29 @@ grafana:
        optional: false
        subPath: ""
 
+  grafana.ini:
+      auth.generic_oauth:
+        enabled: true
+        client_id: "$__file{/etc/secrets/oidc-client-id}"
+        client_secret: "$__file{/etc/secrets/oidc-client-secret}"
+        auth_url: "https://auth.engiqueersconcordia.ca/application/o/authorize/"
+        token_url: "https://auth.engiqueersconcordia.ca/application/o/token/"
+        api_url: "https://auth.engiqueersconcordia.ca/application/o/userinfo/"
+        scopes: "openid profile grafana-role offline_access"
+        allow_sign_up: true
+        auto_login: false
+        login_attribute_path: username
+        name_attribute_path: name
+        email_attribute_path: email
+        role_attribute_path: grafana-role
+        role_attribute_strict: true
+        allow_assign_grafana_admin: true
+        use_pkce: true
+        use_refresh_token: true
+        validate_id_token: true
+        jwk_set_url: "https://auth.engiqueersconcordia.ca/application/o/grafana/jwks/"
+
+
 prometheusOperator:
   admissionWebhooks:
     annotations:
