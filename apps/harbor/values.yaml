@@ -20,6 +20,21 @@ persistence:
 existingSecretAdminPassword: harbor-secrets
 existingSecretSecretKey: harbor-secrets
 
+core:
+  existingSecret: harbor-secrets
+  secretName: harbor-secrets
+  existingXsrfSecret: harbor-secrets
+
+jobservice:
+  existingSecret: harbor-secrets
+
+registry:
+  existingSecret: harbor-secrets
+  credentials:
+    existingSecret: harbor-secrets
+
+
+
 database:
   type: external
   external:
