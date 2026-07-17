@@ -53,13 +53,13 @@ grafana:
         auth_url: "https://auth.engiqueersconcordia.ca/application/o/authorize/"
         token_url: "https://auth.engiqueersconcordia.ca/application/o/token/"
         api_url: "https://auth.engiqueersconcordia.ca/application/o/userinfo/"
-        scopes: "openid profile grafana-role offline_access"
+        scopes: "openid profile grafana_role offline_access"
         allow_sign_up: true
         auto_login: false
         login_attribute_path: username
         name_attribute_path: name
         email_attribute_path: email
-        role_attribute_path: '"grafana-role"'
+        role_attribute_path: grafana_role
         role_attribute_strict: true
         allow_assign_grafana_admin: true
         use_pkce: true
