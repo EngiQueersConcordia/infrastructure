@@ -22,7 +22,7 @@ fullnameOverride: ""
 redbotVersion: "3.5.24"
 
 config:
-  owner: 304751952548462593
+  owner: "304751952548462593"
 
   prefix: "-"
 
