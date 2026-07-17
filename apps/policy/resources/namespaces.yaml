@@ -91,3 +91,10 @@ metadata:
   labels:
     gateway.engiqueers/access-engiqueers: "true"
     pod-security.kubernetes.io/enforce: privileged
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: redbot
+  labels:
+    pod-security.kubernetes.io/enforce: restricted

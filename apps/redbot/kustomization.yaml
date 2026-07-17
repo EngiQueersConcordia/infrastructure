@@ -1,0 +1,9 @@
+namespace: redbot
+helmCharts:
+  - name: redbot
+    version: 0.1.0
+    releaseName: redbot
+    namespace: redbot
+
+helmGlobals:
+  chartHome: local-charts

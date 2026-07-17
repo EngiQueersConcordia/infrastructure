@@ -1,0 +1,24 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ include "redbot.fullname" . }}
+  namespace: {{ .Release.Namespace | quote }}
+  {{- with .Values.pvc.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  labels:
+    {{- include "redbot.labels" . | nindent 4 }}
+spec:
+  accessModes: 
+    - {{ .Values.pvc.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.pvc.size }}
+  {{- if .Values.pvc.storageClass }}
+    {{- if eq "-" .Values.pvc.storageClass }}
+  storageClassName: ""
+    {{- else }}
+  storageClassName: {{ .Values.pvc.storageClass }}
+    {{- end }}
+  {{- end }}
