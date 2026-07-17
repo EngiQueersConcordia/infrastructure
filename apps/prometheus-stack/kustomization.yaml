@@ -9,4 +9,4 @@ helmCharts:
 resources:
   - resources/netpol.yaml
   - resources/secrets.yaml
-  - resources/
+  - resources/discord_receiver.yaml
