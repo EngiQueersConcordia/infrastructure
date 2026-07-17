@@ -161,3 +161,21 @@ spec:
     - fromEntities:
         - host
         - remote-node
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: "allow-metrics-server-from-control-plane"
+  namespace: kube-system
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s-app: metrics-server
+  ingress:
+    - fromNodes:
+        - matchLabels:
+            node-role.kubernetes.io/control-plane: ""
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: 10250
