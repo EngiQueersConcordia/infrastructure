@@ -159,7 +159,7 @@ pvc:
 #  annotations:
 #  labels:
   accessMode: ReadWriteOnce
-  size: 10GiB
+  size: 10Gi
 #  storageClass:
 
 # Additional volumes on the output Deployment definition.
