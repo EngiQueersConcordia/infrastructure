@@ -9,3 +9,4 @@ helmCharts:
 resources:
   - resources/netpol.yaml
   - resources/secrets.yaml
+  - resources/

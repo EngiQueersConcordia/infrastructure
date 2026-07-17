@@ -7,8 +7,6 @@ alertmanager:
     enabled: true
 
   alertmanagerSpec:
-    secrets:
-      - secrets
     storage:
       volumeClaimTemplate:
         spec:
@@ -18,17 +16,8 @@ alertmanager:
             requests:
               storage: 5Gi
           storageClassName: local-lvm
-
-  config:
-    receivers:
-      - name: "null"
-      - name: "discord"
-        discord_configs:
-          - webhook_url_file: "/etc/alertmanager/secrets/discord-webhook"
-            username: "Alert Manager"
-            avatar_url: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/alertmanager.webp"
-    route:
-      receiver: "discord"
+    alertmanagerConfigMatcherStrategy:
+       type: OnNamespaceExceptForAlertmanagerNamespace
 
 grafana:
   admin:
