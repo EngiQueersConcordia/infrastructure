@@ -5,6 +5,7 @@ helmCharts:
     releaseName: test-mc
     namespace: test-mc
     valuesFile: values.yaml
+  # TODO: remove rcon
   - name: rcon-web-admin
     repo: https://itzg.github.io/minecraft-server-charts/
     version: 1.2.1

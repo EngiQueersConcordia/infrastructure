@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - resources/namespaces.yaml
+  # TODO: update check hooks
   - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.4.1/standard-install.yaml
   - https://raw.githubusercontent.com/kubernetes-sigs/gateway-api/v1.4.1/config/crd/experimental/gateway.networking.k8s.io_tlsroutes.yaml
   - resources/gateway.yaml
