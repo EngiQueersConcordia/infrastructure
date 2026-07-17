@@ -83,3 +83,10 @@ kind: Namespace
 apiVersion: v1
 metadata:
   name: user-juan
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: prometheus-stack
+  labels:
+    gateway.engiqueers/access-engiqueers: "true"

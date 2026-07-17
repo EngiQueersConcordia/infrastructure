@@ -63,6 +63,7 @@ const components: Component[] = [
   helmApp("postgres", {
     releaseNotes: "https://github.com/cloudnative-pg/cloudnative-pg/releases",
   }),
+  helmApp("prometheus-stack"),
   helmApp("sealed-secrets", {
     releaseNotes: "https://github.com/bitnami/sealed-secrets/releases",
   }),

@@ -1,0 +1,57 @@
+crds:
+  upgradeJob:
+    enabled: true
+
+alertmanager:
+  networkPolicy:
+    enabled: true
+
+  alertmanagerSpec:
+    storage:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 5Gi
+      storageClassName: local-lvm
+
+grafana:
+  admin:
+    existingSecret: "secrets"
+    userKey: grafana-admin-user
+    passwordKey: grafana-admin-password
+
+  persistence:
+    enabled: true
+    type: sts
+    accessModes:
+      - ReadWriteOnce
+    size: 15Gi
+    storageClassName: local-lvm
+
+prometheusOperator:
+  admissionWebhooks:
+    annotations:
+      argocd.argoproj.io/hook: PreSync
+      argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    mutatingWebhookConfiguration:
+      annotations:
+        argocd.argoproj.io/hook: PreSync
+    validatingWebhookConfiguration:
+      annotations:
+        argocd.argoproj.io/hook: PreSync
+    patch:
+      annotations:
+        argocd.argoproj.io/hook: PreSync
+        argocd.argoproj.io/hook-delete-policy: HookSucceeded
+
+  networkPolicy:
+    enabled: true
+    flavor: cilium
+
+prometheus:
+  networkPolicy:
+    enabled: true
+    flavor: cilium
+
+cleanPrometheusOperatorObjectNames: true
