@@ -23,8 +23,7 @@ alertmanager:
     receivers:
       - name: "discord"
         discord_configs:
-          - send_resolved: true,
-            webhook_url_file: "/etc/alertmanager/secrets/discord-webhook"
+          - webhook_url_file: "/etc/alertmanager/secrets/discord-webhook"
             username: "Alert Manager"
             avatar_url: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/webp/alertmanager.webp"
     route:
