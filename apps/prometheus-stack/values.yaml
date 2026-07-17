@@ -43,6 +43,9 @@ grafana:
       server:
         root_url: https://grafana.engiqueersconcordia.ca
 
+      auth:
+        disable_login_form: true
+
       auth.basic:
         enabled: false
 
@@ -54,7 +57,7 @@ grafana:
         token_url: "https://auth.engiqueersconcordia.ca/application/o/token/"
         scopes: "openid profile grafana_role offline_access email"
         allow_sign_up: true
-        auto_login: false
+        auto_login: true
         login_attribute_path: username
         name_attribute_path: name
         email_attribute_path: email
