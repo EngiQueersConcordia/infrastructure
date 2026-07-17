@@ -6,6 +6,7 @@ resources:
   - https://github.com/kubevirt/kubevirt/releases/download/v1.8.2/kubevirt-network-policies.yaml
   - resources/kubevirt.yaml
 
+
   # CDI
   # Manually downloaded so we can remove v1alpha1 from it. For some reason the controller removes it automatically but then argo tries to bring it back
   #- https://github.com/kubevirt/containerized-data-importer/releases/download/v1.65.0/cdi-operator.yaml
