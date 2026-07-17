@@ -7,3 +7,6 @@ helmCharts:
 
 helmGlobals:
   chartHome: local-charts
+
+resources:
+  - resources/secrets.yaml
