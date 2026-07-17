@@ -178,4 +178,4 @@ spec:
       toPorts:
         - ports:
             - protocol: TCP
-              port: 10250
+              port: "10250"
