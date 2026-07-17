@@ -31,6 +31,14 @@ hubble:
     enabled: true
   relay:
     enabled: true
+  tls:
+    auto:
+      method: certmanager
+      certManagerIssuerRef:
+        group: cert-manager.io
+        kind: Issuer
+        name: ca-issuer
+
 
 defaultLBServiceIPAM: nodeipam
 nodeIPAM:

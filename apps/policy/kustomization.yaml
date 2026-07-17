@@ -10,6 +10,7 @@ resources:
   - resources/https-redirect.yaml
   - resources/crb-admin.yaml
   - resources/issuer.yaml
+  - resources/ingress-issuer.yaml
   - resources/certificates.yaml
 
 patches:
