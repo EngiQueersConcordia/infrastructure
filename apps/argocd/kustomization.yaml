@@ -13,3 +13,11 @@ resources:
   - resources/webhook-bridge/networkpolicy.yaml
   - resources/webhook-bridge/service.yaml
   - resources/applicationset.yaml
+patches:
+  - target:
+      kind: GRPCRoute
+      name: argocd-server-grpc
+    patch: |
+      - op: replace
+        path: /spec/rules/0/backendRefs/0/port
+        value: 443

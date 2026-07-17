@@ -70,6 +70,10 @@ dex:
 
 
 server:
+  service:
+    # Enable gRPC over HTTP/2
+    servicePortHttpsAppProtocol: kubernetes.io/h2c
+
   httproute:
     enabled: true
     parentRefs:
@@ -83,9 +87,13 @@ server:
       - name: engiqueers
         namespace: ingress
     hostnames:
-      - argocd-api.engiqueersconcordia.ca
+      - argocd.engiqueersconcordia.ca
     rules:
-      - {}
+      - matches:
+          - headers:
+              - name: Content-Type
+                type: RegularExpression
+                value: "^application/grpc.*$"
 
 notifications:
   enabled: false
