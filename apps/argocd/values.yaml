@@ -87,7 +87,7 @@ server:
       - name: engiqueers
         namespace: ingress
     hostnames:
-      - argocd.engiqueersconcordia.ca
+      - argocd-api.engiqueersconcordia.ca
     rules:
       - {}
 
