@@ -22,5 +22,7 @@ spec:
     repeatInterval: 12h
     routes:
       - matchers:
-          - alertname = "Watchdog"
+          - name: alertname
+            matchType: =
+            value: Watchdog
         receiver: "null"
