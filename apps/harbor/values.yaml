@@ -22,7 +22,7 @@ existingSecretSecretKey: harbor-secrets
 
 core:
   existingSecret: harbor-secrets
-  secretName: harbor-secrets
+  secretName: harbor-token-ca
   existingXsrfSecret: harbor-secrets
 
 jobservice:
@@ -32,8 +32,6 @@ registry:
   existingSecret: harbor-secrets
   credentials:
     existingSecret: harbor-secrets
-
-
 
 database:
   type: external
