@@ -90,3 +90,4 @@ metadata:
   name: prometheus-stack
   labels:
     gateway.engiqueers/access-engiqueers: "true"
+    pod-security.kubernetes.io/enforce: privileged
