@@ -18,6 +18,7 @@ interface Kustomization {
 interface BaseComponent {
   name: string;
   sourcePath: string;
+  releaseNotes?: string;
 }
 
 interface HelmComponent extends BaseComponent {
@@ -37,19 +38,34 @@ const helmApp = (
     extra,
   );
 const components: Component[] = [
-  helmApp("argocd"),
-  helmApp("authentik"),
+  helmApp("argocd", {
+    releaseNotes:
+      "https://github.com/argoproj/argo-cd/releases https://github.com/argoproj/argo-helm/releases",
+  }),
+  helmApp("authentik", {
+    releaseNotes: "https://docs.goauthentik.io/releases/",
+  }),
   helmApp("cert-manager"),
-  helmApp("cert-manager-webhook-ovh"),
+  helmApp("cert-manager-webhook-ovh", {
+    releaseNotes: "https://github.com/aureq/cert-manager-webhook-ovh/releases",
+  }),
   helmApp("cilium"),
   helmApp("descheduler"),
   helmApp("harbor"),
-  helmApp("headlamp"),
+  helmApp("headlamp", {
+    releaseNotes: "https://github.com/kubernetes-sigs/headlamp/releases",
+  }),
   helmApp("ingress-mc"),
   helmApp("kubevirt"),
-  helmApp("openebs"),
-  helmApp("postgres"),
-  helmApp("sealed-secrets"),
+  helmApp("openebs", {
+    releaseNotes: "https://github.com/openebs/openebs/releases",
+  }),
+  helmApp("postgres", {
+    releaseNotes: "https://github.com/cloudnative-pg/cloudnative-pg/releases",
+  }),
+  helmApp("sealed-secrets", {
+    releaseNotes: "https://github.com/bitnami/sealed-secrets/releases",
+  }),
   helmApp("test-mc"),
   helmApp("user-juan"),
   helmApp("website"),
