@@ -38,6 +38,9 @@ spec:
           {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - /app/start-redbot.sh
+          args: []
           env:
             - name: TOKEN
               valueFrom:
