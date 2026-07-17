@@ -61,6 +61,14 @@ grafana:
         validate_id_token: true
         jwk_set_url: "https://auth.engiqueersconcordia.ca/application/o/grafana/jwks/"
 
+  route:
+    main:
+      enabled: true
+      hostnames:
+        - "grafana.engiqueersconcordia.ca"
+      parentRefs:
+        - name: engiqueers
+          namespace: ingress
 
 prometheusOperator:
   admissionWebhooks:
