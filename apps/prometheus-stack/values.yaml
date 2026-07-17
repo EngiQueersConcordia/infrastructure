@@ -31,6 +31,14 @@ grafana:
     size: 15Gi
     storageClassName: local-lvm
 
+  extraSecretMounts:
+     - name: secret-files
+       mountPath: /etc/secrets
+       secretName: secrets
+       readOnly: true
+       optional: false
+       subPath: ""
+
 prometheusOperator:
   admissionWebhooks:
     annotations:
