@@ -49,3 +49,5 @@ bpf:
   masquerade: true
 
 upgradeCompatibility: "1.19"
+
+nodeSelectorLabels: true
