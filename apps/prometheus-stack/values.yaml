@@ -19,6 +19,17 @@ alertmanager:
     alertmanagerConfigMatcherStrategy:
        type: OnNamespaceExceptForAlertmanagerNamespace
 
+defaultRules:
+  disabled:
+    # We can't really do anything about it. This warns us that if a node fails,
+    # the other(s) may not be able to take the full load
+    KubeMemoryOvercommit: true
+    KubeCPUOvercommit: true
+
+kubeProxy:
+  # Cilium replaces kubeproxy
+  enabled: false
+
 grafana:
   admin:
     existingSecret: "secrets"
