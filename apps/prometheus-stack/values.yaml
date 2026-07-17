@@ -40,6 +40,8 @@ grafana:
        subPath: ""
 
   grafana.ini:
+      auth.basic:
+        enabled: false
       auth.generic_oauth:
         enabled: true
         client_id: "$__file{/etc/secrets/oidc-client-id}"
