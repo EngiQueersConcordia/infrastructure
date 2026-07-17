@@ -49,7 +49,6 @@ configs:
   secret:
     createSecret: false
   params:
-    server.insecure: "true"
     applicationsetcontroller.enable.new.git.file.globbing: "true"
   rbac:
     policy.csv: |
