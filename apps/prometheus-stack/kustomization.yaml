@@ -7,4 +7,5 @@ helmCharts:
     valuesFile: values.yaml
     includeCRDs: true
 resources:
+  - resources/netpol.yaml
   - resources/secrets.yaml
