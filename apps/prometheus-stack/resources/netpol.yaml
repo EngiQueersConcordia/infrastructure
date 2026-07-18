@@ -56,13 +56,19 @@ spec:
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: allow-prometheus-from-grafana
+  name: allow-prometheus
   namespace: prometheus-stack
 spec:
   endpointSelector:
     matchLabels:
       app.kubernetes.io/name: prometheus
   ingress:
+    - fromEntities:
+        - kube-apiserver
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "9090"
     - fromEndpoints:
         - matchLabels:
             k8s:app.kubernetes.io/name: grafana
