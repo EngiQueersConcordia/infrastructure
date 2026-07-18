@@ -4,7 +4,9 @@ crds:
 enableCertificateOwnerRef: true
 
 prometheus:
-  enabled: false
+  enabled: true
+  servicemonitor:
+    enabled: true
 
 config:
   enableGatewayAPI: true
