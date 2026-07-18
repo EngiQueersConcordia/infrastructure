@@ -13,7 +13,7 @@ spec:
         - cluster
       toPorts:
         - ports:
-            - port: 32768
+            - port: "32768"
               endPort: 65535
               protocol: "ANY"
     - toPorts:
