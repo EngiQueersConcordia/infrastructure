@@ -27,16 +27,42 @@ spec:
               protocol: TCP
       fromEndpoints:
         - matchLabels:
-            k8s:k8s-app: metrics-server
             k8s:io.kubernetes.pod.namespace: kube-system
+            k8s:k8s-app: metrics-server
+    # Let hubble connect to the cilium agent
     - toPorts:
         - ports:
             - port: "4244"
               protocol: TCP
       fromEndpoints:
         - matchLabels:
-            k8s:k8s-app: hubble-relay
             k8s:io.kubernetes.pod.namespace: kube-system
+            k8s:k8s-app: hubble-relay
+    # Host networking metrics
+    - toPorts:
+        - ports:
+            # Cilium Agent
+            - port: "9963"
+              protocol: TCP
+            # Cilium Operator
+            - port: "9963"
+              protocol: TCP
+            # Cilium Envoy
+            - port: "9964"
+              protocol: TCP
+            # Hubble
+            - port: "9965"
+              protocol: TCP
+            # Kubelet
+            - port: "10250"
+              protocol: TCP
+            # Kube Controller Manager
+            - port: "10257"
+              protocol: TCP
+      fromEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: prometheus-stack
+            k8s:app.kubernetes.io/name: prometheus
     - icmps:
         - fields:
             - type: EchoRequest
