@@ -38,6 +38,20 @@ server:
       parentRefs:
         - name: engiqueers
           namespace: ingress
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+
+worker:
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+
+prometheus:
+  rules:
+    enabled: true
 
 postgresql:
   enabled: false
