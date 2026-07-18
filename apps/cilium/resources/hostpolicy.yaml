@@ -29,6 +29,14 @@ spec:
         - matchLabels:
             k8s:k8s-app: metrics-server
             k8s:io.kubernetes.pod.namespace: kube-system
+    - toPorts:
+        - ports:
+            - port: "4244"
+              protocol: TCP
+      fromEndpoints:
+        - matchLabels:
+            k8s:k8s-app: hubble-relay
+            k8s:io.kubernetes.pod.namespace: kube-system
     - icmps:
         - fields:
             - type: EchoRequest
