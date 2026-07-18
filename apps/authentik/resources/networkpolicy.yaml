@@ -19,3 +19,62 @@ spec:
             matchLabels:
               app.kubernetes.io/component: server
               app.kubernetes.io/instance: authentik
+---
+kind: CiliumNetworkPolicy
+apiVersion: cilium.io/v2
+metadata:
+  name: authentik-server
+  namespace: authentik
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s:app.kubernetes.io/component: server
+      k8s:app.kubernetes.io/name: authentik
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: prometheus-stack
+            k8s:app.kubernetes.io/name: prometheus
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "9300"
+---
+kind: CiliumNetworkPolicy
+apiVersion: cilium.io/v2
+metadata:
+  name: authentik-worker
+  namespace: authentik
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s:app.kubernetes.io/component: worker
+      k8s:app.kubernetes.io/name: authentik
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: prometheus-stack
+            k8s:app.kubernetes.io/name: prometheus
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "9300"
+---
+kind: CiliumNetworkPolicy
+apiVersion: cilium.io/v2
+metadata:
+  name: authentik-rac
+  namespace: authentik
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s:app.kubernetes.io/name: authentik-outpost-rac
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: prometheus-stack
+            k8s:app.kubernetes.io/name: prometheus
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "9300"
