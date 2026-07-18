@@ -42,7 +42,7 @@ spec:
     - toPorts:
         - ports:
             # Cilium Agent
-            - port: "9963"
+            - port: "9962"
               protocol: TCP
             # Cilium Operator
             - port: "9963"
