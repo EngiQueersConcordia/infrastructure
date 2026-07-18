@@ -7,6 +7,8 @@ helmCharts:
     valuesFile: values.yaml
     apiVersions:
       - gateway.networking.k8s.io/v1/GatewayClass
+      - monitoring.coreos.com/v1
+
 resources:
   - resources/networkpolicy.yaml
   - resources/hostpolicy.yaml

@@ -31,6 +31,10 @@ hubble:
     enabled: true
   relay:
     enabled: true
+    prometheus:
+      enabled: true
+      serviceMonitor:
+        enabled: true
   tls:
     auto:
       method: certmanager
@@ -38,7 +42,34 @@ hubble:
         group: cert-manager.io
         kind: Issuer
         name: ca-issuer
+  metrics:
+    enabled:
+      - dns:query
+      - flows-to-world
+      - httpV2
+    serviceMonitor:
+      enabled: true
+    dashboards:
+      enabled: true
 
+prometheus:
+  metricsService: true
+  enabled: true
+  serviceMonitor:
+    enabled: true
+dashboards:
+  enabled: true
+envoy:
+  prometheus:
+    serviceMonitor:
+      enabled: true
+operator:
+  prometheus:
+    metricsService: true
+    serviceMonitor:
+      enabled: true
+  dashboards:
+    enabled: true
 
 defaultLBServiceIPAM: nodeipam
 nodeIPAM:
