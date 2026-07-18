@@ -198,3 +198,17 @@ spec:
         - ports:
             - protocol: TCP
               port: "9966"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  namespace: kube-system
+  name: hubble-peer
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s:k8s-app: cilium
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            k8s:k8s-app: hubble-relay
