@@ -89,9 +89,7 @@ hostFirewall:
 
 bpf:
   masquerade: true
-
-endpointRoutes:
-  enabled: true
+  hostLegacyRouting: true
 
 upgradeCompatibility: "1.19"
 
