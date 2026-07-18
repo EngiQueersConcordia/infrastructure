@@ -87,12 +87,9 @@ nonIdempotentAnnotations:
 hostFirewall:
   enabled: true
 
-bpf:
-  masquerade: true
-
 upgradeCompatibility: "1.19"
 
 nodeSelectorLabels: true
 
 routingMode: native
-ipv4-native-routing-cidr: 10.244.0.0/16
+ipv4NativeRoutingCIDR: 10.244.0.0/16
