@@ -65,9 +65,9 @@ spec:
             k8s:app.kubernetes.io/name: prometheus
     - toPorts:
         - ports:
-            - port: 53
+            - port: "53"
               protocol: TCP
-            - port: 53
+            - port: "53"
               protocol: UDP
       fromEntities:
           - cluster
