@@ -47,6 +47,8 @@ hubble:
       - dns:query
       - flows-to-world
       - httpV2
+      - drop
+      - flow
     serviceMonitor:
       enabled: true
     dashboards:
