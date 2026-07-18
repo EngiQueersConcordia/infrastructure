@@ -6,6 +6,8 @@ helmCharts:
     releaseName: argocd
     namespace: argocd
     valuesFile: values.yaml
+    apiVersions:
+      - monitoring.coreos.com/v1
 resources:
   - resources/secrets.yaml
   - resources/webhook-bridge/deployment.yaml
