@@ -116,8 +116,32 @@ prometheus:
     enabled: true
     flavor: cilium
   prometheusSpec:
+    retention: 30d
+
     ruleNamespaceSelector:
       matchLabels:
         policy.engiqueers/domain: "internal"
+    ruleSelectorNilUsesHelmValues: false
+
+    serviceMonitorNamespaceSelector:
+      matchLabels:
+        policy.engiqueers/domain: "internal"
+    serviceMonitorSelectorNilUsesHelmValues: false
+
+    podMonitorNamespaceSelector:
+      matchLabels:
+        policy.engiqueers/domain: "internal"
+    podMonitorSelectorNilUsesHelmValues: false
+
+    probeNamespaceSelector:
+      matchLabels:
+        policy.engiqueers/domain: "internal"
+    probeSelectorNilUsesHelmValues: false
+
+    scrapeConfigNamespaceSelector:
+      matchLabels:
+        policy.engiqueers/domain: "internal"
+    scrapeConfigSelectorNilUsesHelmValues: false
+
 
 cleanPrometheusOperatorObjectNames: true
