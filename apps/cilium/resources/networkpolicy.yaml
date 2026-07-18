@@ -179,3 +179,22 @@ spec:
         - ports:
             - protocol: TCP
               port: "10250"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: "allow-hubble-relay-metrics"
+  namespace: kube-system
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s:app.kubernetes.io/name: hubble-relay
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: prometheus-stack
+            k8s:app.kubernetes.io/name: prometheus
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "9966"
