@@ -89,7 +89,6 @@ hostFirewall:
 
 bpf:
   masquerade: true
-  hostLegacyRouting: true
 
 upgradeCompatibility: "1.19"
 

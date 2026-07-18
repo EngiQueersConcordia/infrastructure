@@ -8,6 +8,14 @@ spec:
     - fromEntities:
         - remote-node
         - host
+    # Some traffic dosen't make it to the CT map for some reason so the responses get dropped. This is a very ugly hack to fix it
+    - fromEntities:
+        - cluster
+      toPorts:
+        - ports:
+            - port: 32768
+              endPort: 65535
+              protocol: "ANY"
     - toPorts:
         - ports:
             - port: "80"
