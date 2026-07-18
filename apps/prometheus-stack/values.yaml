@@ -115,5 +115,9 @@ prometheus:
   networkPolicy:
     enabled: true
     flavor: cilium
+  prometheusSpec:
+    ruleNamespaceSelector:
+      matchLabels:
+        policy.engiqueers/domain: "internal"
 
 cleanPrometheusOperatorObjectNames: true

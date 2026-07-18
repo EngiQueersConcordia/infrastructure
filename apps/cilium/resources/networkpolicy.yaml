@@ -69,7 +69,7 @@ metadata:
 specs:
   - endpointSelector:
       matchExpressions:
-        - key: k8s:netpol.engiqueers/egress-mode
+        - key: k8s:policy.engiqueers/egress-mode
           operator: In
           values:
             - Isolate
@@ -78,7 +78,7 @@ specs:
           - all
   - endpointSelector:
       matchExpressions:
-        - key: k8s:io.cilium.k8s.namespace.labels.netpol.engiqueers/egress-mode
+        - key: k8s:io.cilium.k8s.namespace.labels.policy.engiqueers/egress-mode
           operator: In
           values:
             - Isolate
@@ -93,11 +93,11 @@ metadata:
 specs:
   - endpointSelector:
       matchExpressions:
-        - key: k8s:netpol.engiqueers/egress-mode
+        - key: k8s:policy.engiqueers/egress-mode
           operator: In
           values:
             - Unrestricted
-        - key: k8s:io.cilium.k8s.namespace.labels.netpol.engiqueers/allow-unrestricted-egress
+        - key: k8s:io.cilium.k8s.namespace.labels.policy.engiqueers/allow-unrestricted-egress
           operator: In
           values:
             - "true"

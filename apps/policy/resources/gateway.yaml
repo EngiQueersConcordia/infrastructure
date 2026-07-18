@@ -15,7 +15,7 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              gateway.engiqueers/access-engiqueers: "true"
+              policy.engiqueers/domain: "internal"
       tls:
         mode: Terminate
         certificateRefs:
@@ -29,7 +29,7 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              gateway.engiqueers/access-engiqueers: "true"
+              policy.engiqueers/domain: "internal"
       tls:
         mode: Terminate
         certificateRefs:
@@ -43,7 +43,7 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              gateway.engiqueers/access-engiqueers: "true"
+              policy.engiqueers/domain: "internal"
       tls:
         mode: Terminate
         certificateRefs:
@@ -67,7 +67,7 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              gateway.engiqueers/access-engiqueers: "true"
+              policy.engiqueers/domain: "internal"
 
     - name: engiqueers-sub
       port: 80
@@ -78,7 +78,7 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              gateway.engiqueers/access-engiqueers: "true"
+              policy.engiqueers/domain: "internal"
 
     - name: engiqueers-migration
       port: 80
@@ -89,4 +89,4 @@ spec:
           from: Selector
           selector:
             matchLabels:
-              gateway.engiqueers/access-engiqueers: "true"
+              policy.engiqueers/domain: "internal"
