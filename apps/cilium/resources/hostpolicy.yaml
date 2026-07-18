@@ -6,7 +6,8 @@ spec:
   nodeSelector: {}
   ingress:
     - fromEntities:
-        - cluster
+        - remote-node
+        - host
     - toPorts:
         - ports:
             - port: "80"
