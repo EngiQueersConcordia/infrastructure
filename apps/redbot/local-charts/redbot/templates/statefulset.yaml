@@ -54,7 +54,7 @@ spec:
               value: "{{ .Values.config.prefix }}"
             - name: REDBOT_VERSION
               value: "=={{ .Values.redbotVersion }}"
-            {{- with .Values.env }}
+            {{- with .Values.envExtra }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
           {{- with .Values.livenessProbe }}
@@ -63,6 +63,10 @@ spec:
           {{- end }}
           {{- with .Values.readinessProbe }}
           readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.startupProbe }}
+          startupProbe:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           {{- with .Values.resources }}
@@ -77,6 +81,16 @@ spec:
             {{- with .Values.volumeMounts }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
+        - name: socat
+          {{- with .Values.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          image: "{{ .Values.socatImage.repository }}:{{ .Values.socatImage.tag }}"
+          imagePullPolicy: {{ .Values.socatImage.pullPolicy }}
+          args:
+            - tcp-listen:6144,fork,reuseaddr
+            - tcp-connect:localhost:6133
       volumes:
         - name: config
           emptyDir: {}
