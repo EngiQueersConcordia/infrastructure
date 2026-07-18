@@ -63,6 +63,15 @@ spec:
         - matchLabels:
             k8s:io.kubernetes.pod.namespace: prometheus-stack
             k8s:app.kubernetes.io/name: prometheus
+    - toPorts:
+        - ports:
+            - port: 53
+              protocol: TCP
+            - port: 53
+              protocol: UDP
+      fromEntities:
+          - cluster
+
     - icmps:
         - fields:
             - type: EchoRequest
