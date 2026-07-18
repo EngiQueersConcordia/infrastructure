@@ -41,6 +41,9 @@ spec:
     # Host networking metrics
     - toPorts:
         - ports:
+            # Node Exporter
+            - port: "9100"
+              protocol: TCP
             # Cilium Agent
             - port: "9962"
               protocol: TCP
@@ -58,6 +61,9 @@ spec:
               protocol: TCP
             # Kube Controller Manager
             - port: "10257"
+              protocol: TCP
+            # Kube Scheduler
+            - port: "10259"
               protocol: TCP
       fromEndpoints:
         - matchLabels:
