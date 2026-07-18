@@ -90,6 +90,9 @@ hostFirewall:
 bpf:
   masquerade: true
 
+endpointRoutes:
+  enabled: true
+
 upgradeCompatibility: "1.19"
 
 nodeSelectorLabels: true
