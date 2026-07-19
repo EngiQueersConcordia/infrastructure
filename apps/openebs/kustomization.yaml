@@ -14,6 +14,7 @@ helmCharts:
     valuesFile: values-monitoring.yaml
 resources:
   - resources/sc-local-lvm.yaml
+  - resources/netpol.yaml
 # Remove this when https://github.com/kubernetes-sigs/kustomize/issues/6058 is fixed
 patches:
   - patch: |-
