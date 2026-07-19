@@ -6,6 +6,12 @@ helmCharts:
     releaseName: openebs
     namespace: openebs
     valuesFile: values.yaml
+  - name: monitoring
+    repo: https://openebs.github.io/monitoring
+    version: 4.1.1
+    releaseName: monitoring
+    namespace: openebs
+    valuesFile: values-monitoring.yaml
 resources:
   - resources/sc-local-lvm.yaml
 # Remove this when https://github.com/kubernetes-sigs/kustomize/issues/6058 is fixed

@@ -31,7 +31,8 @@ type Component = HelmComponent;
 
 const helmApp = (
   name: string,
-  extra: Omit<HelmComponent, "name" | "type" | "sourcePath"> = {},
+  extra: Omit<HelmComponent, "name" | "type" | "sourcePath"> &
+    Pick<Partial<HelmComponent>, "name" | "type" | "sourcePath"> = {},
 ): HelmComponent =>
   Object.assign(
     { name, type: "helm" as const, sourcePath: `../../apps/${name}` },
@@ -59,6 +60,12 @@ const components: Component[] = [
   helmApp("kubevirt"),
   helmApp("openebs", {
     releaseNotes: "https://github.com/openebs/openebs/releases",
+    releaseName: "openebs",
+  }),
+  helmApp("openebs", {
+    releaseNotes: "https://github.com/openebs/monitoring/releases",
+    releaseName: "monitoring",
+    name: "openebs-monitoring",
   }),
   helmApp("postgres", {
     releaseNotes: "https://github.com/cloudnative-pg/cloudnative-pg/releases",

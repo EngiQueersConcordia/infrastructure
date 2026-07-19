@@ -1,0 +1,15 @@
+kube-prometheus-stack:
+  install: false
+
+localpv-provisioner:
+  enabled: false
+
+openebsMonitoringAddon:
+  volume:
+    enabled: true
+
+  zfsLocalPV:
+    enabled: false
+
+  mayastor:
+    enabled: false
