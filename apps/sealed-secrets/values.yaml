@@ -1,3 +1,9 @@
 fullnameOverride: sealed-secrets-controller
 networkPolicy:
   enabled: true
+
+metrics:
+  serviceMonitor:
+    enabled: true
+  dashboards:
+    create: true
