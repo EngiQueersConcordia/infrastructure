@@ -1,0 +1,23 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: custom-rules
+  namespace: openebs
+spec:
+  groups:
+    - name: lvm-pool
+      rules:
+        - alert: LVMPVCLogicalVolumeUnused
+          annotations:
+            description: >-
+              Logical Volume '{{ $labels.name }}' is no longer bound to any persistent volume claim
+            summary: >-
+              Logical Volume '{{ $labels.name }}' is no longer bound to any persistent volume claim. It should be 
+              deleted from the volume group '{{ $labels.vg }}' if it is no longer needed.
+          expr: >-
+            label_replace(lvm_lv_health_status{name=~"^pvc-.*"}, "volumename", "$1", "name", "(.*)")
+            unless on (volumename)
+            count by (volumename) (kube_persistentvolumeclaim_info) >= 0
+          for: 5m
+          labels:
+            severity: warning

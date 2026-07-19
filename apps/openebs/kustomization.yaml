@@ -15,6 +15,7 @@ helmCharts:
 resources:
   - resources/sc-local-lvm.yaml
   - resources/netpol.yaml
+  - resources/rules.yaml
 # Remove this when https://github.com/kubernetes-sigs/kustomize/issues/6058 is fixed
 patches:
   - patch: |-
