@@ -1,0 +1,18 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  namespace: openebs
+  name: lvm-metrics
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s:name: openebs-lvm-node
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: prometheus-stack
+            k8s:app.kubernetes.io/name: prometheus
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "9500"
