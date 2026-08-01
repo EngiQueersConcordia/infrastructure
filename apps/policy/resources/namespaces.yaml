@@ -117,3 +117,11 @@ metadata:
   labels:
     policy.engiqueers/domain: "internal"
     pod-security.kubernetes.io/enforce: restricted
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: xonotic
+  labels:
+    policy.engiqueers/domain: "internal"
+    pod-security.kubernetes.io/enforce: restricted
