@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app.kubernetes.io/instance: xonotic
+    app.kubernetes.io/name: xonotic
+  name: xonotic
+  namespace: xonotic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: xonotic
+      app.kubernetes.io/name: xonotic
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: xonotic
+        app.kubernetes.io/name: xonotic
+    spec:
+      containers:
+        - name: xonotic
+          image: ghcr.io/ich777/xonotic:latest@sha256:55c1f415c7a16e7379ca4c1131e53c5334f6e7d1bd6d829d5406cad26c5c777b
+          imagePullPolicy: IfNotPresent
+          command: [ "/opt/scripts/start-server.sh" ]
+          env:
+            - name: GAME_VERSION
+              value: __GAME_VERSION__
+            - name: UID
+              value: "1000"
+            - name: GID
+              value: "1000"
+          ports:
+            - containerPort: 26000
+              name: xonotic
+              protocol: UDP
+          livenessProbe:
+            tcpSocket:
+              port: 26000
+          readinessProbe:
+            tcpSocket:
+              port: 26000
+          startupProbe:
+            failureThreshold: 12
+            tcpSocket:
+              port: 26000
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            runAsGroup: 1000
+            runAsNonRoot: true
+            runAsUser: 1000
+            seccompProfile:
+              type: RuntimeDefault
+      securityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch

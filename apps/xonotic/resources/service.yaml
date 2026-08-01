@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/instance: xonotic
+    app.kubernetes.io/name: xonotic
+  name: xonotic
+  namespace: xonotic
+spec:
+  selector:
+    app.kubernetes.io/instance: xonotic
+    app.kubernetes.io/name: xonotic
+  type: LoadBalancer
+  ports:
+    - port: 26000
+      name: xonotic
+      protocol: UDP
+      targetPort: 26000

@@ -1,0 +1,12 @@
+namespace: xonotic
+resources:
+  - resources/service.yaml
+  - resources/statefulset.yaml
+replacements:
+  - sourceValue: "0.8.6" # Game version to use
+    targets:
+    - select:
+        name: xonotic
+        kind: StatefulSet
+      fieldPaths:
+        - spec.template.spec.containers.[name=xonotic].env.[name=GAME_VERSION].value
