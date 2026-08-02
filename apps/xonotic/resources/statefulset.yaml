@@ -26,6 +26,12 @@ spec:
             - containerPort: 26000
               name: xonotic
               protocol: UDP
+          volumeMounts:
+            - mountPath: /app/.xonotic
+              name: xonotic-data
+            - mountPath: /app/.xonotic/data/server.cfg
+              name: xonotic-config
+              subPath: server.cfg
           livenessProbe:
             tcpSocket:
               port: 26000
@@ -49,3 +55,10 @@ spec:
       securityContext:
         fsGroup: 1000
         fsGroupChangePolicy: OnRootMismatch
+      volumes:
+        - name: xonotic-data
+          persistentVolumeClaim:
+            claimName: xonotic
+        - name: xonotic-config
+          configMap:
+            name: xonotic
