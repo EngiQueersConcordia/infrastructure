@@ -1,0 +1,11 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: xonotic
+  namespace: xonotic
+spec:
+  ingress:
+    - toPorts:
+        - ports:
+            - protocol: UDP
+              port: 26000

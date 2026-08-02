@@ -1,6 +1,7 @@
 namespace: xonotic
 resources:
   - resources/configmap.yaml
+  - resources/netpol.yaml
   - resources/pvc.yaml
   - resources/service.yaml
   - resources/statefulset.yaml
