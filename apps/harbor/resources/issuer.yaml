@@ -16,8 +16,8 @@ spec:
   commonName: harbor-token-ca
   secretName: harbor-token-ca
   privateKey:
-    algorithm: ECDSA
-    size: 256
+    algorithm: RSA
+    size: 4096
   issuerRef:
     name: selfsigned-issuer
     kind: Issuer
