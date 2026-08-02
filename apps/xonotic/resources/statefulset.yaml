@@ -20,16 +20,8 @@ spec:
     spec:
       containers:
         - name: xonotic
-          image: ghcr.io/ich777/xonotic:latest@sha256:55c1f415c7a16e7379ca4c1131e53c5334f6e7d1bd6d829d5406cad26c5c777b
+          image: harbor.engiqueersconcordia.ca/xonotic/xonotic:PLACEHOLDER
           imagePullPolicy: IfNotPresent
-          command: [ "/opt/scripts/start-server.sh" ]
-          env:
-            - name: GAME_VERSION
-              value: __GAME_VERSION__
-            - name: UID
-              value: "1000"
-            - name: GID
-              value: "1000"
           ports:
             - containerPort: 26000
               name: xonotic

@@ -2,11 +2,6 @@ namespace: xonotic
 resources:
   - resources/service.yaml
   - resources/statefulset.yaml
-replacements:
-  - sourceValue: "0.8.6" # Game version to use
-    targets:
-    - select:
-        name: xonotic
-        kind: StatefulSet
-      fieldPaths:
-        - spec.template.spec.containers.[name=xonotic].env.[name=GAME_VERSION].value
+images:
+  - name: harbor.engiqueersconcordia.ca/xonotic/xonotic
+    digest: sha256:67300fea666199807ad1eeb39aca67f753227f3ee33a0e8de1d78e2850a573f7
