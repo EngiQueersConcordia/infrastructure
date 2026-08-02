@@ -4,8 +4,12 @@ metadata:
   name: xonotic
   namespace: xonotic
 spec:
+  endpointSelector:
+    matchLabels:
+      k8s:app.kubernetes.io/name: xonotic
+      k8s:app.kubernetes.io/instance: xonotic
   ingress:
     - toPorts:
         - ports:
             - protocol: UDP
-              port: 26000
+              port: "26000"
