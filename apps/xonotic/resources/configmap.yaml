@@ -248,3 +248,5 @@ data:
     //g_nix_with_healtharmor is "0" ["0"] when 1, health and armor still show up in NIX
     //g_nix_with_blaster is "0" ["0"] always carry the blaster as an additional weapon in NIX
     //g_nix_with_powerups is "0" ["0"] when 1, powerups still show up in NIX
+
+    exec secret.cfg

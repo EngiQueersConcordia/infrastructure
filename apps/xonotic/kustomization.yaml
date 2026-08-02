@@ -3,6 +3,7 @@ resources:
   - resources/configmap.yaml
   - resources/netpol.yaml
   - resources/pvc.yaml
+  - resources/secrets.yaml
   - resources/service.yaml
   - resources/statefulset.yaml
 images:

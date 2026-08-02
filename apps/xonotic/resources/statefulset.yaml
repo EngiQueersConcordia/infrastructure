@@ -32,6 +32,9 @@ spec:
             - mountPath: /app/.xonotic/data/server.cfg
               name: xonotic-config
               subPath: server.cfg
+            - mountPath: /app/.xonotic/data/secret.cfg
+              name: xonotic-secrets
+              subPath: secret.cfg
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
@@ -52,3 +55,6 @@ spec:
         - name: xonotic-config
           configMap:
             name: xonotic
+        - name: xonotic-secrets
+          secret:
+            secretName: xonotic
