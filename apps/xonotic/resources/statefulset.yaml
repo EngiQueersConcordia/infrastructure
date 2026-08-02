@@ -32,16 +32,6 @@ spec:
             - mountPath: /app/.xonotic/data/server.cfg
               name: xonotic-config
               subPath: server.cfg
-          livenessProbe:
-            tcpSocket:
-              port: 26000
-          readinessProbe:
-            tcpSocket:
-              port: 26000
-          startupProbe:
-            failureThreshold: 12
-            tcpSocket:
-              port: 26000
           securityContext:
             allowPrivilegeEscalation: false
             capabilities:
