@@ -81,12 +81,13 @@ alloy:
         }
       
         // Set a default value for the level label
-        stage.static_labels {
-          values = {
-            level = "unknown",
+        stage.match {
+          selector = "{level=\"\"}"
+          stage.static_labels {
+            values = { level = "unknown" }
           }
         }
-        
+      
         // Fill in the level label with the level extracted value
         stage.labels {
           values = {
@@ -97,19 +98,19 @@ alloy:
       
         // Log level based on http status code
         stage.match {
-          selector = "{status=~\"[123][0-9][0-9]\", level=\"\"}"
+          selector = "{status=~\"[123][0-9][0-9]\", level=\"unknown\"}"
           stage.static_labels {
             values = { level = "info" }
           }
         }
         stage.match {
-          selector = "{status=~\"[4][0-9][0-9]\", level=\"\"}"
+          selector = "{status=~\"[4][0-9][0-9]\", level=\"unknown\"}"
           stage.static_labels {
             values = { level = "warning" }
           }
         }
         stage.match {
-          selector = "{status=~\"[5][0-9][0-9]\", level=\"\"}"
+          selector = "{status=~\"[5][0-9][0-9]\", level=\"unknown\"}"
           stage.static_labels {
             values = { level = "error" }
           }
