@@ -19,6 +19,7 @@ loki:
     enable_api: true
   storage:
     type: none
+  auth_enabled: false
 
 deploymentMode: Monolithic
 
