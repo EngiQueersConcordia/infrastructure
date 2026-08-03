@@ -9,7 +9,7 @@ serviceMonitor:
 
 alloy:
   mounts:
-    varlog: true
+    varlog: false
   configMap:
     content: |
       logging {
