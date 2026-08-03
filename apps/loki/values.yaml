@@ -57,6 +57,10 @@ bloomGateway:
 
 networkPolicy:
   enabled: true
+  metrics:
+    namespaceSelector:
+      matchLabels:
+        kubernetes.io/metadata.name: prometheus-stack
   ingress:
     namespaceSelector:
       matchLabels:
