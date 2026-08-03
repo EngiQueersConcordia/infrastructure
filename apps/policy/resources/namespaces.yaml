@@ -132,4 +132,3 @@ metadata:
   name: rustfs
   labels:
     policy.engiqueers/domain: "internal"
-    pod-security.kubernetes.io/enforce: restricted
