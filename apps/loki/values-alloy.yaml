@@ -75,7 +75,7 @@ alloy:
         // Lowercase the extracted value
         stage.template {
             source   = "level"
-            template = "{{ ToLower .Value }}"
+            template = "{{ "{{" }} ToLower .Value {{ "}}" }}"
         }
       
         // Set a default value for the level label
