@@ -91,6 +91,7 @@ alloy:
         stage.labels {
           values = {
             level  = "",
+            status = "",
           }
         }
       
