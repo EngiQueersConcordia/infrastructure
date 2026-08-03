@@ -1,3 +1,4 @@
+namespace: loki
 helmCharts:
   - name: loki
     repo: https://grafana-community.github.io/helm-charts
