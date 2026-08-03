@@ -79,6 +79,20 @@ gateway:
     enabled: false
     existingSecret: secrets
 
+  nginxConfig:
+    logFormat: |-
+      main escape=json '{'
+        '"time_local":"$time_local",'
+        '"remote_addr":"$remote_addr",'
+        '"request_method":"$request_method",'
+        '"request_uri":"$request_uri",'
+        '"status":"$status",'
+        '"body_bytes_sent":"$body_bytes_sent",'
+        '"request_time":"$request_time",'
+        '"http_referrer":"$http_referer",'
+        '"http_user_agent":"$http_user_agent",'
+        '"http_x_forwarded_for":"$http_x_forwarded_for"'
+      '}';
 
 monitoring:
   dashboards:
@@ -92,4 +106,5 @@ monitoring:
 
   serviceMonitor:
     enabled: true
+
 
