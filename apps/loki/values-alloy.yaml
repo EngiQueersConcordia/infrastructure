@@ -91,6 +91,32 @@ alloy:
             level  = "",
           }
         }
+      
+        // Normalize log levels
+        stage.match {
+          selector = "{level=\"dbg\"}"
+          stage.static_labels {
+            values = { level = "debug" }
+          }
+        }
+        stage.match {
+          selector = "{level=\"inf\"}"
+          stage.static_labels {
+            values = { level = "info" }
+          }
+        }
+        stage.match {
+          selector = "{level=~\"(warn|wrn)\"}"
+          stage.static_labels {
+            values = { level = "warning" }
+          }
+        }
+        stage.match {
+          selector = "{level=\"err\"}"
+          stage.static_labels {
+            values = { level = "error" }
+          }
+        }
         
         // Drop high cardinality labels to structured metadata
         stage.structured_metadata {
