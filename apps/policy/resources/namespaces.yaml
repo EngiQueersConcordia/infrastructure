@@ -125,3 +125,11 @@ metadata:
   labels:
     policy.engiqueers/domain: "internal"
     pod-security.kubernetes.io/enforce: restricted
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: rustfs
+  labels:
+    policy.engiqueers/domain: "internal"
+    pod-security.kubernetes.io/enforce: restricted

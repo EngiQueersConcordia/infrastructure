@@ -1,3 +1,4 @@
+namespace: rustfs
 helmCharts:
   - name: rustfs
     repo: https://charts.rustfs.com
