@@ -64,11 +64,13 @@ alloy:
         stage.json {
           expressions = { 
             level = "",
+            status = "",
           }
         }
         stage.logfmt {
           mapping = {
             "level" = "",
+            "status" = "",
           }
         }
       
