@@ -17,6 +17,8 @@ loki:
     volume_enabled: true
   rulerConfig:
     enable_api: true
+  storage:
+    type: none
 
 deploymentMode: Monolithic
 
@@ -81,3 +83,4 @@ monitoring:
 
   serviceMonitor:
     enabled: true
+
