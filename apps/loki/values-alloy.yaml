@@ -61,10 +61,13 @@ alloy:
         forward_to = [loki.write.endpoint.receiver]
         
         stage.structured_metadata {
+          regex = "pod_.*"   // Adds all extracted values starting with 'pod_' to structured metadata.
+        }
+        
+        stage.structured_metadata {
           values = {
             instance = ""
           }
-          regex = "pod_.*"   // Adds all extracted values starting with 'pod_' to structured metadata.
         }
       }
 
