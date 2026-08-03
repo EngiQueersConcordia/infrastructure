@@ -61,14 +61,14 @@ networkPolicy:
 gateway:
   route:
     main:
-      enabled: true
+      enabled: false
       hostname: loki.engiqueersconcordia.ca
       parentRefs:
         - name: engiqueers
           namespace: ingress
 
   basicAuth:
-    enabled: true
+    enabled: false
     existingSecret: secrets
 
 
