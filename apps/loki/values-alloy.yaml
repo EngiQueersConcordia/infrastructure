@@ -60,24 +60,39 @@ alloy:
       loki.process "process" {
         forward_to = [loki.write.endpoint.receiver]
         
+        // Extract log level from json or logfmt
         stage.json {
           expressions = { 
             level = "",
           }
         }
-   
         stage.logfmt {
           mapping = {
             "level" = "",
           }
         }
       
+        // Lowercase the extracted value
+        stage.template {
+            source   = "level"
+            template = "{{ ToLower .Value }}"
+        }
+      
+        // Set a default value for the level label
+        stage.static_labels {
+          values = {
+            level = "unknown",
+          }
+        }
+        
+        // Fill in the level label with the level extracted value
         stage.labels {
           values = {
             level  = "",
           }
         }
         
+        // Drop high cardinality labels to structured metadata
         stage.structured_metadata {
           values = {
             instance = "",
