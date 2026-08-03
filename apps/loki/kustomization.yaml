@@ -10,7 +10,7 @@ helmCharts:
     repo: https://grafana.github.io/helm-charts
     version: 1.11.0
     releaseName: alloy
-    namespace: alloy
+    namespace: loki
     valuesFile: values-alloy.yaml
 
 resources:

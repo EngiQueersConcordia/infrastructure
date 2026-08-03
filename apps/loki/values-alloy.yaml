@@ -32,7 +32,7 @@ alloy:
 
       loki.write "endpoint" {
         endpoint {
-            url = "http://loki-gateway.loki.svc.cluster.local:80/loki/api/v1/push"
+            url = "http://loki-gateway:80/loki/api/v1/push"
             tenant_id = "local"
         }
       }
