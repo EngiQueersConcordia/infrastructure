@@ -71,6 +71,12 @@ alloy:
             "level" = "",
           }
         }
+      
+        stage.labels {
+          values = {
+            level  = "",
+          }
+        }
         
         stage.structured_metadata {
           values = {
