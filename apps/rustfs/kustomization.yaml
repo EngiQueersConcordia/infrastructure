@@ -7,4 +7,5 @@ helmCharts:
     namespace: rustfs
     valuesFile: values.yaml
 resources:
+  - resources/httproute.yaml
   - resources/secrets.yaml

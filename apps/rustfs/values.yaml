@@ -15,12 +15,7 @@ ingress:
   enabled: false
 
 gatewayApi:
-  enabled: true
-  gatewayClass: contour # should be mostly compatible
-  hostname: rustfs.engiqueersconcordia.ca
-  existingGateway:
-    name: engiqueers
-    namespace: ingress
+  enabled: false
 
 storageClass:
   name: local-lvm
