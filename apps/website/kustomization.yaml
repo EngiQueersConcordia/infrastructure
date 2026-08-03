@@ -7,7 +7,7 @@ helmCharts:
 
 images:
   - name: harbor.engiqueersconcordia.ca/website/website
-    digest: sha256:d77ad79f93b7e0b7e3878184af8fcda974a4d5630103ffaf65ec09e920a0ba8c
+    digest: sha256:3f3e6c9069df638f67cf4d6c623ca6a6fa15b024ac036a306a1c00f17ae7441d
 
 helmGlobals:
   chartHome: local-charts
