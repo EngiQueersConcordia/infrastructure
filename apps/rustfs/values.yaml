@@ -24,8 +24,8 @@ gatewayApi:
 
 storageClass:
   name: local-lvm
-  dataStorageSize: 512Mi
-  logStorageSize: 512Mi
+  dataStorageSize: 30Gi
+  logStorageSize: 5Gi
 
 config:
   rustfs:
