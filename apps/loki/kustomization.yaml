@@ -14,4 +14,5 @@ helmCharts:
     valuesFile: values-alloy.yaml
 
 resources:
+  - resources/alloy-netpol.yaml
   - resources/secrets.yaml

@@ -1,9 +1,3 @@
-networkPolicy:
-  enabled: true
-  flavor: cilium
-  policyTypes:
-    - Ingress
-
 serviceMonitor:
   enabled: true
 
