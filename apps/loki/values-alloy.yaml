@@ -60,6 +60,18 @@ alloy:
       loki.process "process" {
         forward_to = [loki.write.endpoint.receiver]
         
+        stage.json {
+          expressions = { 
+            level = "",
+          }
+        }
+   
+        stage.logfmt {
+          mapping = {
+            "level" = "",
+          }
+        }
+        
         stage.structured_metadata {
           values = {
             instance = "",
