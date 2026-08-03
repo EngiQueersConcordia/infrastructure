@@ -18,17 +18,52 @@ alloy:
       discovery.kubernetes "pods" {
         role = "pod"
       }
+      
+      discovery.relabel "pods" {
+        targets    = discovery.kubernetes.pods.targets
+      
+        rule {
+          source_labels = ["__meta_kubernetes_namespace"]
+          target_label  = "namespace"
+        }
+        rule {
+          source_labels = ["__meta_kubernetes_pod_container_name"]
+          target_label  = "container"
+        }
+        rule {
+          source_labels = ["__meta_kubernetes_pod_node_name"]
+          target_label  = "node_name"
+        }
+        rule {
+          source_labels = ["__meta_kubernetes_pod_label_app_kubernetes_io_name"]
+          target_label  = "app"
+        }
+        rule {
+          source_labels = ["__meta_kubernetes_pod_ip"]
+          target_label  = "pod_ip"
+        }
+        rule {
+          source_labels = ["__meta_kubernetes_pod_name"]
+          target_label  = "pod_name"
+        }
+      }
 
       loki.source.kubernetes "pods" {
-        targets    = discovery.kubernetes.pods.targets
-        forward_to = [loki.write.endpoint.receiver]
+        targets    = discovery.relabel.pods.output
+        forward_to = [loki.process.process.receiver]
       }
       
       loki.source.kubernetes_events "events" {
-        forward_to = [loki.write.endpoint.receiver]
+        forward_to = [loki.process.process.receiver]
       }
       
-      
+      loki.process "process" {
+        forward_to = [loki.write.endpoint.receiver]
+        
+        stage.structured_metadata {
+          regex = "pod_.*"   // Adds all extracted values starting with 'pod_' to structured metadata.
+        }
+      }
 
       loki.write "endpoint" {
         endpoint {
