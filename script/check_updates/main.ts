@@ -58,6 +58,7 @@ const components: Component[] = [
   }),
   helmApp("ingress-mc"),
   helmApp("kubevirt"),
+  helmApp("loki"),
   helmApp("openebs", {
     releaseNotes: "https://github.com/openebs/openebs/releases",
     releaseName: "openebs",

@@ -132,3 +132,10 @@ metadata:
   name: rustfs
   labels:
     policy.engiqueers/domain: "internal"
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: loki
+  labels:
+    policy.engiqueers/domain: "internal"
