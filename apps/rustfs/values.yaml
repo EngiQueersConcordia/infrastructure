@@ -17,7 +17,7 @@ ingress:
 gatewayApi:
   enabled: false
 
-storageClass:
+storageclass:
   name: local-lvm
   dataStorageSize: 30Gi
   logStorageSize: 5Gi
