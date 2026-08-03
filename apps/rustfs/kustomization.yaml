@@ -1,0 +1,9 @@
+helmCharts:
+  - name: rustfs
+    repo: https://charts.rustfs.com
+    version: "0.12.0"
+    releaseName: rustfs
+    namespace: rustfs
+    valuesFile: values.yaml
+resources:
+  - resources/secrets.yaml

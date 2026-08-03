@@ -71,6 +71,7 @@ const components: Component[] = [
     releaseNotes: "https://github.com/cloudnative-pg/cloudnative-pg/releases",
   }),
   helmApp("prometheus-stack"),
+  helmApp("rustfs"),
   helmApp("sealed-secrets", {
     releaseNotes: "https://github.com/bitnami/sealed-secrets/releases",
   }),

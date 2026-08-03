@@ -1,0 +1,32 @@
+replicaCount: 1
+
+drivesPerNode: 1
+
+mode:
+  standalone:
+    enabled: true
+  distributed:
+    enabled: false
+
+secret:
+  existingSecret: secrets
+
+ingress:
+  enabled: false
+
+gatewayApi:
+  enabled: true
+  gatewayClass: contour # should be mostly compatible
+  hostname: rustfs.engiqueersconcordia.ca
+  existingGateway:
+    name: engiqueers
+    namespace: ingress
+
+storageClass:
+  name: local-lvm
+  dataStorageSize: 512Mi
+  logStorageSize: 512Mi
+
+config:
+  rustfs:
+    obs_environment: "production"
