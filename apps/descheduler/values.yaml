@@ -23,3 +23,25 @@ deschedulerPolicy:
         deschedule:
           enabled:
             - "RemoveFailedPods"
+    - name: high-usage
+      pluginConfig:
+        - name: "DefaultEvictor"
+          args:
+            podProtections:
+              defaultDisabled:
+                - PodsWithLocalStorage
+              extraEnabled:
+                - PodsWithPVC
+        - name: "HighNodeUtilization"
+          args:
+            thresholds:
+              "cpu": 60
+              "memory": 60
+              "pods": 60
+            evictableNamespaces:
+              exclude:
+                - "kube-system"
+      plugins:
+        balance:
+          enabled:
+            - "HighNodeUtilization"
