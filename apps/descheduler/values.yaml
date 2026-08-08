@@ -1,4 +1,6 @@
 deschedulerPolicy:
+  metricsProviders:
+    - source: KubernetesMetrics
   profiles:
     - name: default
       pluginConfig:
@@ -23,7 +25,7 @@ deschedulerPolicy:
         deschedule:
           enabled:
             - "RemoveFailedPods"
-    - name: high-usage
+    - name: low-usage
       pluginConfig:
         - name: "DefaultEvictor"
           args:
@@ -32,16 +34,19 @@ deschedulerPolicy:
                 - PodsWithLocalStorage
               extraEnabled:
                 - PodsWithPVC
-        - name: "HighNodeUtilization"
+        - name: "LowNodeUtilization"
           args:
             thresholds:
-              "cpu": 60
+              "cpu" : 40
+              "memory": 40
+              "pods": 40
+            targetThresholds:
+              "cpu" : 60
               "memory": 60
               "pods": 60
-            evictableNamespaces:
-              exclude:
-                - "kube-system"
+            evictionLimits:
+              node: 5
       plugins:
         balance:
           enabled:
-            - "HighNodeUtilization"
+            - "LowNodeUtilization"
