@@ -141,6 +141,8 @@ the use of Google accounts to log in due to usability concerns with passkeys on 
 
 
 ## Deployment software
+This is software that helps us turn a git repository into software actually running on our cluster
+
 
 ### ArgoCD
 ArgoCD is a standard tool that monitors one or more git repositories for k8s manifests and automatically handles the 
@@ -157,6 +159,8 @@ reboots.
 
 
 ## Application software
+This is software that serves a direct purpose intended for use by human beings.
+
 
 ### Headlamp
 Graphical web interface to visualize, explore and modify k8s resources instead of using command line tools.
@@ -228,3 +232,13 @@ will detect the situation and trigger a notification so that we may review what 
 ### Grafana
 Grafana is a general-purpose dashboard for data visualization. Currently, we use it to graph out Prometheus metrics 
 over time and display Loki logs.
+
+
+# Networking
+Networking is generally handled by cilium to give us a flat virtual network where everything can talk to everything 
+internally (provided that firewall rules permit it). Cilium also ensures that if an incoming connection to ENA wants 
+to talk to a pod running on Jenny, the connection will be internally forwarded to Jenny through the Concordia network.
+
+To be able to communicate between ENA and Jenny through the Concordia NAT'd network, a Wireguard tunnel is 
+established between the two machines. Manual static routes have been configured to enable routing from one node to 
+the other via that tunnel. All internal k8s components also communicate over that tunnel. 
