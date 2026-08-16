@@ -6,6 +6,7 @@ config:
     externalSecret:
       enabled: true
       name: headlamp-secrets
+      hasScopes: true
 
 httpRoute:
   enabled: true
