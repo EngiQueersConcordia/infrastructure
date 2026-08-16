@@ -1,0 +1,1 @@
+- Add healthcheck on argocd-dex-server for when port 5556 isn't listening (for example when it starts before the oidc server)

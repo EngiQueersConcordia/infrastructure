@@ -6,6 +6,13 @@ The following software should be kept up to date:
 See https://docs.siderolabs.com/talos/latest/configure-your-talos-cluster/lifecycle-management/upgrading-talos for 
 instructions. You should upgrade to the latest patch release before upgrading to the next major release. Update the
 value in script/.config
+
+### Upgrade instructions
+1. Find the latest version at https://github.com/siderolabs/talos/releases
+2. Update TALOS_VERSION in script/.config
+3. Run `script/upgrade_talos.sh`.
+   1. When it's upgrading jenny, make sure to run the manual openebs unmount command in known_issues.md 
+
 ## Kubernetes
 Kubernetes is updated independantly of Talos. See https://docs.siderolabs.com/kubernetes-guides/advanced-guides/upgrading-kubernetes
 for instructions. Update the value in script/.config
