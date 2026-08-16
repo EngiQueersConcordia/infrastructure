@@ -116,6 +116,15 @@ prometheus:
     enabled: true
     flavor: cilium
   prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-lvm
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
+
     retention: 30d
 
     ruleNamespaceSelector:
