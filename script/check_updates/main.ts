@@ -64,6 +64,7 @@ const components: Component[] = [
     releaseNotes: "https://github.com/kubernetes-sigs/headlamp/releases",
   }),
   helmApp("ingress-mc"),
+  helmApp("jupyterhub"),
   helmApp("kubevirt"),
   helmApp("loki", {
     releaseName: "loki",

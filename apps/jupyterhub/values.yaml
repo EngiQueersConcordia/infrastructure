@@ -1,0 +1,111 @@
+hub:
+  config:
+    JupyterHub:
+      subdomain_host: jupyter.engiqueersconcordia.ca
+      authenticator_class: generic-oauth
+    ConfigurableHTTPProxy:
+      auth_token: "NOT_A_SECRET"
+    CryptKeeper:
+      keys: "NOT_A_SECRET"
+
+    GenericOAuthenticator:
+      client_id: fMP33XhmnPoquRci7aJq1X0piGMg1GgxfNblDkpB
+      oauth_callback_url: https://jupyter.engiqueersconcordia.ca/hub/oauth_callback
+      authorize_url: https://auth.engiqueersconcordia.ca/application/o/authorize/
+      token_url: https://auth.engiqueersconcordia.ca/application/o/token/
+      userdata_url: https://auth.engiqueersconcordia.ca/application/o/userinfo/
+      auto_login: true
+      login_service: OIDC
+      manage_groups: true
+      scope:
+        - profile
+        - email
+        - openid
+      auth_state_groups_key: groups
+      enable_auth_state: true
+      username_claim: preferred_username
+      userdata_params:
+        state: state
+      allow_all: true
+      admin_groups:
+        - jupyter-admin
+
+  cookieSecret: "NOT_A_SECRET"
+
+  networkPolicy:
+    egressAllowRules:
+      cloudMetadataServer: false
+      dnsPortsCloudMetadataServer: false
+      dnsPortsPrivateIPs: false
+      nonPrivateIPs: false
+      privateIPs: false
+
+  db:
+    type: "postgres"
+    url: "postgresql+psycopg2://app@jupyterhub-db-rw:5432/app"
+    upgrade: true
+
+  existingSecret: "jupyterhub-secrets"
+
+proxy:
+  chp:
+    networkPolicy:
+      egressAllowRules:
+        cloudMetadataServer: false
+        dnsPortsCloudMetadataServer: false
+        dnsPortsPrivateIPs: false
+        nonPrivateIPs: false
+        privateIPs: false
+
+  service:
+    type: ClusterIP
+    nodePorts:
+      http: null
+      https: null
+    externalIPs: null
+    loadBalancerIP: null
+    loadBalancerSourceRanges: null
+    ipFamilyPolicy: PreferDualStack
+    ipFamilies: null
+
+singleuser:
+  networkPolicy:
+    egressAllowRules:
+      cloudMetadataServer: false
+      dnsPortsCloudMetadataServer: false
+      dnsPortsPrivateIPs: false
+      nonPrivateIPs: false
+      privateIPs: false
+  cpu:
+    limit: 4
+    guarantee: 1
+  memory:
+    limit: "4G"
+    guarantee: "1G"
+
+  storage:
+    capacity: 10Gi
+
+scheduling:
+  userPlaceholder:
+    enabled: false
+  userScheduler:
+    enabled: false
+
+httpRoute:
+  enabled: true
+  hostnames:
+    - "*.jupyter.engiqueersconcordia.ca"
+    - "jupyter.engiqueersconcordia.ca"
+  gateway:
+    name: "engiqueers"
+    namespace: "ingress"
+
+prePuller:
+  hook:
+    enabled: false
+  continuous:
+    enabled: false
+
+cull:
+  timeout: 3500 # 1 hour

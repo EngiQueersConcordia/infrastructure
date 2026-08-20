@@ -1,0 +1,69 @@
+namespace: jupyterhub
+helmCharts:
+  - name: jupyterhub
+    repo: https://hub.jupyter.org/helm-chart/
+    version: 4.4.1
+    releaseName: jupyterhub
+    namespace: jupyterhub
+    valuesFile: values.yaml
+resources:
+  - resources/cluster.yaml
+  - resources/db-secrets.yaml
+  - resources/secrets.yaml
+patches:
+  # All of this is to use an existing secret instead of the chart one, because python devs have brain damage
+  - target:
+      kind: Secret
+      name: hub
+    patch: |-
+      - op: remove
+        path: /data/hub.config.ConfigurableHTTPProxy.auth_token
+      - op: remove
+        path: /data/hub.config.CryptKeeper.keys
+      - op: remove
+        path: /data/hub.config.JupyterHub.cookie_secret
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: proxy
+      spec:
+        template:
+          spec:
+            containers:
+              - name: chp
+                env:
+                  - name: CONFIGPROXY_AUTH_TOKEN
+                    valueFrom:
+                      secretKeyRef:
+                        name: jupyterhub-secrets
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: hub
+      spec:
+        template:
+          spec:
+            containers:
+              - name: hub
+                env:
+                  - name: CONFIGPROXY_AUTH_TOKEN
+                    valueFrom:
+                      secretKeyRef:
+                        name: jupyterhub-secrets
+# Different namespace for user pods
+  - patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: hub
+      spec:
+        template:
+          spec:
+            containers:
+              - name: hub
+                env:
+                  - name: POD_NAMESPACE
+                    value: jupyter-user
+                    valueFrom: null
