@@ -65,5 +65,5 @@ patches:
               - name: hub
                 env:
                   - name: POD_NAMESPACE
-                    value: jupyter-user
+                    value: jupyterhub-user
                     valueFrom: null

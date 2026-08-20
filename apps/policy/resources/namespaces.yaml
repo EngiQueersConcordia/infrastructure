@@ -143,14 +143,14 @@ metadata:
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: jupyter
+  name: jupyterhub
   labels:
     policy.engiqueers/domain: "internal"
 ---
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: jupyter-user
+  name: jupyterhub-user
   labels:
     policy.engiqueers/domain: "user"
     pod-security.kubernetes.io/enforce: restricted
