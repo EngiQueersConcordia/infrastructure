@@ -1,7 +1,0 @@
-rconWeb:
-  passwordExistingSecret: test-mc-secrets
-  passwordKey: web-rcon-password
-  rconPasswordExistingSecret: test-mc-secrets
-  isAdmin: true
-  rconHost: test-mc-minecraft-0
-  rconPort: 25575

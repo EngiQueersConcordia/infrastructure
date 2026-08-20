@@ -12,10 +12,6 @@ minecraftServer:
 
   memory: 4G
 
-  rcon:
-    enabled: true
-    existingSecret: "test-mc-secrets"
-
 workloadAsStatefulSet: true
 strategyType: RollingUpdate
 serviceAnnotations:

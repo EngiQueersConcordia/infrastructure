@@ -6,9 +6,9 @@ cd "$(dirname "$0")/.."
 
 readarray -t files < <(grep "^sops:" -Ri --files-with-matches | sort)
 
-echo "SOPS_FILES=(" > script/.config
+echo "SOPS_FILES=("
 for file in "${files[@]}"; do
   :
-  echo "  '$file'" >> script/.config
+  echo "  '$file'"
 done
-echo ")" >> script/.config
+echo ")"
