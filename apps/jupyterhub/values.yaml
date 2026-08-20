@@ -1,7 +1,8 @@
 hub:
   extraConfig:
-    myConfig.py: |
-      print(c)
+    secrets.py: |
+      with open("/usr/local/etc/jupyterhub/existing-secret/hub.config.GenericOAuthenticator.client_secret", "r", encoding="utf-8") as file:
+          c.GenericOAuthenticator.client_secret = file.read()
   config:
     JupyterHub:
       subdomain_host: jupyter.engiqueersconcordia.ca
