@@ -13,4 +13,4 @@ spec:
   bootstrap:
     initdb:
       secret:
-        name:
+        name: db-secrets
