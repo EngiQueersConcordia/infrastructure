@@ -10,6 +10,7 @@ resources:
   - resources/cluster.yaml
   - resources/db-secrets.yaml
   - resources/secrets.yaml
+  - resources/netpol.yaml
 patches:
   # All of this is to use an existing secret instead of the chart one, because python devs have brain damage
   - target:

@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: jupyterhub-db
+  namespace: jupyterhub
+spec:
+  podSelector:
+    matchLabels:
+      cnpg.io/cluster: jupyterhub-db
+  ingress:
+    - ports:
+        - port: postgresql
+      from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/component: hub
+              app.kubernetes.io/instance: jupyterhub
