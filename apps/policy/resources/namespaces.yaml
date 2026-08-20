@@ -139,3 +139,18 @@ metadata:
   name: loki
   labels:
     policy.engiqueers/domain: "internal"
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: jupyter
+  labels:
+    policy.engiqueers/domain: "internal"
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: jupyter-user
+  labels:
+    policy.engiqueers/domain: "user"
+    pod-security.kubernetes.io/enforce: restricted
