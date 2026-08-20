@@ -1,4 +1,7 @@
 hub:
+  extraConfig:
+    myConfig.py: |
+      print(c)
   config:
     JupyterHub:
       subdomain_host: jupyter.engiqueersconcordia.ca
