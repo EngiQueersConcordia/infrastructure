@@ -3,18 +3,18 @@
 ## Jenny
 Self-operated server in B annex. Storage node and large compute node.
 
-Model: PowerEdge R720xd
-CPU: 80 cores @ 3.30 GHz (2 x Intel® Xeon® E5-2670 v2 (40))
-Memory: 125.80 GiB (8 x Samsung 16GB DDR3-1600MHz ECC Registered RDIMM)
-Disk: 931 GiB RAID 1 (2 x WD Blue SA510 2.5 1000GB)
+- Model: PowerEdge R720xd
+- CPU: 80 cores @ 3.30 GHz (2 x Intel® Xeon® E5-2670 v2 (40))
+- Memory: 125.80 GiB (8 x Samsung 16GB DDR3-1600MHz ECC Registered RDIMM)
+- Disk: 931 GiB RAID 1 (2 x WD Blue SA510 2.5 1000GB)
 
 ## ENA
 OVH operated VPS. Mainly used to traverse the concordia network. Also runs a handful of workloads on occasion.
 
-Model: VPS-1 2026 
-CPU: 4 cores @ 3.10 GHz
-Memory: 7.55 GiB
-Disk: 75 GiB
+- Model: VPS-1 2026 
+- CPU: 4 cores @ 3.10 GHz
+- Memory: 7.55 GiB
+- Disk: 75 GiB
 
 
 # Software

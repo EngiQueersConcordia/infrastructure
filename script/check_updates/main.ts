@@ -33,11 +33,18 @@ const helmApp = (
   name: string,
   extra: Omit<HelmComponent, "name" | "type" | "sourcePath"> &
     Pick<Partial<HelmComponent>, "name" | "type" | "sourcePath"> = {},
-): HelmComponent =>
-  Object.assign(
+): HelmComponent => {
+  const comp = Object.assign(
     { name, type: "helm" as const, sourcePath: `../../apps/${name}` },
     extra,
   );
+
+  if (comp.releaseName != null && comp.name !== comp.releaseName) {
+    comp.name = `${comp.name} - ${comp.releaseName}`;
+  }
+
+  return comp;
+};
 const components: Component[] = [
   helmApp("argocd", {
     releaseNotes:
@@ -71,7 +78,6 @@ const components: Component[] = [
   helmApp("openebs", {
     releaseNotes: "https://github.com/openebs/monitoring/releases",
     releaseName: "monitoring",
-    name: "openebs-monitoring",
   }),
   helmApp("postgres", {
     releaseNotes: "https://github.com/cloudnative-pg/cloudnative-pg/releases",
@@ -82,8 +88,6 @@ const components: Component[] = [
     releaseNotes: "https://github.com/bitnami/sealed-secrets/releases",
   }),
   helmApp("test-mc"),
-  helmApp("user-juan"),
-  helmApp("website"),
 ];
 
 const tasks = components.map(async (component) => {
