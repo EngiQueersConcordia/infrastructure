@@ -17,7 +17,7 @@ hub:
           type: RuntimeDefault
 
     JupyterHub:
-      hub_connect_url: https://jupyterhub.engiqueersconcordia.ca
+      hub_connect_url: https://jupyter.engiqueersconcordia.ca
       subdomain_host: jupyter.engiqueersconcordia.ca
       authenticator_class: generic-oauth
     ConfigurableHTTPProxy:
