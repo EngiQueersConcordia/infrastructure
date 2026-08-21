@@ -194,6 +194,12 @@ considering putting in the work to migrate this virtual machine into a normal co
 KubeVirt.
 
 
+### JupyterHub
+JupyterHub is a semi-automated management system for JupyterLab. It allows each user to spin up an isolated python 
+enviroment they can use to run Python code and mess around with it as they wish. Each user gets 10GiB of storage, 4GiB
+of memory and 4 processors worth of compute time. Idle instances are automatically suspended to not waste resources.
+
+
 ## Monitoring software
 This software is used to both ensure the stability of our infrastructure in the event of technical failures and to 
 monitor untrusted workloads we may run on behalf of our members or other parties.
