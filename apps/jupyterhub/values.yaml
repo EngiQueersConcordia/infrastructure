@@ -41,7 +41,7 @@ hub:
         - profile
         - email
         - openid
-      auth_state_groups_key: groups
+      auth_state_groups_key: oauth_user.groups
       enable_auth_state: true
       username_claim: preferred_username
       userdata_params:
