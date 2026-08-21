@@ -73,6 +73,8 @@ proxy:
     ipFamilies: null
 
 singleuser:
+  cloudMetadata:
+    blockWithIptables: false
   networkPolicy:
     egressAllowRules:
       cloudMetadataServer: false
