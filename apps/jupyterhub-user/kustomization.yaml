@@ -1,3 +1,4 @@
+namespace: jupyterhub-user
 resources:
   - resources/rbac.yaml
   - resources/netpol.yaml
