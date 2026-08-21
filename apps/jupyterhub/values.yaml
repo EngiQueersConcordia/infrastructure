@@ -5,7 +5,7 @@ hub:
           c.GenericOAuthenticator.client_secret = file.read()
     url.py: |
       c.JupyterHub.hub_connect_url = (
-          f'http://{get_name("hub")}.jupyter:{get_name_env("hub", "_SERVICE_PORT")}'
+          f'http://{get_name("hub")}.jupyterhub:{get_name_env("hub", "_SERVICE_PORT")}'
       )
   config:
     KubeSpawner:
