@@ -1,11 +1,12 @@
-debug:
-  enabled: true
-
 hub:
   extraConfig:
     secrets.py: |
       with open("/usr/local/etc/jupyterhub/existing-secret/hub.config.GenericOAuthenticator.client_secret", "r", encoding="utf-8") as file:
           c.GenericOAuthenticator.client_secret = file.read()
+    url.py: |
+      c.JupyterHub.hub_connect_url = (
+          f'http://{get_name("hub")}.jupyter:{get_name_env("hub", "_SERVICE_PORT")}'
+      )
   config:
     KubeSpawner:
       container_security_context:
@@ -20,7 +21,6 @@ hub:
           type: RuntimeDefault
 
     JupyterHub:
-      hub_connect_url: https://jupyter.engiqueersconcordia.ca
       subdomain_host: jupyter.engiqueersconcordia.ca
       authenticator_class: generic-oauth
     ConfigurableHTTPProxy:
