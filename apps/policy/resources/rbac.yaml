@@ -7,7 +7,7 @@ metadata:
   namespace: jupyterhub-user
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: CluterRole
+  kind: ClusterRole
   name: jupyterhub
 subjects:
   - kind: ServiceAccount
