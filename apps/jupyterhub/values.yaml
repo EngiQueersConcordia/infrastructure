@@ -4,6 +4,18 @@ hub:
       with open("/usr/local/etc/jupyterhub/existing-secret/hub.config.GenericOAuthenticator.client_secret", "r", encoding="utf-8") as file:
           c.GenericOAuthenticator.client_secret = file.read()
   config:
+    KubeSpawner:
+      container_security_context:
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        runAsGroup: 1000
+        runAsNonRoot: true
+        runAsUser: 1000
+        seccompProfile:
+          type: RuntimeDefault
+
     JupyterHub:
       subdomain_host: jupyter.engiqueersconcordia.ca
       authenticator_class: generic-oauth
