@@ -1,0 +1,61 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  labels:
+    app: jupyterhub
+    app.kubernetes.io/component: singleuser
+    app.kubernetes.io/instance: jupyterhub
+    app.kubernetes.io/name: jupyterhub
+    component: singleuser
+  name: singleuser
+spec:
+  egress:
+    - ports:
+        - port: 8081
+      to:
+        - podSelector:
+            matchLabels:
+              app: jupyterhub
+              component: hub
+              release: jupyterhub
+          namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: jupyterhub
+    - ports:
+        - port: 8000
+      to:
+        - podSelector:
+            matchLabels:
+              app: jupyterhub
+              component: proxy
+              release: jupyterhub
+          namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: jupyterhub
+    - ports:
+        - port: 53
+          protocol: UDP
+        - port: 53
+          protocol: TCP
+      to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              hub.jupyter.org/network-access-singleuser: "true"
+          namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: jupyterhub
+      ports:
+        - port: notebook-port
+  podSelector:
+    matchLabels:
+      app: jupyterhub
+      component: singleuser-server
+      release: jupyterhub
+  policyTypes:
+    - Ingress
+    - Egress
