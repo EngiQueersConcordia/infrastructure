@@ -53,6 +53,13 @@ hub:
   cookieSecret: "NOT_A_SECRET"
 
   networkPolicy:
+    ingress:
+      - from:
+          - namespaceSelector:
+              matchLabels:
+                kubernetes.io/metadata.name: jupyterhub-user
+        ports:
+          - port: http
     egressAllowRules:
       cloudMetadataServer: false
       dnsPortsCloudMetadataServer: false
