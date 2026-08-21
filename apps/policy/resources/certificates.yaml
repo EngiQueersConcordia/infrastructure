@@ -8,6 +8,7 @@ spec:
   dnsNames:
     - "engiqueersconcordia.ca"
     - "*.engiqueersconcordia.ca"
+    - "*.jupyter.engiqueersconcordia.ca"
   issuerRef:
     name: le-dns-engiqueers
     kind: Issuer
