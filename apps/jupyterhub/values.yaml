@@ -1,3 +1,6 @@
+debug:
+  enabled: true
+
 hub:
   extraConfig:
     secrets.py: |
