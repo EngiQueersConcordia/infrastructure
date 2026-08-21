@@ -68,3 +68,23 @@ patches:
                   - name: POD_NAMESPACE
                     value: jupyterhub-user
                     valueFrom: null
+  - target:
+      kind: Role
+      name: hub
+    patch: |-
+      - op: replace
+        path: /kind
+        value: ClusterRole
+      - op: replace
+        path: /metadata/name
+        value: jupyterhub-hub
+  - target:
+      kind: RoleBinding
+      name: hub
+    patch: |-
+      - op: replace
+        path: /roleRef/kind
+        value: ClusterRole
+      - op: replace
+        path: /roleRef/name
+        value: jupyterhub-hub

@@ -11,6 +11,7 @@ resources:
   - resources/issuer.yaml
   - resources/ingress-issuer.yaml
   - resources/certificates.yaml
+  - resources/rbac.yaml
 
 patches:
   - patch: |-
