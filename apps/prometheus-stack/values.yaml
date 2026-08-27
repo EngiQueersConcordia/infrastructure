@@ -18,7 +18,6 @@ alertmanager:
           storageClassName: local-lvm
     alertmanagerConfigMatcherStrategy:
        type: OnNamespaceExceptForAlertmanagerNamespace
-    externalUrl: https://alertmanager.engiqueersconcordia.ca
 
   route:
     main:
