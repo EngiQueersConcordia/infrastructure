@@ -1,13 +1,12 @@
-#helmCharts:
-#  - name: harbor
-#    repo: https://helm.goharbor.io
-#    version: 1.19.2
-#    releaseName: harbor
-#    namespace: harbor
-#    valuesFile: values.yaml
-#resources:
-#  - resources/secrets.yaml
-#  - resources/cluster.yaml
-#  - resources/networkpolicy.yaml
-#  - resources/issuer.yaml
-resources: []
+helmCharts:
+  - name: harbor
+    repo: https://helm.goharbor.io
+    version: 1.19.2
+    releaseName: harbor
+    namespace: harbor
+    valuesFile: values.yaml
+resources:
+  - resources/secrets.yaml
+  - resources/cluster.yaml
+  - resources/networkpolicy.yaml
+  - resources/issuer.yaml
