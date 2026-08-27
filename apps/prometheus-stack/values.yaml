@@ -177,5 +177,30 @@ prometheus:
         policy.engiqueers/domain: "internal"
     scrapeConfigSelectorNilUsesHelmValues: false
 
+  route:
+    main:
+      enabled: true
+
+      hostnames:
+        - "prometheus.engiqueersconcordia.ca"
+      parentRefs:
+        - name: engiqueers
+          namespace: ingress
+
+      filters:
+        - type: ExternalAuth
+          externalAuth:
+            backendRef:
+              name: authentik-server
+              namespace: authentik
+              port: 80
+            protocol: HTTP
+            http:
+              path: /outpost.goauthentik.io/auth/envoy
+              allowedHeaders:
+                - cookie
+              allowedResponseHeaders:
+                - set-cookie
+
 
 cleanPrometheusOperatorObjectNames: true
