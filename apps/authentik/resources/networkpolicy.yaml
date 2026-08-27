@@ -97,10 +97,11 @@ spec:
       k8s:app.kubernetes.io/name: authentik-outpost-ldap
   ingress:
     - toPorts:
-        - protocol: TCP # LDAP
-          port: "389"
-        - protocol: TCP # LDAPS
-          port: "636"
+        - ports:
+          - protocol: TCP # LDAP
+            port: "389"
+          - protocol: TCP # LDAPS
+            port: "636"
 
     - fromEndpoints:
         - matchLabels:
