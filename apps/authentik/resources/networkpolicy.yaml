@@ -99,10 +99,9 @@ spec:
     - toPorts:
         - ports:
           - protocol: TCP # LDAP
-            port: "389"
+            port: "3389"
           - protocol: TCP # LDAPS
-            port: "636"
-
+            port: "6636"
     - fromEndpoints:
         - matchLabels:
             k8s:io.kubernetes.pod.namespace: prometheus-stack
