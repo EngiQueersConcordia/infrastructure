@@ -39,6 +39,13 @@ spec:
         - ports:
             - protocol: TCP
               port: "9300"
+    - fromEntities:
+        - remote-node
+        - host
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "9000"
 ---
 kind: CiliumNetworkPolicy
 apiVersion: cilium.io/v2
