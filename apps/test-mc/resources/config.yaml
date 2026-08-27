@@ -4,6 +4,8 @@ metadata:
   name: test-mc-config
   namespace: test-mc
 data:
+  startup.sh: |
+    trap '' SIGINT # Trap ctl+c for safety
   paper-global.yml: |
     # This is the global configuration file for Paper.
     # As you can see, there's a lot to configure. Some options may impact gameplay, so use
