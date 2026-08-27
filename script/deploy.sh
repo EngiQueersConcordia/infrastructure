@@ -60,9 +60,9 @@ ena)
   talosctl apply-config --nodes ena.engiqueersconcordia.ca --file talos/controlplane.yaml ${patches[@]/#/--config-patch } "${extra_args[@]}"
   ;;
 jenny)
-  patches=("$decrypted_dir"/jenny/*.yaml "$decrypted_dir"/controlplane/*.yaml "$decrypted_dir"/all/*.yaml)
+  patches=("$decrypted_dir"/jenny/*.yaml "$decrypted_dir"/worker/*.yaml "$decrypted_dir"/all/*.yaml)
   # shellcheck disable=SC2068
-  talosctl apply-config --nodes jenny.engiqueersconcordia.ca --file talos/controlplane.yaml ${patches[@]/#/--config-patch } "${extra_args[@]}"
+  talosctl apply-config --nodes jenny.engiqueersconcordia.ca --file talos/worker.yaml ${patches[@]/#/--config-patch } "${extra_args[@]}"
   ;;
 *)
   echo "Unknown host $1"

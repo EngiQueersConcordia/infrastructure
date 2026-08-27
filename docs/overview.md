@@ -9,7 +9,8 @@ Self-operated server in B annex. Storage node and large compute node.
 - Disk: 931 GiB RAID 1 (2 x WD Blue SA510 2.5 1000GB)
 
 ## ENA
-OVH operated VPS. Mainly used to traverse the concordia network. Also runs a handful of workloads on occasion.
+OVH operated VPS. Mainly used to traverse the Concordia network. Also runs a handful of workloads on occasion. Cluster
+control-plane node.
 
 - Model: VPS-1 2026 
 - CPU: 4 cores @ 3.10 GHz
@@ -83,7 +84,7 @@ This software does nothing on its own but helps other software run by providing 
 
 
 ### Sealed Secrets
-Because all of our config files are public on codeberg (GitHub alternative), we need to be able to store credentials 
+Because all of our config files are public on GitHub, we need to be able to store credentials 
 somehow. Sealed secrets allow us to encrypt all our credentials with a private key only stored on the cluster. They 
 are automatically decrypted on the cluster for use by the system.
 
@@ -152,10 +153,10 @@ config files left on the cluster, as if a manifest is deleted from git, ArgoCD w
 
 
 ### Harbor
-Self-hosted docker registry. Lets us store docker images on our infrastructure for deployment. Might replace it with 
+~~Self-hosted docker registry. Lets us store docker images on our infrastructure for deployment. Might replace it with 
 the GitHub hosted registry as self-hosting our own docker registry causes issues; for example, when jenny goes down 
 for reboots, k8s tries to move the website to ENA, but fails as the docker image is stored on jenny, which is down for 
-reboots.
+reboots.~~ All images moved to ghcr.io. Harbor has been deleted
 
 
 ## Application software
