@@ -6,8 +6,8 @@ helmCharts:
     namespace: website
 
 images:
-  - name: harbor.engiqueersconcordia.ca/website/website
-    digest: sha256:da585fd9b74ca00efe7a08fa2dfb9cd719b523358111352431e39029d4a8c708
+  - name: ghcr.io/engiqueersconcordia/website:sha-60bb337
+    digest: sha256:cb587f58854f69b0c4297c1cf6bbb3b21352ac46db12600314c7c96593b6916a
 
 helmGlobals:
   chartHome: local-charts

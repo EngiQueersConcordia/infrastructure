@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: xonotic
-          image: harbor.engiqueersconcordia.ca/xonotic/xonotic:PLACEHOLDER
+          image: ghcr.io/engiqueersconcordia/xonotic
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 26000
