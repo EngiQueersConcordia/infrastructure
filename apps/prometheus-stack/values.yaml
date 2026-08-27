@@ -19,6 +19,30 @@ alertmanager:
     alertmanagerConfigMatcherStrategy:
        type: OnNamespaceExceptForAlertmanagerNamespace
 
+  route:
+    main:
+      enabled: true
+
+      hostnames:
+        - "alertmanager.engiqueersconcordia.ca"
+      parentRefs:
+        - name: engiqueers
+          namespace: ingress
+
+      filters:
+        - externalAuth:
+            backendRef:
+              name: authentik-server
+              namespace: authentik
+              port: 9000
+            protocol: HTTP
+            http:
+              path: /outpost.goauthentik.io/auth/envoy
+              allowedHeaders:
+                - cookie
+              allowedResponseHeaders:
+                - set-cookie
+
 defaultRules:
   disabled:
     # We can't really do anything about it. This warns us that if a node fails,
