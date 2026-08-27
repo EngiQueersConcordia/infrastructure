@@ -2,9 +2,10 @@ apiVersion: gateway.networking.k8s.io/v1beta1
 kind: ReferenceGrant
 metadata:
   name: authentik-server
+  namespace: authentik
 spec:
   from:
-    - group: ''
+    - group: 'gateway.networking.k8s.io'
       kind: HTTPRoute
       namespace: 'prometheus-stack'
   to:
