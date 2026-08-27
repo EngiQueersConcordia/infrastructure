@@ -114,6 +114,8 @@ specs:
     egress:
       - toEntities:
           - kube-apiserver
+          - remote-node
+          - host
       - toEndpoints:
           - {}
       - toCIDRSet:
@@ -172,10 +174,9 @@ spec:
     matchLabels:
       k8s-app: metrics-server
   ingress:
-    - fromEndpoints:
+    - fromNodes:
         - matchLabels:
-            k8s:io.kubernetes.pod.namespace: kube-system
-            k8s:app.kubernetes.io/name: metrics-server
+            node-role.kubernetes.io/control-plane: ""
       toPorts:
         - ports:
             - protocol: TCP
