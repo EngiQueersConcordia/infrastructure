@@ -30,7 +30,8 @@ alertmanager:
           namespace: ingress
 
       filters:
-        - externalAuth:
+        - type: ExternalAuth
+          externalAuth:
             backendRef:
               name: authentik-server
               namespace: authentik
