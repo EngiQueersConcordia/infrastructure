@@ -20,11 +20,15 @@ deschedulerPolicy:
         - name: "RemoveFailedPods"
           args:
             minPodLifetimeSeconds: 86400
-
+        - name: "RemovePodsHavingTooManyRestarts"
+          args:
+            podRestartThreshold: 10
+            includingInitContainers: true
       plugins:
         deschedule:
           enabled:
             - "RemoveFailedPods"
+            - "RemovePodsHavingTooManyRestarts"
     - name: low-usage
       pluginConfig:
         - name: "DefaultEvictor"
