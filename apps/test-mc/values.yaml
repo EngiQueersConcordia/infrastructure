@@ -11,6 +11,9 @@ minecraftServer:
   motd: "EngiQueers Test Server"
 
   memory: 4G
+  rcon:
+    enabled: true
+    withGeneratedPassword: true
 
 workloadAsStatefulSet: true
 strategyType: RollingUpdate
