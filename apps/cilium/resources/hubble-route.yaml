@@ -1,0 +1,44 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  labels:
+    app.kubernetes.io/name: hubble-ui
+    app.kubernetes.io/part-of: cilium
+    k8s-app: hubble-ui
+  name: hubble-ui
+  namespace: kube-system
+spec:
+  hostnames:
+    - hubble.engiqueersconcordia.ca
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: engiqueers
+      namespace: ingress
+  rules:
+    - backendRefs:
+        - group: ''
+          kind: Service
+          name: hubble-ui
+          port: 80
+          weight: 1
+      filters:
+        - externalAuth:
+            backendRef:
+              group: ''
+              kind: Service
+              name: authentik-server
+              namespace: authentik
+              port: 80
+            http:
+              allowedHeaders:
+                - cookie
+              allowedResponseHeaders:
+                - set-cookie
+              path: /outpost.goauthentik.io/auth/envoy
+            protocol: HTTP
+          type: ExternalAuth
+      matches:
+        - path:
+            type: PathPrefix
+            value: /

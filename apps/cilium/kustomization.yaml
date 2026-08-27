@@ -10,5 +10,6 @@ helmCharts:
       - monitoring.coreos.com/v1
 
 resources:
-  - resources/networkpolicy.yaml
   - resources/hostpolicy.yaml
+  - resources/hubble-route.yaml
+  - resources/networkpolicy.yaml
