@@ -20,6 +20,8 @@ spec:
         - ports:
             - port: "80"
               protocol: TCP
+            - port: "389" # LDAP
+              protocol: TCP
             - port: "443"
               protocol: TCP
             - port: "6443"
