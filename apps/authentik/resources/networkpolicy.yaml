@@ -85,3 +85,28 @@ spec:
         - ports:
             - protocol: TCP
               port: "9300"
+---
+kind: CiliumNetworkPolicy
+apiVersion: cilium.io/v2
+metadata:
+  name: authentik-ldap
+  namespace: authentik
+spec:
+  endpointSelector:
+    matchLabels:
+      k8s:app.kubernetes.io/name: authentik-outpost-ldap
+  ingress:
+    - toPorts:
+        - protocol: TCP # LDAP
+          port: "389"
+        - protocol: TCP # LDAPS
+          port: "636"
+
+    - fromEndpoints:
+        - matchLabels:
+            k8s:io.kubernetes.pod.namespace: prometheus-stack
+            k8s:app.kubernetes.io/name: prometheus
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "9300"
