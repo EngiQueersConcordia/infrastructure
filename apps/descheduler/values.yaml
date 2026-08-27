@@ -43,10 +43,10 @@ deschedulerPolicy:
             thresholds:
               "cpu" : 40
               "memory": 40
-              "pods": 40
+              "pods": 60
             targetThresholds:
               "cpu" : 75
-              "memory": 65
+              "memory": 70
               "pods": 75
             evictionLimits:
               node: 5
