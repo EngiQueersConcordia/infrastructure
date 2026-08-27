@@ -1,4 +1,10 @@
 cluster:
+  controllerManager:
+    extraArgs:
+      bind-address: "0.0.0.0"
+  scheduler:
+    extraArgs:
+      bind-address: "0.0.0.0"
   extraManifests:
       # v0.11.0
     - https://raw.githubusercontent.com/alex1989hu/kubelet-serving-cert-approver/48be2ff71bbdfc464763fe6dba58b43a8ec5996a/deploy/standalone-install.yaml
