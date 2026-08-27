@@ -114,6 +114,27 @@ applicationSet:
     serviceMonitor:
       enabled: true
 
+  httproute:
+    enabled: true
+    parentRefs:
+      - name: engiqueers
+        namespace: ingress
+    hostnames:
+      - argocd.engiqueersconcordia.ca
+    rules:
+      - filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              replaceFullPath: /api/webhook
+              type: ReplaceFullPath
+        matches:
+        - path:
+            type: PathPrefix
+            value: /api/applicationset-webhook
+
+
+
 notifications:
   enabled: false
 

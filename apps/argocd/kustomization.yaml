@@ -10,10 +10,6 @@ helmCharts:
       - monitoring.coreos.com/v1
 resources:
   - resources/secrets.yaml
-  - resources/webhook-bridge/deployment.yaml
-  - resources/webhook-bridge/httproute.yaml
-  - resources/webhook-bridge/networkpolicy.yaml
-  - resources/webhook-bridge/service.yaml
   - resources/applicationset.yaml
 patches:
   - target:

@@ -8,7 +8,7 @@ spec:
     applicationsSync: create-update
   generators:
     - git:
-        repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
+        repoURL: https://github.com/EngiQueersConcordia/infrastructure.git
         revision: HEAD
         files:
           - path: apps/*/config.yaml
@@ -25,7 +25,7 @@ spec:
         syncOptions:
           - ServerSideApply=true
       source:
-        repoURL: https://codeberg.org/EngiQueers-Concordia/infrastructure.git
+        repoURL: https://github.com/EngiQueersConcordia/infrastructure.git
         targetRevision: HEAD
         path: '{{.path.path}}'
       destination:
