@@ -4,7 +4,7 @@ metadata:
   name: rclone
   namespace: nextcloud
 spec:
-  schedule: "/15 * * * *"
+  schedule: "*/15 * * * *"
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
