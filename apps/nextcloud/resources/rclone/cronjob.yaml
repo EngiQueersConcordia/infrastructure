@@ -17,7 +17,7 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - rclone copy gdrive_engiqueers:/ local:/data/gdrive_engiqueers --config /data/rclone.conf --progress
+                - rclone copy gdrive_engiqueers:/ local:/data/gdrive_engiqueers --config /data/rclone.conf --drive-skip-dangling-shortcuts
               volumeMounts:
                 - mountPath: /data
                   name: rclone-data
