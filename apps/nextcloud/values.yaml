@@ -35,6 +35,16 @@ nextcloud:
       pm.max_requests = 500
       opcache.jit = 1255
       opcache.jit_buffer_size = 8M
+  extraVolumes:
+    - name: rclone-data
+      persistentVolumeClaim:
+        claimName: rclone
+        readOnly: true
+
+  extraVolumeMounts:
+    - name: rclone-data
+      mountPath: "/rclone-data"
+
 
 internalDatabase:
   enabled: false
