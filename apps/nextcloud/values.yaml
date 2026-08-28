@@ -66,3 +66,9 @@ startupProbe:
   timeoutSeconds: 5
   failureThreshold: 300000
   successThreshold: 1
+
+image:
+  flavor: fpm
+
+nginx:
+  enabled: true
