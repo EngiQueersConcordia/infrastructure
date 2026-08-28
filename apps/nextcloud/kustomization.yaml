@@ -30,4 +30,4 @@ images:
   - name: ghcr.io/nextcloud-releases/whiteboard
     newTag: v1.5.9
   - name: ghcr.io/euro-office/documentserver
-    newTag: v9.3.4
+    newTag: v9.3.3
