@@ -49,3 +49,10 @@ persistence:
 imaginary:
   enabled: true
 
+startupProbe:
+  enabled: true
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 300000
+  successThreshold: 1
