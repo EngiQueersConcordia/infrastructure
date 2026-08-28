@@ -33,8 +33,6 @@ nextcloud:
       pm.min_spare_servers = 4
       pm.max_spare_servers = 16
       pm.max_requests = 500
-      opcache.jit = 1255
-      opcache.jit_buffer_size = 8M
   extraVolumes:
     - name: rclone-data
       persistentVolumeClaim:
