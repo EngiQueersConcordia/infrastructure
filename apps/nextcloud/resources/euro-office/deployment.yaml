@@ -17,6 +17,19 @@ spec:
         app.kubernetes.io/instance: euro-office
         app.kubernetes.io/name: euro-office
     spec:
+      initContainers:
+        - name: init-volumes
+          image: alpine:3.24.1
+          command:
+            - chmod
+            - "777"
+            - /euro-office
+            - /euro-office-data
+          volumeMounts:
+            - name: euro-office-data
+              mountPath: /euro-office-data
+            - name: euro-office
+              mountPath: /euro-office
       containers:
         - name: euro-office
           image: "ghcr.io/euro-office/documentserver"
