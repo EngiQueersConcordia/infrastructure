@@ -154,3 +154,10 @@ metadata:
   labels:
     policy.engiqueers/domain: "user"
     pod-security.kubernetes.io/enforce: restricted
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: nextcloud
+  labels:
+    policy.engiqueers/domain: "internal"

@@ -1,0 +1,51 @@
+global:
+  security:
+    allowInsecureImages: false
+
+httpRoute:
+  enabled: true
+  hostnames:
+    - nextcloud.engiqueersconcordia.ca
+  parentRefs:
+    - name: engiqueers
+      namespace: ingress
+
+nextcloud:
+  host: nextcloud.engiqueersconcordia.ca
+  existingSecret:
+    enabled: true
+    secretName: nextcloud-secrets
+
+internalDatabase:
+  enabled: false
+
+externalDatabase:
+  enabled: true
+  type: postgresql
+
+  existingSecret:
+    enabled: true
+    secretName: nextcloud-db-app
+    usernameKey: username
+    passwordKey: password
+    hostKey: host
+    databaseKey: dbname
+
+externalRedis:
+  enabled: true
+  host: "redis"
+  existingSecret:
+    enabled: true
+    secretName: nextcloud-secrets
+    passwordKey: redis-password
+
+cronjob:
+  enabled: ture
+
+persistence:
+  enabled: true
+  size: 50Gi
+
+imaginary:
+  enabled: true
+

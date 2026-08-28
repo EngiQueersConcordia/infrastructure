@@ -1,0 +1,9 @@
+useDeployment: true
+
+auth:
+  existingSecret: nextcloud-secrets
+  existingSecretPasswordKey: "redis-password"
+
+persistence:
+  enabled: false
+

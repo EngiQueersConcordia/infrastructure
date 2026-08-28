@@ -1,0 +1,18 @@
+namespace: nextcloud
+helmCharts:
+  - name: nextcloud
+    repo: https://nextcloud.github.io/helm/
+    version: 9.2.6
+    releaseName: nextcloud
+    namespace: nextcloud
+    valuesFile: values.yaml
+  - name: redis
+    repo: oci://registry-1.docker.io/cloudpirates
+    version: 0.34.23
+    releaseName: redis
+    namespace: nextcloud
+    valuesFile: values-redis.yaml
+resources:
+  - resources/cluster.yaml
+  - resources/netpol.yaml
+  - resources/secrets.yaml
