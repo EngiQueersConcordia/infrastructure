@@ -7,3 +7,6 @@ auth:
 persistence:
   enabled: false
 
+networkPolicy:
+  enabled: true
+  allowExternal: false
