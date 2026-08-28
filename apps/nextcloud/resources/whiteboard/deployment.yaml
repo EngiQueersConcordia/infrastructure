@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: whiteboard
-          image: "ghcr.io/nextcloud-releases/whiteboard:v1.0.5"
+          image: "ghcr.io/nextcloud-releases/whiteboard"
           imagePullPolicy: IfNotPresent
           env:
             - name: NEXTCLOUD_URL

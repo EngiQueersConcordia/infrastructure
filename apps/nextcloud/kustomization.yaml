@@ -20,3 +20,6 @@ resources:
   - resources/cluster.yaml
   - resources/netpol.yaml
   - resources/secrets.yaml
+images:
+  - name: ghcr.io/nextcloud-releases/whiteboard
+    newTag: v1.5.9
