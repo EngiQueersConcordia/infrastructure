@@ -62,4 +62,4 @@ spec:
       volumes:
         - name: whiteboard-backup
           emptyDir:
-            size: 500Mi
+            sizeLimit: 500Mi
