@@ -25,7 +25,7 @@ nextcloud:
           ),
       'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
       );
-  phpconfigs:
+  phpConfigs:
     perf.ini: |-
       pm = dynamic
       pm.max_children = 30
