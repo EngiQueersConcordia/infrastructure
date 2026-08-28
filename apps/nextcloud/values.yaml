@@ -39,7 +39,6 @@ nextcloud:
     - name: rclone-data
       persistentVolumeClaim:
         claimName: rclone
-        readOnly: true
 
   extraVolumeMounts:
     - name: rclone-data
