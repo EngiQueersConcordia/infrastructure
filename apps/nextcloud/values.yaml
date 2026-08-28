@@ -5,13 +5,13 @@ global:
 httpRoute:
   enabled: false
   hostnames:
-    - nextcloud.engiqueersconcordia.ca
+    - nc.engiqueersconcordia.ca
   parentRefs:
     - name: engiqueers
       namespace: ingress
 
 nextcloud:
-  host: nextcloud.engiqueersconcordia.ca
+  host: nc.engiqueersconcordia.ca
   existingSecret:
     enabled: true
     secretName: nextcloud-secrets

@@ -9,7 +9,7 @@ metadata:
   namespace: nextcloud
 spec:
   hostnames:
-    - nextcloud.engiqueersconcordia.ca
+    - nc.engiqueersconcordia.ca
   parentRefs:
     - name: engiqueers
       namespace: ingress

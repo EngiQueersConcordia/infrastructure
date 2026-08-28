@@ -26,7 +26,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
             - name: NEXTCLOUD_URL
-              value: "https://nextcloud.engiqueersconcordia.ca"
+              value: "https://nc.engiqueersconcordia.ca"
             - name: MAX_UPLOAD_FILE_SIZE
               value: "20"
             - name: JWT_SECRET_KEY
