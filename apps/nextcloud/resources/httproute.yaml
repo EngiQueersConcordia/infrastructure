@@ -1,0 +1,61 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  labels:
+    app.kubernetes.io/component: app
+    app.kubernetes.io/instance: nextcloud
+    app.kubernetes.io/name: nextcloud
+  name: nextcloud
+  namespace: nextcloud
+spec:
+  hostnames:
+    - nextcloud.engiqueersconcordia.ca
+  parentRefs:
+    - name: engiqueers
+      namespace: ingress
+  rules:
+    - filters:
+        - requestRedirect:
+            path:
+              replaceFullPath: /remote.php/dav
+              type: ReplaceFullPath
+            statusCode: 301
+          type: RequestRedirect
+      matches:
+        - path:
+            type: Exact
+            value: /.well-known/carddav
+    - filters:
+        - requestRedirect:
+            path:
+              replaceFullPath: /remote.php/dav
+              type: ReplaceFullPath
+            statusCode: 301
+          type: RequestRedirect
+      matches:
+        - path:
+            type: Exact
+            value: /.well-known/caldav
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /whiteboard
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: nextcloud-whiteboard
+          port: 3002
+    - backendRefs:
+        - group: ''
+          kind: Service
+          name: nextcloud
+          port: 8080
+          weight: 1
+      matches:
+        - path:
+            type: PathPrefix
+            value: /

@@ -3,7 +3,7 @@ global:
     allowInsecureImages: false
 
 httpRoute:
-  enabled: true
+  enabled: false
   hostnames:
     - nextcloud.engiqueersconcordia.ca
   parentRefs:

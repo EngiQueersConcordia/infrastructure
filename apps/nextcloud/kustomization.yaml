@@ -14,10 +14,10 @@ helmCharts:
     valuesFile: values-redis.yaml
 resources:
   - resources/whiteboard/deployment.yaml
-  - resources/whiteboard/httproute.yaml
   - resources/whiteboard/netpol.yaml
   - resources/whiteboard/service.yaml
   - resources/cluster.yaml
+  - resources/httproute.yaml
   - resources/netpol.yaml
   - resources/secrets.yaml
 images:
