@@ -49,6 +49,19 @@ spec:
       backendRefs:
         - name: nextcloud-whiteboard
           port: 3002
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /eurooffice
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: euro-office
+          port: 80
     - backendRefs:
         - group: ''
           kind: Service

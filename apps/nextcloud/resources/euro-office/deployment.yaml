@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: euro-office
+  labels:
+    app.kubernetes.io/instance: euro-office
+    app.kubernetes.io/name: euro-office
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: euro-office
+      app.kubernetes.io/name: euro-office
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: euro-office
+        app.kubernetes.io/name: euro-office
+    spec:
+      containers:
+        - name: euro-office
+          image: "ghcr.io/euro-office/documentserver"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+          env:
+            - name: JWT_ENABLED
+              value: "true"
+            - name: JWT_HEADER
+              value: AuthorizationJwt
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: euro-office-secret
+                  name: nextcloud-secrets
+          volumeMounts:
+            - mountPath: /var/lib/euro-office
+              name: euro-office
+            - mountPath: /var/www/euro-office/Data
+              name: euro-office-data
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            failureThreshold: 9
+            initialDelaySeconds: 0
+            periodSeconds: 30
+            timeoutSeconds: 30
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            failureThreshold: 9
+            initialDelaySeconds: 0
+            periodSeconds: 30
+            timeoutSeconds: 30
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+              scheme: HTTP
+            failureThreshold: 900000
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            timeoutSeconds: 30
+      volumes:
+        - name: euro-office
+          persistentVolumeClaim:
+            claimName: euro-office
+        - name: euro-office-data
+          persistentVolumeClaim:
+            claimName: euro-office-data

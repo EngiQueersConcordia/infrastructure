@@ -13,6 +13,10 @@ helmCharts:
     namespace: nextcloud
     valuesFile: values-redis.yaml
 resources:
+  - resources/euro-office/deployment.yaml
+  - resources/euro-office/netpol.yaml
+  - resources/euro-office/pvc.yaml
+  - resources/euro-office/service.yaml
   - resources/whiteboard/deployment.yaml
   - resources/whiteboard/netpol.yaml
   - resources/whiteboard/service.yaml
@@ -23,3 +27,5 @@ resources:
 images:
   - name: ghcr.io/nextcloud-releases/whiteboard
     newTag: v1.5.9
+  - name: ghcr.io/euro-office/documentserver
+    newTag: v9.3.4
