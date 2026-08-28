@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: nextcloud-whiteboard
+  namespace: nextcloud
+spec:
+  podSelector:
+    matchLabels:
+      app.kubernetes.io/component: whiteboard
+      app.kubernetes.io/instance: nextcloud
+      app.kubernetes.io/name: nextcloud
+  ingress:
+    - ports:
+        - port: "3002"
+          protocol: TCP
+      from:
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/component: app
+              app.kubernetes.io/instance: nextcloud
+              app.kubernetes.io/name: nextcloud
