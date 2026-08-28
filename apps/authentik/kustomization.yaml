@@ -8,6 +8,7 @@ helmCharts:
     valuesFile: values.yaml
 resources:
   - resources/cluster.yaml
+  - resources/ldaproute.yaml
   - resources/networkpolicy.yaml
   - resources/refgrant.yaml
   - resources/secrets.yaml
