@@ -61,7 +61,7 @@ spec:
               replacePrefixMatch: /
         - type: RequestHeaderModifier
           requestHeaderModifier:
-            add:
+            set:
               - name: X-Forwarded-Prefix
                 value: "/eurooffice"
               - name: X-Forwarded-Proto
