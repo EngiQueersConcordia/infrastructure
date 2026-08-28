@@ -59,6 +59,13 @@ spec:
             path:
               type: ReplacePrefixMatch
               replacePrefixMatch: /
+        - type: RequestHeaderModifier
+          requestHeaderModifier:
+            add:
+              - name: X-Forwarded-Prefix
+                value: "/eurooffice"
+              - name: X-Forwarded-Proto
+                value: "https"
       backendRefs:
         - name: euro-office
           port: 80
