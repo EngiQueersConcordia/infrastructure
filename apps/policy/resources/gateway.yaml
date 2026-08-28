@@ -48,7 +48,20 @@ spec:
         mode: Terminate
         certificateRefs:
           - name: engiqueers-migration-tls
-
+    - name: engiqueers-ldaps
+      hostname: "ldaps.engiqueersconcordia.ca"
+      port: 636
+      protocol: TLS
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              policy.engiqueers/domain: "internal"
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - name: engiqueers-tls
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
