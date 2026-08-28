@@ -67,9 +67,6 @@ spec:
             successThreshold: 1
             periodSeconds: 5
             timeoutSeconds: 1
-          securityContext:
-            runAsUser: 1000
-            runAsNonRoot: true
       volumes:
         - name: whiteboard-backup
           emptyDir:
