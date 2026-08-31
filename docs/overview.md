@@ -137,8 +137,8 @@ anything.
 
 ### Authentik
 Authentik is a self-hosted authentication and authorization solution. We use it to have a single username for all of 
-our self-hosted infrastructure. While configured to only allow logging in via passkeys, I am considering enabling 
-the use of Google accounts to log in due to usability concerns with passkeys on certain device/browser combos.
+our self-hosted infrastructure. While configured to only allow logging in via passkeys, due to usability concerns with 
+passkeys on certain device/browser combos the use of Google accounts to log in has been enabled.
 
 
 ## Deployment software
@@ -199,6 +199,18 @@ KubeVirt.
 JupyterHub is a semi-automated management system for JupyterLab. It allows each user to spin up an isolated python 
 enviroment they can use to run Python code and mess around with it as they wish. Each user gets 10GiB of storage, 4GiB
 of memory and 4 processors worth of compute time. Idle instances are automatically suspended to not waste resources.
+
+
+### NextCloud
+NextCloud is a self-hosted alternative to the Google platform. Currently, we have the drive, document editing, contacts,
+and calendar features enabled. There is a one-way sync from Google Drive to NextCloud to access GDrive files from
+NextCloud. We currently use Euro Office for the document editor, but we can switch to Collabora if needed. Other
+features may be enabled as required.
+
+
+### Minecraft Test Server
+We have a test minecraft server up. There's not much to say about it other than it exists and will serve as a template
+for other server deployments.
 
 
 ## Monitoring software
