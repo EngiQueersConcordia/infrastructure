@@ -11,6 +11,3 @@ This network is only reachable from inside the concordia network. Currently home
 Nodes:
 - 10.58.86.1: Jenny
 
-
-# Multihoming
-## Kubelet
