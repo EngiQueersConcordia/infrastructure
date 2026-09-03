@@ -63,7 +63,7 @@ configs:
       p, gha-override-reset-bot, applications, update/*, */*, deny
       # Also read the application (and subresources, no way to fine grain get)
       p, gha-override-reset-bot, applications, get, */*, allow
-      
+      p, gha-override-reset-bot, projects, *, *, allow
 
 dex:
   env:
