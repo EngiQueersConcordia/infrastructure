@@ -7,6 +7,9 @@ global:
 
 configs:
   cm:
+    # GitHub workflow to reset the targetRevision on merge/close
+    accounts.gha-override-reset-bot: apiKey
+
     admin.enabled: false
     exec.enabled: true
     kustomize.buildOptions: --enable-helm
@@ -54,6 +57,13 @@ configs:
   rbac:
     policy.csv: |
       g, argocd-admin, role:admin
+        
+      # Allow the bot to update applications, but not the subresources.
+      p, gha-override-reset-bot, applications, update, */*, allow
+      p, gha-override-reset-bot, applications, update/*, */*, deny
+      # Also read the application (and subresources, no way to fine grain get)
+      p, gha-override-reset-bot, applications, get, */*, allow
+      
 
 dex:
   env:

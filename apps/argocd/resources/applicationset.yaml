@@ -4,6 +4,9 @@ metadata:
   name: main
   namespace: argocd
 spec:
+  ignoreApplicationDifferences:
+    - jsonPointers:
+        - /spec/source/targetRevision
   syncPolicy:
     applicationsSync: create-update
   generators:
