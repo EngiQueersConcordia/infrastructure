@@ -6,7 +6,7 @@ on:
     branches:
       - main
 jobs:
-  update:
+  reset:
     runs-on: ubuntu-latest
     steps:
       - name: Get server version
