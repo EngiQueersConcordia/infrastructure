@@ -1,0 +1,29 @@
+name: Reset Application Override
+on:
+  pull_request_target:
+    types:
+      - closed
+    branches:
+      - main
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get server version
+        id: argocd_version
+        run: |
+          curl https://argocd.engiqueersconcordia.ca/api/version | jq -r '"argocd_version=" + .Version' >> "$GITHUB_OUTPUT"
+
+      - name: Setup ArgoCD CLI
+        uses: imajeetyadav/argocd-cli@0ae59c231f4b6d4415dbffc2d2a9da515d014d64 # v2
+        with:
+          version: ${{steps.argocd_version.outputs.argocd_version}}
+
+      - name: Reset Application Overrides
+        env:
+          ARGOCD_SERVER: argocd-api.engiqueersconcordia.ca
+          ARGOCD_AUTH_TOKEN: ${{ secrets.ARGOCD_OVERRIDE_RESET_TOKEN }}
+        run: |
+          echo "Resetting applications:"
+          argocd app list -o json | jq --raw-output '.[] | select(.spec.source.targetRevision == $revision) | .metadata.name' --arg revision "refs/pull/${{github.event.pull_request.number}}/merge"
+          argocd app list -o json | jq --raw-output0 '.[] | select(.spec.source.targetRevision == $revision) | .metadata.name' --arg revision "refs/pull/${{github.event.pull_request.number}}/merge" | xargs --no-run-if-empty -0 -i argocd app set {} --revision HEAD
