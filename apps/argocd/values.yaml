@@ -85,6 +85,9 @@ dex:
     serviceMonitor:
       enabled: true
 
+redisSecretInit:
+  enabled: false
+
 server:
   service:
     # Enable gRPC over HTTP/2
