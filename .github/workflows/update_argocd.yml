@@ -1,4 +1,4 @@
-name: update_argocd.yml
+name: Update ArgoCD application
 on:
   pull_request_target:
     branches:
@@ -19,8 +19,9 @@ jobs:
 
       - name: Refresh Applications
         env:
+          ARGOCD_SERVER: argocd-api.engiqueersconcordia.ca
           ARGOCD_AUTH_TOKEN: ${{ secrets.ARGOCD_OVERRIDE_RESET_TOKEN }}
         run: |
           echo "Updating applications:"
           argocd app list -o json | jq --raw-output '.[] | select(.spec.source.targetRevision == $revision) | .metadata.name' --arg revision "refs/pull/${{github.event.pull_request.number}}/merge"
-          argocd app list -o json | jq --raw-output0 '.[] | select(.spec.source.targetRevision == $revision) | .metadata.name' --arg revision "refs/pull/${{github.event.pull_request.number}}/merge" | xargs -0 -i argocd app get {} --refresh > /dev/null
+          argocd app list -o json | jq --raw-output0 '.[] | select(.spec.source.targetRevision == $revision) | .metadata.name' --arg revision "refs/pull/${{github.event.pull_request.number}}/merge" | xargs --no-run-if-empty -0 -i argocd app get {} --refresh > /dev/null
