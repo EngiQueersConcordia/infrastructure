@@ -8,7 +8,6 @@ cluster:
   extraManifests:
       # v0.11.0
     - https://raw.githubusercontent.com/alex1989hu/kubelet-serving-cert-approver/48be2ff71bbdfc464763fe6dba58b43a8ec5996a/deploy/standalone-install.yaml
-      # v0.9.0
     - https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.9.0/components.yaml
 machine:
   kubelet:

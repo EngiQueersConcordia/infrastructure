@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)[^.]+\\.yaml$/"],
+      "matchStrings": [
+        "(?<indentation>\\n\\s+)-\\s+(?<registryUrl>https?://github.com\\/)(?<packageName>[^/]+/[^/]+)/releases/download/(?<currentValue>[^/]+)/"
+      ],
+      "datasourceTemplate": "github-releases",
+      "autoReplaceStringTemplate": "{{{indentation}}}- {{{registryUrl}}}{{{packageName}}}/releases/download/{{{newValue}}}/"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^script/\\.config$/"],
+      "matchStrings": ["TALOS_VERSION=\"(?<currentValue>[^\"]+)\""],
+      "packageNameTemplate": "siderolabs/talos",
+      "datasourceTemplate": "github-releases"
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^script/\\.config$/"],
+      "matchStrings": ["KUBERNETES_VERSION=\"(?<currentValue>[^\"]+)\""],
+      "packageNameTemplate": "kubernetes/kubernetes",
+      "datasourceTemplate": "github-releases"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        "quay.io/cilium/charts/cilium",
+        "kubernetes-sigs/gateway-api",
+        "siderolabs/talos",
+        "kubernetes/kubernetes"
+      ],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}

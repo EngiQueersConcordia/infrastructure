@@ -28,6 +28,6 @@ resources:
   - resources/secrets.yaml
 images:
   - name: ghcr.io/nextcloud-releases/whiteboard
-    newTag: v1.5.9
+    newTag: v1.5.9@sha256:b60b7633f90d106ac6922f9bc27e1a1ca2442488b740fefdae4c812f34e9cebc
   - name: ghcr.io/euro-office/documentserver
-    newTag: v9.3.3
+    newTag: v9.3.3@sha256:6068075cc247f9283d337b2cf9a105d9df49fcd8cd6b5e82fa90640df1552e80

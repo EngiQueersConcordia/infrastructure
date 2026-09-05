@@ -5,10 +5,6 @@ helmCharts:
     releaseName: website
     namespace: website
 
-images:
-  - name: ghcr.io/engiqueersconcordia/website
-    digest: sha256:cb587f58854f69b0c4297c1cf6bbb3b21352ac46db12600314c7c96593b6916a
-
 helmGlobals:
   chartHome: local-charts
 
