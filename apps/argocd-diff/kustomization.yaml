@@ -1,0 +1,21 @@
+namespace: argocd-diff
+helmCharts:
+  - name: argo-cd
+    repo: oci://ghcr.io/argoproj/argo-helm
+    version: 10.4.0
+    releaseName: argocd
+    namespace: argocd-diff
+    valuesFile: values.yaml
+    apiVersions:
+      - monitoring.coreos.com/v1
+resources:
+  - resources/secrets.yaml
+  - resources/secrets-redis.yaml
+patches:
+  - target:
+      kind: GRPCRoute
+      name: argocd-server-grpc
+    patch: |
+      - op: replace
+        path: /spec/rules/0/backendRefs/0/port
+        value: 443

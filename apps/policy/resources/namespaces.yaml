@@ -168,3 +168,10 @@ metadata:
   name: stakater
   labels:
     policy.engiqueers/domain: "internal"
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: argocd-diff
+  labels:
+    policy.engiqueers/domain: "internal"
