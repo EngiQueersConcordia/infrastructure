@@ -8,7 +8,7 @@ helmCharts:
     valuesFile: values.yaml
   - name: redis
     repo: oci://registry-1.docker.io/cloudpirates
-    version: 0.34.23
+    version: 0.34.26
     releaseName: redis
     namespace: nextcloud
     valuesFile: values-redis.yaml
