@@ -28,13 +28,13 @@
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "quay.io/cilium/charts/cilium",
-        "kubernetes-sigs/gateway-api",
-        "siderolabs/talos",
-        "kubernetes/kubernetes"
-      ],
-      "dependencyDashboardApproval": true
+      "dependencyDashboardApproval": true,
+      "matchPackageNames": [
+        "/quay.io/cilium/charts/cilium/",
+        "/kubernetes-sigs/gateway-api/",
+        "/siderolabs/talos/",
+        "/kubernetes/kubernetes/"
+      ]
     },
     {
       "matchDepNames": ["website", "redbot"],
