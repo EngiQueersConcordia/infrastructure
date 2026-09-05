@@ -28,7 +28,7 @@
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": [
+      "matchPackageNames": [
         "quay.io/cilium/charts/cilium",
         "kubernetes-sigs/gateway-api",
         "siderolabs/talos",
