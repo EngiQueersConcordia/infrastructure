@@ -1,2 +1,3 @@
 - Add healthcheck on argocd-dex-server for when port 5556 isn't listening (for example when it starts before the oidc server)
 - Add affinity selectors for stuff that depends on dbs to prevent them from scheduling on ena
+- Deploy a locked down version of argocd then setup https://dag-andersen.github.io/argocd-diff-preview/
