@@ -22,7 +22,7 @@ spec:
       name: '{{.path.basename}}'
       annotations:
         argocd.argoproj.io/compare-options: ServerSideDiff=true,IncludeMutationWebhook=true
-        argocd.argoproj.io/manifest-generate-paths: '{{.path.path}}'
+        argocd-diff-preview/watch-pattern: '{{.path.path}}/.*'
     spec:
       project: "default"
       syncPolicy:
