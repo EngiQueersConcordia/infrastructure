@@ -165,6 +165,6 @@ metadata:
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: skatater
+  name: stakater
   labels:
     policy.engiqueers/domain: "internal"
