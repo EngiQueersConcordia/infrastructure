@@ -3,8 +3,6 @@ kind: Kustomization
 
 resources:
   - resources/namespaces.yaml
-  # TODO: update check hooks
-  - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.6.1/experimental-install.yaml
   - resources/gateway.yaml
   - resources/https-redirect.yaml
   - resources/crb-admin.yaml
