@@ -41,5 +41,6 @@
       "matchDatasources": "helm",
       "enabled": false
     }
-  ]
+  ],
+  "ignorePaths": ["/^script/check_updates//"]
 }
