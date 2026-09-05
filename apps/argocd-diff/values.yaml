@@ -24,8 +24,6 @@ configs:
       jqPathExpressions:
       - '.spec.listeners[].tls.certificateRefs[].group'
       - '.spec.listeners[].tls.certificateRefs[].kind'
-  secret:
-    createSecret: false
   params:
     server.insecure: "true"
     applicationsetcontroller.enable.new.git.file.globbing: "true"
