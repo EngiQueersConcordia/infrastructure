@@ -6,10 +6,10 @@
       "customType": "regex",
       "managerFilePatterns": ["/(^|/)[^.]+\\.yaml$/"],
       "matchStrings": [
-        "(?<indentation>\\n\\s+)-\\s+(?<registryUrl>https?://github.com\\/)(?<packageName>[^/]+/[^/]+)/releases/download/(?<currentValue>[^/]+)/"
+        "\n(?<indentation>\\s+)-\\s+(?<registryUrl>https?://github.com/)(?<packageName>[^/]+/[^/]+)/releases/download/(?<currentValue>[^/]+)/"
       ],
       "datasourceTemplate": "github-releases",
-      "autoReplaceStringTemplate": "{{{indentation}}}- {{{registryUrl}}}{{{packageName}}}/releases/download/{{{newValue}}}/"
+      "autoReplaceStringTemplate": "\n{{{indentation}}}- {{{registryUrl}}}{{{packageName}}}/releases/download/{{{newValue}}}/"
     },
     {
       "customType": "regex",
