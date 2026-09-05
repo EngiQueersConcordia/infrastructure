@@ -35,6 +35,11 @@
         "kubernetes/kubernetes"
       ],
       "dependencyDashboardApproval": true
+    },
+    {
+      "matchDepNames": ["website", "redbot"],
+      "matchDatasources": "helm",
+      "enabled": false
     }
   ]
 }
