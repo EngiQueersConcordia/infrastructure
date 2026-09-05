@@ -42,5 +42,9 @@
       "enabled": false
     }
   ],
-  "ignorePaths": ["/^script/check_updates//"]
+  "ignorePaths": ["/^script/check_updates//"],
+  "branchConcurrentLimit": 0,
+  "commitHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "prHourlyLimit": 0
 }
