@@ -1,0 +1,75 @@
+name: ArgoCD Diff Preview
+
+on:
+  pull_request_target:
+    branches:
+      - main
+
+jobs:
+  diff-preview:
+    name: ArgoCD Diff Preview
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: target-branch
+          fetch-depth: 0
+
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          path: base-branch
+
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v5
+
+      - name: Setup kubeconfig
+        env:
+          ARGOCD_DIFF_KUBECONFIG: ${{ secrets.ARGOCD_DIFF_KUBECONFIG }}
+        run: |
+          mkdir -p ~/.kube
+          echo $ARGOCD_DIFF_KUBECONFIG | base64 --decode > ~/.kube/config
+          chmod 600 ~/.kube/config
+
+      - name: Install argocd-diff-preview
+        run: |
+          curl -LJO https://github.com/dag-andersen/argocd-diff-preview/releases/download/v0.2.14/argocd-diff-preview-Linux-x86_64.tar.gz
+          tar -xvf argocd-diff-preview-Linux-x86_64.tar.gz
+          sudo mv argocd-diff-preview /usr/local/bin
+          argocd-diff-preview --version
+
+      - name: Get merge commit SHA
+        id: commit_sha
+        run: |
+          cd base-branch && echo "sha=$(git ls-remote origin refs/pull/${{ github.event.number }}/merge | head -n1 | cut -f1)" >> "$GITHUB_OUTPUT"
+
+      - name: Generate Diff
+        run: |
+          argocd-diff-preview \
+            --repo ${{ github.repository }} \
+            --base-branch ${{ github.event.pull_request.base.sha }} \
+            --target-branch ${{ steps.commit_sha.outputs.sha }} \
+            --create-cluster=false \
+            --render-method=server-api \
+            --argocd-namespace=argocd-diff
+
+      - name: Find Comment
+        uses: peter-evans/find-comment@b30e6a3c0ed37e7c023ccd3f1db5c6c0b0c23aad #v4
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Argo CD Diff Preview
+
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 #v5
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body-path: output/diff.md
+          edit-mode: replace
+
