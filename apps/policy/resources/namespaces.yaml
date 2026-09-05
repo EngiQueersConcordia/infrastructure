@@ -161,3 +161,10 @@ metadata:
   name: nextcloud
   labels:
     policy.engiqueers/domain: "internal"
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: skatater
+  labels:
+    policy.engiqueers/domain: "internal"
