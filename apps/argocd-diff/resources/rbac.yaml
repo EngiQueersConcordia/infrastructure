@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: argocd-diff
+  namespace: argocd-diff
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: argocd-diff
+  namespace: argocd-diff
+rules:
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["*"]
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: argocd-diff
+  namespace: argocd-diff
+subjects:
+  - kind: ServiceAccount
+    name: argocd-diff
+    namespace: argocd-diff
+roleRef:
+  kind: Role
+  name: argocd-diff
+  apiGroup: rbac.authorization.k8s.io

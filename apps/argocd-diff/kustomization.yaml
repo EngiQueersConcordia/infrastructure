@@ -9,7 +9,7 @@ helmCharts:
     apiVersions:
       - monitoring.coreos.com/v1
 resources:
-  - resources/secrets.yaml
+  - resources/rbac.yaml
   - resources/secrets-redis.yaml
 patches:
   - target:

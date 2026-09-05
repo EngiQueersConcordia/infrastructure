@@ -1,14 +1,10 @@
 global:
-  domain: argocd-diff.engiqueersconcordia.ca
-
   networkPolicy:
     create: true
     defaultDenyIngress: true
 
 configs:
   cm:
-    accounts.gha-diff-bot: apiKey
-
     kustomize.buildOptions: --enable-helm
     resource.customizations.ignoreDifferences.gateway.networking.k8s.io_GRPCRoute: |
       jqPathExpressions:
@@ -33,9 +29,6 @@ configs:
   params:
     server.insecure: "true"
     applicationsetcontroller.enable.new.git.file.globbing: "true"
-  rbac:
-    policy.csv: |
-      g, gha-diff-bot, role:admin
 
 redisSecretInit:
   enabled: false
@@ -44,23 +37,6 @@ server:
   service:
     # Enable gRPC over HTTP/2
     servicePortHttpsAppProtocol: kubernetes.io/h2c
-
-  httproute:
-    enabled: true
-    parentRefs:
-      - name: engiqueers
-        namespace: ingress
-    hostnames:
-      - argocd-diff.engiqueersconcordia.ca
-  grpcroute:
-    enabled: true
-    parentRefs:
-      - name: engiqueers
-        namespace: ingress
-    hostnames:
-      - argocd-diff-api.engiqueersconcordia.ca
-    rules:
-      - {}
 
 notifications:
   enabled: false
