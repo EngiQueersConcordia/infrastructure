@@ -7,7 +7,7 @@
       "managerFilePatterns": ["/(^|/)[^.]+\\.yaml$/"],
       "matchStringsStrategy": "recursive",
       "matchStrings": [
-        "\n\\s+-\\s+",
+        "\\n\\s+-\\s+[^\\n]+",
         "(?<registryUrl>https?://github.com/)(?<packageName>[^/]+/[^/]+)/releases/download/(?<currentValue>[^/]+)/"
       ],
       "datasourceTemplate": "github-releases",
