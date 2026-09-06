@@ -35,3 +35,6 @@ extraEnv:
   USES_PROXY_PROTOCOL: "1"
   LOAD_ENV_FROM_FILE: /config/startup.sh
   GENERIC_PACK: "https://iris.alexkar598.dev/static/modpack.zip"
+  GENERIC_PACKS_DISABLE_MODS: |
+    sodium-neoforge-0.8.13+mc1.21.1.jar
+    sodium-extra-neoforge-0.9.3+mc1.21.1.jar
