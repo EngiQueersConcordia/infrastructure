@@ -13,4 +13,4 @@ resources:
   - resources/hostpolicy.yaml
   - resources/hubble-route.yaml
   - resources/networkpolicy.yaml
-  - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.6.1/experimental-install.yaml
+  - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.6.2/experimental-install.yaml
