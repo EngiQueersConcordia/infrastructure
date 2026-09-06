@@ -10,7 +10,7 @@ minecraftServer:
   gameMode: "creative"
   motd: "EngiQueers Test Server"
 
-  memory: 4G
+  memory: 8G
   rcon:
     enabled: true
     withGeneratedPassword: true
