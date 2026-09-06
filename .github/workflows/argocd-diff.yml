@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: argocd-diff
+  queue: max
+
 jobs:
   diff-preview:
     name: ArgoCD Diff Preview
