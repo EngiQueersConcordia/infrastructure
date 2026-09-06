@@ -4,8 +4,8 @@ resources:
 
 minecraftServer:
   eula: "TRUE"
-  version: "26.1.2"
-  type: "PAPER"
+  version: "1.21.1"
+  type: "NEOFORGE"
   ops: "alexkar598"
   gameMode: "creative"
   motd: "EngiQueers Test Server"
@@ -34,3 +34,4 @@ extraVolumes:
 extraEnv:
   USES_PROXY_PROTOCOL: "1"
   LOAD_ENV_FROM_FILE: /config/startup.sh
+  GENERIC_PACK: "https://iris.alexkar598.dev/static/modpack.zip"
