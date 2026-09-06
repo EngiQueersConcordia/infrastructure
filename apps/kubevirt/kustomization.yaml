@@ -11,7 +11,7 @@ resources:
   # Manually downloaded so we can remove v1alpha1 from it. For some reason the controller removes it automatically but then argo tries to bring it back
   #- https://github.com/kubevirt/containerized-data-importer/releases/download/v1.65.0/cdi-operator.yaml
   - resources/cdi-operator.yaml
-  - https://github.com/kubevirt/containerized-data-importer/releases/download/v1.65.0/network-policies.yaml
+  - https://github.com/kubevirt/containerized-data-importer/releases/download/v1.66.0/network-policies.yaml
   - resources/cdi.yaml
   - resources/storageprofile.yaml
   - resources/networkpolicy.yaml
