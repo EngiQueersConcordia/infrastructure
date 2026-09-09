@@ -6,7 +6,7 @@ minecraftServer:
   eula: "TRUE"
   version: "1.21.1"
   type: "NEOFORGE"
-  ops: "alexkar598"
+  ops: ""
   gameMode: "creative"
   motd: "EngiQueers Test Server"
 
