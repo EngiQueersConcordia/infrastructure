@@ -20,7 +20,7 @@ minecraftServer:
 persistence:
   dataDir:
     enabled: true
-    size: 35Gi
+    Size: 35Gi
 
 workloadAsStatefulSet: true
 strategyType: RollingUpdate
