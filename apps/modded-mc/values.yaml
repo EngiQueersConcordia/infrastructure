@@ -30,6 +30,7 @@ serviceAnnotations:
 
 startupProbe:
   failureThreshold: 90
+  enabled: true
 
 extraVolumes:
   - volumes:
@@ -45,7 +46,7 @@ extraVolumes:
 extraEnv:
   USES_PROXY_PROTOCOL: "1"
   LOAD_ENV_FROM_FILE: /config/startup.sh
-  GENERIC_PACK: https://github.com/EngiQueersConcordia/mc-f26/releases/download/v1.1/mc-f26-server.zip,https://github.com/EngiQueersConcordia/mc-f26/releases/download/v1.1/mc-f26-serverextras.zip,https://github.com/EngiQueersConcordia/mc-f26/releases/download/v1.1/mc-f26-baseconfig.zip
+  GENERIC_PACK: https://github.com/EngiQueersConcordia/mc-f26/releases/download/v1.1/mc-f26-server.zip,https://github.com/EngiQueersConcordia/mc-f26/releases/download/v1.1/mc-f26-serverextras.zip
   GENERIC_PACKS_DISABLE_MODS: |
     sodium-neoforge-0.8.13+mc1.21.1.jar
     sodium-extra-neoforge-0.9.3+mc1.21.1.jar
