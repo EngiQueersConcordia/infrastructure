@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mc-config
+  namespace: modded-mc
+data:
+  startup.sh: |
+    trap '' SIGINT # Trap ctl+c for safety
