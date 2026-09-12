@@ -24,7 +24,7 @@ persistence:
     Size: 45Gi
     existingClaim: modded-mc-datadir
 
-strategyType: RollingUpdate
+strategyType: Recreate
 serviceAnnotations:
   "mc-router.itzg.me/externalServerName": "engiqueersconcordia.ca"
 
