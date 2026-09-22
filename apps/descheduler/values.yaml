@@ -54,3 +54,5 @@ deschedulerPolicy:
         balance:
           enabled:
             - "LowNodeUtilization"
+
+schedule: "*/15 * * * *"
