@@ -151,9 +151,9 @@ alloy:
         }
       }
 
-      loki.write "endpoint" {
+      /*loki.write "endpoint" {
         endpoint {
             url = "http://loki-gateway:80/loki/api/v1/push"
             tenant_id = "local"
         }
-      }
+      }*/
