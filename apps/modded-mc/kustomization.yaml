@@ -7,4 +7,5 @@ helmCharts:
     valuesFile: values.yaml
 resources:
   - resources/config.yaml
+  - resources/httproute.yaml
   - resources/pvc.yaml
