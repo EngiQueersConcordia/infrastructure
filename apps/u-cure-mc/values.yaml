@@ -45,3 +45,4 @@ extraEnv:
   USES_PROXY_PROTOCOL: "1"
   LOAD_ENV_FROM_FILE: /config/startup.sh
   MODRINTH_PROJECTS: paper:pluginportal
+  PAPER_CHANNEL: experimental
