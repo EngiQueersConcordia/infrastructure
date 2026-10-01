@@ -9,6 +9,7 @@ minecraftServer:
   ops: ""
   gameMode: "survival"
   motd: "CURE Montreal"
+  spawnProtection: 0
 
   memory: 4G
   rcon:
