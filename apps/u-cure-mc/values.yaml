@@ -4,7 +4,7 @@ resources:
 
 minecraftServer:
   eula: "TRUE"
-  version: "LATEST"
+  version: "26.2"
   type: "PAPER"
   ops: ""
   gameMode: "survival"
