@@ -1,7 +1,7 @@
 helmCharts:
   - name: minecraft
     repo: https://itzg.github.io/minecraft-server-charts/
-    version: 5.2.0
+    version: 5.3.1
     releaseName: modded-mc
     namespace: modded-mc
     valuesFile: values.yaml
