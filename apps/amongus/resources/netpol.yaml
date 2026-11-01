@@ -1,0 +1,15 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: amongus
+  namespace: amongus
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/instance: amongus
+      app.kubernetes.io/name: amongus
+  ingress:
+    - toPorts:
+        - ports:
+            - protocol: UDP
+              port: "22023"

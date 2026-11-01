@@ -1,1 +1,16 @@
-resources: []
+namespace: amongus
+helmCharts:
+  - name: application
+    repo: oci://ghcr.io/stakater/charts
+    version: 9.3.2
+    releaseName: amongus
+    namespace: amongus
+    valuesFile: values.yaml
+    apiVersions:
+      - gateway.networking.k8s.io/v1
+resources:
+  - resources/netpol.yaml
+  - resources/svc.yaml
+images:
+  - name: aeonlucid/impostor
+    newTag: v1.10.9@sha256:a3caaf5119b2ea73559f6323cd0f008fb4e87b946b7205d920418692b28f7f32

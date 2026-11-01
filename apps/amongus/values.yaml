@@ -1,0 +1,50 @@
+deployment:
+  image:
+    repository: aeonlucid/impostor
+
+  env:
+    IMPOSTOR_Server__PublicIp:
+      value: "lb.engiqueersconcordia.ca"
+
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 3000
+
+  startupProbe:
+    enabled: true
+    httpGet:
+      port: 22023
+  readinessProbe:
+    enabled: true
+    httpGet:
+      port: 22023
+  livenessProbe:
+    enabled: true
+    httpGet:
+      port: 22023
+  ports:
+    - containerPort: 22023
+      name: http
+      protocol: TCP
+    - containerPort: 22023
+      name: game
+      protocol: UDP
+
+service:
+  ports:
+    - port: 80
+      name: http
+      protocol: TCP
+      targetPort: 22023
+    - port: 22023
+      name: game
+      protocol: UDP
+      targetPort: 22023
+
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: engiqueers
+      namespace: ingress
+  hostnames:
+    - amongus.engiqueersconcordia.ca
