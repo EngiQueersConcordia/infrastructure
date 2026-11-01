@@ -23,7 +23,7 @@ resources:
   - resources/whiteboard/netpol.yaml
   - resources/whiteboard/service.yaml
   - resources/cluster.yaml
-  - resources/httproute.yaml
+ # - resources/httproute.yaml
   - resources/netpol.yaml
   - resources/secrets.yaml
 images:
