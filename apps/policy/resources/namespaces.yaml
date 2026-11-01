@@ -72,13 +72,6 @@ metadata:
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: harbor
-  labels:
-    policy.engiqueers/domain: "internal"
----
-kind: Namespace
-apiVersion: v1
-metadata:
   name: website
   labels:
     policy.engiqueers/domain: "internal"

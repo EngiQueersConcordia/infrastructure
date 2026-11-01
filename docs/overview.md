@@ -152,13 +152,6 @@ configuration is automatically "backed up" in git. Also, because everything is i
 config files left on the cluster, as if a manifest is deleted from git, ArgoCD will delete it from the cluster.
 
 
-### Harbor
-~~Self-hosted docker registry. Lets us store docker images on our infrastructure for deployment. Might replace it with 
-the GitHub hosted registry as self-hosting our own docker registry causes issues; for example, when jenny goes down 
-for reboots, k8s tries to move the website to ENA, but fails as the docker image is stored on jenny, which is down for 
-reboots.~~ All images moved to ghcr.io. Harbor has been deleted
-
-
 ## Application software
 This is software that serves a direct purpose intended for use by human beings.
 
