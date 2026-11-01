@@ -204,8 +204,7 @@ of memory and 4 processors worth of compute time. Idle instances are automatical
 ### NextCloud
 NextCloud is a self-hosted alternative to the Google platform. Currently, we have the drive, document editing, contacts,
 and calendar features enabled. There is a one-way sync from Google Drive to NextCloud to access GDrive files from
-NextCloud. We currently use Euro Office for the document editor, but we can switch to Collabora if needed. Other
-features may be enabled as required.
+NextCloud. Most NextCloud features have been disabled. Leaving only file storage and sharing.
 
 
 ### Minecraft Test Server
