@@ -2,7 +2,7 @@ namespace: stakater
 helmCharts:
   - name: reloader
     repo: https://stakater.github.io/stakater-charts
-    version: 2.2.16
+    version: 2.2.19
     releaseName: stakater
     namespace: stakater
     valuesFile: values.yaml
