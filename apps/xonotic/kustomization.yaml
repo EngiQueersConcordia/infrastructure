@@ -8,4 +8,4 @@ resources:
   - resources/statefulset.yaml
 images:
   - name: ghcr.io/engiqueersconcordia/xonotic
-    digest: sha256:a78e51bf44338313d45c6073f45a25a92bd99e626d892f82080ca8b72fae5f8c
+    newTag: latest@sha256:a78e51bf44338313d45c6073f45a25a92bd99e626d892f82080ca8b72fae5f8c

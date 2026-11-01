@@ -2,32 +2,20 @@ namespace: nextcloud
 helmCharts:
   - name: nextcloud
     repo: https://nextcloud.github.io/helm/
-    version: 9.2.6
+    version: 9.4.1
     releaseName: nextcloud
     namespace: nextcloud
     valuesFile: values.yaml
   - name: redis
     repo: oci://registry-1.docker.io/cloudpirates
-    version: 0.34.23
+    version: 0.37.13
     releaseName: redis
     namespace: nextcloud
     valuesFile: values-redis.yaml
 resources:
-  - resources/euro-office/deployment.yaml
-  - resources/euro-office/netpol.yaml
-  - resources/euro-office/pvc.yaml
-  - resources/euro-office/service.yaml
   - resources/rclone/cronjob.yaml
   - resources/rclone/pvc.yaml
-  - resources/whiteboard/deployment.yaml
-  - resources/whiteboard/netpol.yaml
-  - resources/whiteboard/service.yaml
   - resources/cluster.yaml
-  - resources/httproute.yaml
+ # - resources/httproute.yaml
   - resources/netpol.yaml
   - resources/secrets.yaml
-images:
-  - name: ghcr.io/nextcloud-releases/whiteboard
-    newTag: v1.5.9
-  - name: ghcr.io/euro-office/documentserver
-    newTag: v9.3.3

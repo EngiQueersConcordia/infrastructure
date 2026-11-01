@@ -1,0 +1,6 @@
+cluster:
+  apiServer:
+    env:
+      GOMEMLIMIT: "1300MiB"
+    extraArgs:
+      profiling: "true"

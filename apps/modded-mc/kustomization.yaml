@@ -1,9 +1,11 @@
 helmCharts:
   - name: minecraft
     repo: https://itzg.github.io/minecraft-server-charts/
-    version: 5.1.3
-    releaseName: test-mc
-    namespace: test-mc
+    version: 5.3.1
+    releaseName: modded-mc
+    namespace: modded-mc
     valuesFile: values.yaml
 resources:
   - resources/config.yaml
+  - resources/httproute.yaml
+  - resources/pvc.yaml
