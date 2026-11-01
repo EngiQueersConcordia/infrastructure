@@ -1,0 +1,6 @@
+reloader:
+  ignoreJobs: true
+  ignoreCronJobs: true
+  reloadOnCreate: true
+  reloadStrategy: annotations
+  autoReloadAll: true

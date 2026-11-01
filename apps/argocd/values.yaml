@@ -13,6 +13,15 @@ configs:
     admin.enabled: false
     exec.enabled: true
     kustomize.buildOptions: --enable-helm
+    resource.customizations.ignoreDifferences.apps_Deployment: |
+      jsonPointers:
+      - /spec/template/metadata/annotations/reloader.stakater.com~1last-reloaded-from
+    resource.customizations.ignoreDifferences.apps_StatefulSet: |
+      jsonPointers:
+      - /spec/template/metadata/annotations/reloader.stakater.com~1last-reloaded-from
+    resource.customizations.ignoreDifferences.apps_DaemonSet: |
+      jsonPointers:
+      - /spec/template/metadata/annotations/reloader.stakater.com~1last-reloaded-from
     resource.customizations.ignoreDifferences.gateway.networking.k8s.io_GRPCRoute: |
       jqPathExpressions:
       - '.spec.rules[].backendRefs[].group'
