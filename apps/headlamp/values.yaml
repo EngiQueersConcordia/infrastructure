@@ -1,5 +1,7 @@
 config:
   oidc:
+    autoLogin: true
+
     secret:
       create: false
 
