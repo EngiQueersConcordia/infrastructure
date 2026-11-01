@@ -46,7 +46,7 @@ done
 (
 cd talos
 set -x
-sops exec-file secrets.yaml "sh -c 'talosctl gen config engiqueers https://cluster.engiqueersconcordia.ca:6443 --force --with-secrets \"\$1\" --kubernetes-version $KUBERNETES_VERSION --talos-version $TALOS_VERSION --install-image ghcr.io/siderolabs/installer:$TALOS_VERSION --additional-sans cluster.engiqueersconcordia.ca' _ \"{}\""
+sops exec-file secrets.yaml "sh -c 'talosctl gen config engiqueers https://cluster.engiqueersconcordia.ca:6443 --force --with-secrets \"\$1\" --kubernetes-version $KUBERNETES_VERSION --talos-version $TALOS_VERSION --install-image factory.talos.dev/metal-installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba:$TALOS_VERSION --additional-sans cluster.engiqueersconcordia.ca' _ \"{}\""
 )
 
 case $host in
