@@ -16,6 +16,6 @@ resources:
   - resources/rclone/cronjob.yaml
   - resources/rclone/pvc.yaml
   - resources/cluster.yaml
- # - resources/httproute.yaml
+  - resources/httproute.yaml
   - resources/netpol.yaml
   - resources/secrets.yaml
