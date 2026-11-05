@@ -6,8 +6,6 @@ metadata:
 spec:
   certificateRotateStrategy: {}
   configuration:
-    podDisruptionBudgetConfig:
-      managePdb: false
     developerConfiguration:
       featureGates: []
     imagePullPolicy: IfNotPresent
