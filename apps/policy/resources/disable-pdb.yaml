@@ -3,6 +3,7 @@ kind: MutatingAdmissionPolicy
 metadata:
   name: disable-pdb-protection
 spec:
+  reinvocationPolicy: IfNeeded
   failurePolicy: Fail
   matchConstraints:
     resourceRules:
