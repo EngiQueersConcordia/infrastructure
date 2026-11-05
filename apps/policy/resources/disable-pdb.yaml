@@ -1,0 +1,42 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingAdmissionPolicy
+metadata:
+  name: disable-pdb-protection
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+      - apiGroups: ["policy"]
+        apiVersions: ["v1"]
+        operations: ["CREATE", "UPDATE"]
+        resources: ["poddisruptionbudgets"]
+        scope: Namespaced
+  mutations:
+    - patchType: JSONPatch
+      jsonPatch:
+        expression: >
+          (has(object.spec.minAvailable)
+            ? [JSONPatch{
+                op: "remove",
+                path: "/spec/minAvailable"
+              }]
+            : [])
+          +
+          (has(object.spec.maxUnavailable)
+            ? [JSONPatch{
+                op: "replace",
+                path: "/spec/maxUnavailable",
+                value: "100%"
+              }]
+            : [JSONPatch{
+                op: "add",
+                path: "/spec/maxUnavailable",
+                value: "100%"
+              }])
+---
+apiVersion: admissionregistration.k8s.io/v1
+kind: MutatingAdmissionPolicyBinding
+metadata:
+  name: disable-pdb-protection
+spec:
+  policyName: disable-pdb-protection
