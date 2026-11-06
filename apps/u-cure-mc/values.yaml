@@ -4,12 +4,13 @@ resources:
 
 minecraftServer:
   eula: "TRUE"
-  version: "26.2"
+  version: "26.3"
   type: "PAPER"
   ops: ""
   gameMode: "survival"
   motd: "CURE Montreal"
   spawnProtection: 0
+  worldSaveName: "MineCURE"
 
   memory: 4G
   rcon:
@@ -45,4 +46,4 @@ extraVolumes:
 extraEnv:
   USES_PROXY_PROTOCOL: "1"
   LOAD_ENV_FROM_FILE: /config/startup.sh
-  MODRINTH_PROJECTS: paper:pluginportal,paper:viaversion
+  MODRINTH_PROJECTS: paper:viaversion,paper:viabackwards
