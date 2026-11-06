@@ -1,9 +1,8 @@
 apiVersion: admissionregistration.k8s.io/v1
-kind: MutatingAdmissionPolicy
+kind: ValidatingAdmissionPolicy
 metadata:
-  name: disable-pdb-protection
+  name: deny-pod-disruption-budgets
 spec:
-  reinvocationPolicy: IfNeeded
   failurePolicy: Fail
   matchConstraints:
     resourceRules:
@@ -12,32 +11,15 @@ spec:
         operations: ["CREATE", "UPDATE"]
         resources: ["poddisruptionbudgets"]
         scope: Namespaced
-  mutations:
-    - patchType: JSONPatch
-      jsonPatch:
-        expression: >
-          (has(object.spec.minAvailable)
-            ? [JSONPatch{
-                op: "remove",
-                path: "/spec/minAvailable"
-              }]
-            : [])
-          +
-          (has(object.spec.maxUnavailable)
-            ? [JSONPatch{
-                op: "replace",
-                path: "/spec/maxUnavailable",
-                value: "100%"
-              }]
-            : [JSONPatch{
-                op: "add",
-                path: "/spec/maxUnavailable",
-                value: "100%"
-              }])
+  validations:
+    - expression: "false"
+      message: "PodDisruptionBudgets are disabled cluster-wide."
 ---
 apiVersion: admissionregistration.k8s.io/v1
-kind: MutatingAdmissionPolicyBinding
+kind: ValidatingAdmissionPolicyBinding
 metadata:
-  name: disable-pdb-protection
+  name: deny-pod-disruption-budgets
 spec:
-  policyName: disable-pdb-protection
+  policyName: deny-pod-disruption-budgets
+  validationActions:
+    - Deny
