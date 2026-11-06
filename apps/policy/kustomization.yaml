@@ -4,7 +4,6 @@ kind: Kustomization
 resources:
   - resources/certificates.yaml
   - resources/crb-admin.yaml
-  - resources/disable-pdb.yaml
   - resources/gateway.yaml
   - resources/https-redirect.yaml
   - resources/ingress-issuer.yaml
