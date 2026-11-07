@@ -150,10 +150,4 @@ metadata:
   labels:
     policy.engiqueers/domain: "user"
     pod-security.kubernetes.io/enforce: restricted
----
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: amongus
-  labels:
-    policy.engiqueers/domain: "internal"
+
