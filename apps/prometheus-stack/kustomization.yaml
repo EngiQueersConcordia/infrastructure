@@ -1,7 +1,7 @@
 helmCharts:
   - name: kube-prometheus-stack
     repo: oci://ghcr.io/prometheus-community/charts
-    version: 92.21.1
+    version: 92.22.0
     releaseName: prometheus-stack
     namespace: prometheus-stack
     valuesFile: values.yaml
