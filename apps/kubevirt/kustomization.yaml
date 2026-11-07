@@ -13,7 +13,7 @@ resources:
   - resources/cdi-operator.yaml
   - https://github.com/kubevirt/containerized-data-importer/releases/download/v1.66.1/network-policies.yaml
 #  - resources/cdi.yaml
-  - resources/storageprofile.yaml
+  #- resources/storageprofile.yaml
   - resources/networkpolicy.yaml
 
 patches:
