@@ -79,32 +79,6 @@ metadata:
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: cdi
-  labels:
-    policy.engiqueers/domain: "internal"
-    cdi.kubevirt.io: ''
-
----
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: kubevirt
-  labels:
-    policy.engiqueers/domain: "internal"
-    pod-security.kubernetes.io/enforce: privileged
-    kubevirt.io: ''
----
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: user-juan
-  labels:
-    policy.engiqueers/domain: "user"
-
----
-kind: Namespace
-apiVersion: v1
-metadata:
   name: prometheus-stack
   labels:
     policy.engiqueers/domain: "internal"
