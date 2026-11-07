@@ -1,4 +1,3 @@
 machine:
   nodeLabels:
     is-storage-node: "true"
-    is-hypervisor-node: "true"
