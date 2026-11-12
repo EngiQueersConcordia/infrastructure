@@ -26,7 +26,9 @@ persistence:
 
 strategyType: Recreate
 serviceAnnotations:
-  "mc-router.itzg.me/externalServerName": "mc.cureconcordia.org,cureconcordia.org,mccureconcordia.engiqueersconcordia.ca"
+  # We gave them the wrong info by telling them to set their srv record ot lb.engiqueersconcordia.ca instead of mc.cureconcordia.org. We can just give them the lb hostname.
+  # Other users will need to have a proper SRV record.
+  "mc-router.itzg.me/externalServerName": "lb.engiqueersconcordia.ca,mc.cureconcordia.org,cureconcordia.org,mccureconcordia.engiqueersconcordia.ca"
 
 startupProbe:
   failureThreshold: 90
