@@ -26,7 +26,7 @@ persistence:
 
 strategyType: Recreate
 serviceAnnotations:
-  "mc-router.itzg.me/externalServerName": "mc.curemontreal.org,curemontreal.org,mccuremontreal.engiqueersconcordia.ca"
+  "mc-router.itzg.me/externalServerName": "mc.cureconcordia.org,cureconcordia.org,mccureconcordia.engiqueersconcordia.ca"
 
 startupProbe:
   failureThreshold: 90
