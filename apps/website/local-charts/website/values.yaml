@@ -155,7 +155,9 @@ volumeMounts: []
 
 nodeSelector: {}
 
-tolerations: []
+tolerations:
+  - key: "policy.engiqueers/light-node"
+    operator: "Exists"
 
 affinity: {}
 

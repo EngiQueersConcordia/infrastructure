@@ -9,3 +9,7 @@ minecraftRouter:
     up:
       enabled: true
   useProxyProtocol: true
+
+tolerations:
+  - key: "policy.engiqueers/light-node"
+    operator: "Exists"

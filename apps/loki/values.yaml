@@ -108,3 +108,7 @@ monitoring:
     enabled: true
 
 
+lokiCanary:
+  tolerations:
+    - key: "policy.engiqueers/light-node"
+      operator: "Exists"
