@@ -5,6 +5,10 @@ global:
     create: true
     defaultDenyIngress: true
 
+  tolerations:
+    - key: "policy.engiqueers/light-node"
+      operator: "Exists"
+
 configs:
   cm:
     # GitHub workflow to reset the targetRevision on merge/close
