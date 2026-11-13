@@ -112,3 +112,20 @@ spec:
         - ports:
             - protocol: TCP
               port: "10250"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-prom-operator-api
+  namespace: prometheus-stack
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: kube-prometheus-stack-prometheus-operator
+  ingress:
+    - fromEntities:
+        - kube-apiserver
+      toPorts:
+        - ports:
+            - protocol: TCP
+              port: "10250"
