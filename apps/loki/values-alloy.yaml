@@ -157,3 +157,8 @@ alloy:
             tenant_id = "local"
         }
       }
+
+controller:
+  tolerations:
+    - key: "policy.engiqueers/light-node"
+      operator: "Exists"

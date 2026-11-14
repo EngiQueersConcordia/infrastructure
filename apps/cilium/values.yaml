@@ -72,6 +72,17 @@ operator:
       enabled: true
   dashboards:
     enabled: true
+  tolerations:
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: Exists
+    - key: "node-role.kubernetes.io/master" #deprecated
+      operator: Exists
+    - key: "node.kubernetes.io/not-ready"
+      operator: Exists
+    - key: "node.cloudprovider.kubernetes.io/uninitialized"
+      operator: Exists
+    - key: "policy.engiqueers/light-node"
+      operator: "Exists"
 
 defaultLBServiceIPAM: nodeipam
 nodeIPAM:

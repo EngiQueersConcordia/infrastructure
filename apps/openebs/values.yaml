@@ -18,6 +18,10 @@ alloy:
 lvm-localpv:
   lvmPlugin:
     allowedTopologies: "is-storage-node"
+  lvmNode:
+    tolerations:
+      - key: "policy.engiqueers/light-node"
+        operator: "Exists"
 
 localpv-provisioner:
   rbac:

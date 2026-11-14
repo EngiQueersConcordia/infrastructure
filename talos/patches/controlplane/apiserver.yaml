@@ -1,6 +1,6 @@
-cluster:
-  apiServer:
-    env:
-      GOMEMLIMIT: "1300MiB"
-    extraArgs:
-      profiling: "true"
+apiVersion: v1alpha1
+kind: KubeAPIServerConfig
+env:
+  GOMEMLIMIT: "1300MiB"
+extraArgs:
+  profiling: "true"

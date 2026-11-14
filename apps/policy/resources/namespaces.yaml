@@ -72,42 +72,9 @@ metadata:
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: harbor
-  labels:
-    policy.engiqueers/domain: "internal"
----
-kind: Namespace
-apiVersion: v1
-metadata:
   name: website
   labels:
     policy.engiqueers/domain: "internal"
----
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: cdi
-  labels:
-    policy.engiqueers/domain: "internal"
-    cdi.kubevirt.io: ''
-
----
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: kubevirt
-  labels:
-    policy.engiqueers/domain: "internal"
-    pod-security.kubernetes.io/enforce: privileged
-    kubevirt.io: ''
----
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: user-juan
-  labels:
-    policy.engiqueers/domain: "user"
-
 ---
 kind: Namespace
 apiVersion: v1
@@ -183,3 +150,4 @@ metadata:
   labels:
     policy.engiqueers/domain: "user"
     pod-security.kubernetes.io/enforce: restricted
+

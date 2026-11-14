@@ -202,5 +202,11 @@ prometheus:
               allowedResponseHeaders:
                 - set-cookie
 
+prometheus-node-exporter:
+  tolerations:
+    - key: "policy.engiqueers/light-node"
+      operator: "Exists"
+    - effect: NoSchedule
+      operator: Exists
 
 cleanPrometheusOperatorObjectNames: true
