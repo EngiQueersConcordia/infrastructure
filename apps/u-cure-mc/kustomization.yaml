@@ -6,5 +6,5 @@ helmCharts:
     namespace: u-cure-mc
     valuesFile: values.yaml
 resources:
-  - resources/config.yaml
+  - resources/mc-config.yaml
   - resources/pvc.yaml
