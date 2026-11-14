@@ -98,6 +98,13 @@ dex:
     serviceMonitor:
       enabled: true
 
+  readinessProbe:
+    enabled: true
+  livenessProbe:
+    enabled: true
+  startupProbe:
+    enabled: true
+
 redisSecretInit:
   enabled: false
 
