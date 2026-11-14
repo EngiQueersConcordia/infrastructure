@@ -67,6 +67,10 @@ networkPolicy:
         kubernetes.io/metadata.name: prometheus-stack
 
 gateway:
+  # Gateway has anti affinity rules which prevents the new version from being scheduled on the node with the old version
+  deploymentStrategy:
+    type: Recreate
+
   route:
     main:
       enabled: false
