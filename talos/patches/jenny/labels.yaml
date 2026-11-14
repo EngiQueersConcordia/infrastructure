@@ -1,3 +1,4 @@
-machine:
-  nodeLabels:
-    is-storage-node: "true"
+apiVersion: v1alpha1
+kind: KubeNodeConfig
+labels:
+  is-storage-node: "true"

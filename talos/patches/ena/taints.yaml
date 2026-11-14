@@ -1,0 +1,4 @@
+apiVersion: v1alpha1
+kind: KubeNodeConfig
+taints:
+#  policy.engiqueers/light-node: light:NoExecute
