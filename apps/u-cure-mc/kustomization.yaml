@@ -1,1 +1,10 @@
-resources: []
+helmCharts:
+  - name: minecraft
+    repo: https://itzg.github.io/minecraft-server-charts/
+    version: 5.2.0
+    releaseName: cure-mc
+    namespace: u-cure-mc
+    valuesFile: values.yaml
+resources:
+  - resources/mc-config.yaml
+  - resources/pvc.yaml
