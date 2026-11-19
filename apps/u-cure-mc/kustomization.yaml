@@ -1,7 +1,7 @@
 helmCharts:
   - name: minecraft
     repo: https://itzg.github.io/minecraft-server-charts/
-    version: 5.2.0
+    version: 5.4.0
     releaseName: cure-mc
     namespace: u-cure-mc
     valuesFile: values.yaml
