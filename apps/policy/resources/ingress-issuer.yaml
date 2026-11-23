@@ -31,3 +31,22 @@ metadata:
 spec:
   ca:
     secretName: selfsigned-ca-secret
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: http-issuer
+  namespace: ingress
+spec:
+  acme:
+    email: it.engiqueers@ecaconcordia.ca
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: http-issuer-account-key
+    solvers:
+      - http01:
+          gatewayHTTPRoute:
+            parentRefs:
+              - name: engiqueers-insecure
+                namespace: ingress
+                kind: Gateway

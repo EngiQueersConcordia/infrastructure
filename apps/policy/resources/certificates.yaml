@@ -23,5 +23,5 @@ spec:
   dnsNames:
     - "engiqueers.ecaconcordia.ca"
   issuerRef:
-    name: ca-issuer
+    name: http-issuer
     kind: Issuer
