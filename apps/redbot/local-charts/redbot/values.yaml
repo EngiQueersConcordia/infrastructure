@@ -18,7 +18,7 @@ socatImage:
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.8.1.3@sha256:5aa280c6fc5bee94dbd2bbdf2a58d30f50396eaa110be84b03636945b157ae68"
+  tag: "1.8.1.3@sha256:c95c67c1b4860a195bb2ea1351cb8388e1ec1bf4636633ccac7e0d19661ed5fe"
 
 
 # This is for the secrets for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
